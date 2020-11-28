@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ScaningViewController.swift
 //  RoadSignDetector
 //
 //  Created by Макс Пайдич on 28.11.2020.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ScanningViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
-

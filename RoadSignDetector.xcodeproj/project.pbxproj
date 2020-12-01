@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2D4ED6042572DF1900E6039E /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4ED6032572DF1900E6039E /* ScanningViewController.swift */; };
+		2D4ED60C2572E78700E6039E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4ED60B2572E78700E6039E /* HeaderView.swift */; };
+		2D4ED6152572F6D300E6039E /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4ED6132572F6D300E6039E /* SettingTableViewCell.swift */; };
+		2D4ED6162572F6D300E6039E /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4ED6142572F6D300E6039E /* SettingTableViewCell.xib */; };
 		2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5683257296A9005048CE /* AppDelegate.swift */; };
 		2DBB5686257296A9005048CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5685257296A9005048CE /* SceneDelegate.swift */; };
 		2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5687257296A9005048CE /* TabBarViewController.swift */; };
@@ -20,11 +23,17 @@
 		2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB56A225729BE1005048CE /* StoryboardService.swift */; };
 		2DBB56A42572A104005048CE /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5691257296AB005048CE /* Info.plist */; };
 		2DBB56A52572A811005048CE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DBB5691257296AB005048CE /* Info.plist */; };
+		2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE379B2573A3B1006A4DF1 /* AudioView.swift */; };
+		2DCE379E2573A3BC006A4DF1 /* AudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DCE379D2573A3BC006A4DF1 /* AudioView.xib */; };
+		2DCE37A12573FDF9006A4DF1 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE37A02573FDF9006A4DF1 /* SettingsViewModel.swift */; };
 		388F6F3B13460BF69EC27602 /* Pods_RoadSignDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714ADB849EBC5A75617A2DEA /* Pods_RoadSignDetector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D4ED6032572DF1900E6039E /* ScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
+		2D4ED60B2572E78700E6039E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		2D4ED6132572F6D300E6039E /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		2D4ED6142572F6D300E6039E /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		2DBB5680257296A9005048CE /* RoadSignDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadSignDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBB5683257296A9005048CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DBB5685257296A9005048CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +46,9 @@
 		2DBB569C25729AC6005048CE /* DetectionHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionHistoryTableViewController.swift; sourceTree = "<group>"; };
 		2DBB569F25729B0F005048CE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		2DBB56A225729BE1005048CE /* StoryboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardService.swift; sourceTree = "<group>"; };
+		2DCE379B2573A3B1006A4DF1 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
+		2DCE379D2573A3BC006A4DF1 /* AudioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioView.xib; sourceTree = "<group>"; };
+		2DCE37A02573FDF9006A4DF1 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7032170E2571DEED8D1F222C /* Pods-RoadSignDetector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadSignDetector.debug.xcconfig"; path = "Target Support Files/Pods-RoadSignDetector/Pods-RoadSignDetector.debug.xcconfig"; sourceTree = "<group>"; };
 		714ADB849EBC5A75617A2DEA /* Pods_RoadSignDetector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadSignDetector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9DA399E5ACB00342F57396 /* Pods-RoadSignDetector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadSignDetector.release.xcconfig"; path = "Target Support Files/Pods-RoadSignDetector/Pods-RoadSignDetector.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +74,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2D4ED60A2572E76A00E6039E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D4ED60B2572E78700E6039E /* HeaderView.swift */,
+				2DCE379B2573A3B1006A4DF1 /* AudioView.swift */,
+				2DCE379D2573A3BC006A4DF1 /* AudioView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D4ED60D2572E96400E6039E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2D4ED6122572F6B400E6039E /* Cell */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2D4ED6122572F6B400E6039E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2D4ED6132572F6D300E6039E /* SettingTableViewCell.swift */,
+				2D4ED6142572F6D300E6039E /* SettingTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2DBB5677257296A9005048CE = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +122,8 @@
 		2DBB5682257296A9005048CE /* RoadSignDetector */ = {
 			isa = PBXGroup;
 			children = (
+				2D4ED60D2572E96400E6039E /* Models */,
+				2D4ED60A2572E76A00E6039E /* View */,
 				2DBB56A125729BD2005048CE /* Services */,
 				2DBB569E25729AF0005048CE /* Extensions */,
 				2DBB5683257296A9005048CE /* AppDelegate.swift */,
@@ -98,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				2DBB5687257296A9005048CE /* TabBarViewController.swift */,
-				2DBB569A25729A90005048CE /* SettingsTableViewController.swift */,
+				2DCE379F2573FDE0006A4DF1 /* Settings */,
 				2DBB569C25729AC6005048CE /* DetectionHistoryTableViewController.swift */,
 				2D4ED6032572DF1900E6039E /* ScanningViewController.swift */,
 			);
@@ -137,6 +178,15 @@
 				2DBB56A225729BE1005048CE /* StoryboardService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		2DCE379F2573FDE0006A4DF1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2DBB569A25729A90005048CE /* SettingsTableViewController.swift */,
+				2DCE37A02573FDF9006A4DF1 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		6080DE8968D6AD0756375A2D /* Pods */ = {
@@ -208,9 +258,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DCE379E2573A3BC006A4DF1 /* AudioView.xib in Resources */,
 				2DBB56A52572A811005048CE /* Info.plist in Resources */,
 				2DBB5690257296AB005048CE /* LaunchScreen.storyboard in Resources */,
 				2DBB568D257296AB005048CE /* Assets.xcassets in Resources */,
+				2D4ED6162572F6D300E6039E /* SettingTableViewCell.xib in Resources */,
 				2DBB568B257296A9005048CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,11 +316,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4ED6152572F6D300E6039E /* SettingTableViewCell.swift in Sources */,
 				2DBB56A42572A104005048CE /* Info.plist in Sources */,
 				2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */,
 				2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */,
+				2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */,
 				2DBB569B25729A90005048CE /* SettingsTableViewController.swift in Sources */,
 				2DBB56A025729B0F005048CE /* UIViewControllerExtension.swift in Sources */,
+				2D4ED60C2572E78700E6039E /* HeaderView.swift in Sources */,
+				2DCE37A12573FDF9006A4DF1 /* SettingsViewModel.swift in Sources */,
 				2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */,
 				2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */,
 				2D4ED6042572DF1900E6039E /* ScanningViewController.swift in Sources */,

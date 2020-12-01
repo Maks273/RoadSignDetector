@@ -12,7 +12,17 @@ class ScanningViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let view = AudioView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(view)
+        self.view.addConstraints([
+            view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
+        view.addConstraints([
+            view.heightAnchor.constraint(equalToConstant: 300),
+            view.widthAnchor.constraint(equalToConstant: 300)
+        ])
         // Do any additional setup after loading the view.
     }
     

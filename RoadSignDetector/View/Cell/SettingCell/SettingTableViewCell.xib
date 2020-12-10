@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +20,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4B-0a-Tlg">
                         <rect key="frame" x="8" y="0.0" width="5" height="63"/>
-                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="5" id="waK-eo-ywV"/>
                         </constraints>
@@ -28,18 +30,16 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9q-om-yie">
                                 <rect key="frame" x="5" y="61" width="335" height="2"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="bS9-HP-Wqk"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M66-RG-Jau">
-                                <rect key="frame" x="310" y="24" width="30" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="QSC-XG-Ggn"/>
-                                    <constraint firstAttribute="height" constant="15" id="nls-tN-V4g"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="downArrow">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M66-RG-Jau">
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="63"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="340" minY="22" maxX="0.0" maxY="22"/>
+                                <state key="normal" image="icArroweDown">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                 </state>
                                 <connections>
@@ -56,11 +56,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eRE-Mx-nkF" firstAttribute="centerY" secondItem="0iv-ld-9xY" secondAttribute="centerY" id="8vv-ea-vw8"/>
+                            <constraint firstItem="M66-RG-Jau" firstAttribute="top" secondItem="0iv-ld-9xY" secondAttribute="top" id="AGf-RE-n8R"/>
+                            <constraint firstAttribute="bottom" secondItem="M66-RG-Jau" secondAttribute="bottom" id="LPf-XL-EFF"/>
                             <constraint firstItem="M66-RG-Jau" firstAttribute="centerY" secondItem="0iv-ld-9xY" secondAttribute="centerY" id="MLL-xJ-oZN"/>
-                            <constraint firstItem="M66-RG-Jau" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eRE-Mx-nkF" secondAttribute="trailing" constant="10" id="Sai-WY-sPR"/>
                             <constraint firstAttribute="trailing" secondItem="H9q-om-yie" secondAttribute="trailing" constant="10" id="TiZ-4N-YnB"/>
                             <constraint firstItem="eRE-Mx-nkF" firstAttribute="leading" secondItem="0iv-ld-9xY" secondAttribute="leadingMargin" id="gRM-r2-O4a"/>
                             <constraint firstItem="H9q-om-yie" firstAttribute="leading" secondItem="0iv-ld-9xY" secondAttribute="leading" constant="5" id="jvQ-0H-ZMW"/>
+                            <constraint firstItem="M66-RG-Jau" firstAttribute="leading" secondItem="0iv-ld-9xY" secondAttribute="leading" id="m1F-EE-7f1"/>
                             <constraint firstAttribute="trailing" secondItem="M66-RG-Jau" secondAttribute="trailing" constant="10" id="pAW-GH-DG9"/>
                             <constraint firstAttribute="bottom" secondItem="H9q-om-yie" secondAttribute="bottom" id="z1q-vH-wbX"/>
                         </constraints>
@@ -90,6 +92,12 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="downArrow" width="280" height="172"/>
+        <image name="icArroweDown" width="13" height="8"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

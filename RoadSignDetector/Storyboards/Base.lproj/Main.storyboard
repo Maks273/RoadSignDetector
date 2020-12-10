@@ -77,15 +77,20 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yak-AY-xUP">
-                                    <rect key="frame" x="143" y="17" width="128" height="47"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="34"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yak-AY-xUP">
+                                    <rect key="frame" x="0.0" y="5" width="414" height="70"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="27"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="Yak-AY-xUP" firstAttribute="top" secondItem="aFk-TZ-iNi" secondAttribute="top" constant="5" id="O68-fO-m6T"/>
+                                <constraint firstAttribute="trailing" secondItem="Yak-AY-xUP" secondAttribute="trailing" id="WGa-Hb-SmY"/>
+                                <constraint firstItem="Yak-AY-xUP" firstAttribute="leading" secondItem="aFk-TZ-iNi" secondAttribute="leading" id="lFo-Ih-wJN"/>
+                                <constraint firstAttribute="bottom" secondItem="Yak-AY-xUP" secondAttribute="bottom" constant="5" id="xMu-YY-CoK"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-ub-dPR">

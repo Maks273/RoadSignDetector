@@ -16,13 +16,11 @@ class AudioView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        setupBottomContainerStyle()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
-        setupBottomContainerStyle()
     }
     
     private func commonInit(){
@@ -30,15 +28,9 @@ class AudioView: UIView {
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        self.tag = 8
     }
-    
-    private func setupBottomContainerStyle(){
-        containerView.layer.cornerRadius = 7
-        containerView.layer.maskedCorners = [.layerMaxXMaxYCorner]
-        containerView.layer.shadowColor = UIColor.lightGray.cgColor
-        containerView.layer.shadowOpacity = 0.7
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 6)
-    }
+
     @IBAction func soundSwitcherWasToggled(_ sender: Any) {
         print("))))))))))))))")
     }

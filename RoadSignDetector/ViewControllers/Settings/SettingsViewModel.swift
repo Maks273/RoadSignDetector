@@ -10,9 +10,9 @@ import UIKit
 
 class SettingsViewModel {
     
-    private let generalMenuItem = ["Languages","Audio"]
-    private let extraMenuItem  = ["Contact us","Privacy policy","Rate the app"]
-    let headerTitles = ["General","Extra"]
+    private let generalMenuItem = ["Languages".localized(),"Audio".localized()]
+    private let extraMenuItem  = ["Contact us".localized(),"Privacy policy".localized(),"Rate the app".localized()]
+    let headerTitles = ["General".localized(),"Extra".localized()]
     private var selectedIndex: IndexPath?
     
     var menuItemTitles: [[String]] {
@@ -29,9 +29,9 @@ class SettingsViewModel {
     
     func getRowHeight(at indexPath: IndexPath) -> CGFloat {
         if selectedIndex != nil && indexPath == selectedIndex {
-            return 120
+            return 185
         }
-        return 55
+        return 65
     }
     
     func defineCellPosition(at indexPath: IndexPath) -> CellPosition {
@@ -68,7 +68,7 @@ class SettingsViewModel {
     }
     
     func getCellTitle(at indexPath: IndexPath) -> String {
-        return menuItemTitles[indexPath.section][indexPath.row]
+        return indexPath.section > menuItemTitles.count-1 || indexPath.row > menuItemTitles[indexPath.section].count-1 ? "" : menuItemTitles[indexPath.section][indexPath.row]
     }
     
     func showMoreStatus(at indexPath: IndexPath) -> Bool{

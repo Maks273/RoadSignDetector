@@ -12,7 +12,6 @@ enum CellPosition {
     case first
     case intermediate
     case last
-    
 }
 
 enum CellType {
@@ -52,6 +51,7 @@ class SettingTableViewCell: UITableViewCell {
     weak var delegate: SettingProtocol?
     private var indexPath: IndexPath?
     private var cellType: CellType?
+    private let extraViewTag = 8
     
     //MARK: - Life cycles
     
@@ -65,10 +65,10 @@ class SettingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(text: String, for position: CellPosition, showMoreVisible: Bool){
+    func configure(text: String, for position: CellPosition, showMoreVisible: Bool, at indexPath: IndexPath){
         
         isExpanded = contentView.bounds.height > 80 ? true : false
-        indexPath = delegate?.getCellIndexPath(for: self)
+        self.indexPath = indexPath
         
         titleLabel.text = text
         showMoreBtn.isHidden = showMoreVisible
@@ -80,7 +80,7 @@ class SettingTableViewCell: UITableViewCell {
             setupCornerStyle(for: position)
         }
         
-        configureExtraView()
+        configureExtraView(!showMoreVisible)
     }
     
     //MARK: - IBActions
@@ -89,6 +89,7 @@ class SettingTableViewCell: UITableViewCell {
         isExpanded!.toggle()
         if let indexPath = delegate?.getCellIndexPath(for: self){
             delegate?.increaseCellSize(at: indexPath)
+            delegate?.setExpandedCellIndexPath(isExpanded! ? indexPath : nil)
         }
     }
     
@@ -102,9 +103,9 @@ class SettingTableViewCell: UITableViewCell {
         containerView.layer.cornerRadius =  7
         
         verticalLine.layer.maskedCorners = position == .first ? [.layerMinXMinYCorner] : [.layerMinXMaxYCorner]
-        containerView.layer.maskedCorners = position == .first ? [.layerMaxXMinYCorner] : [.layerMaxXMaxYCorner]
+        containerView.layer.maskedCorners = position == .first || isExpanded! ? [.layerMaxXMinYCorner] : [.layerMaxXMaxYCorner]
         
-        containerView.layer.shadowOffset = CGSize(width: 2, height: shadowHeight)
+        containerView.layer.shadowOffset = CGSize(width: 4, height: shadowHeight)
         
         if position == .first {
             containerViewTopConstraint.constant = 3
@@ -124,20 +125,35 @@ class SettingTableViewCell: UITableViewCell {
     
     private func toggleButtonImage(_ show: Bool){
         let image = UIImage(named: show ? "upArrow" : "downArrow")
+        image?.withTintColor(.black)
         showMoreBtn.setImage(image, for: .normal)
     }
     
+    //MARK: - Extra View configuration
+    
     private func setupExtraView(for type: CellType){
+        let extraView: UIView!
         switch type {
         case .language:
-            prepareExtaView(view: AudioView())
+            let languageVC = LanguageTableViewController()
+            delegate?.addChildVC(languageVC)
+            extraView = languageVC.view
         case .audio:
-            prepareExtaView(view: AudioView())
+            extraView = AudioView()
         }
+        prepareExtaView(view: extraView)
     }
     
     private func prepareExtaView(view: UIView){
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = extraViewTag
+        
+        view.layer.cornerRadius = 7
+        view.layer.maskedCorners = [.layerMaxXMaxYCorner]
+        view.layer.shadowColor = UIColor.lightGray.cgColor
+        view.layer.shadowOpacity = 0.7
+        view.layer.shadowOffset = CGSize(width: 4, height: 6)
+        
         separatorLine.isHidden = true
         contentView.addSubview(view)
         
@@ -146,7 +162,7 @@ class SettingTableViewCell: UITableViewCell {
         }
         
         view.addConstraints([
-            view.heightAnchor.constraint(equalToConstant: 81),
+            view.heightAnchor.constraint(equalToConstant: 120),
         ])
         
         contentView.addConstraints([
@@ -155,28 +171,26 @@ class SettingTableViewCell: UITableViewCell {
             view.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: 0),
             view.topAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0)
         ])
-        
-        UIView.animate(withDuration: 0.55) {
-            self.containerView.layoutIfNeeded()
-        }
     }
     
-    private func configureExtraView(){
-        if !showMoreBtn.isHidden && indexPath != nil {
+    private func configureExtraView(_ needConfigure: Bool){
+        if needConfigure && indexPath != nil {
             cellType = delegate?.getTypeOfExpandedCell(at: indexPath!)
+            removeExtraView(with: extraViewTag)
+            if isExpanded! {
+                setupExtraView(for: cellType!)
+            }
+            toggleButtonImage(isExpanded!)
         }
-        if isExpanded! {
-            self.setupExtraView(for: cellType!)
-        }
-        toggleButtonImage(isExpanded!)
     }
     
-    private func collapsExtraView(for type: CellType) {
-        switch type {
-        case .language:
-            AudioView().removeFromSuperview()
-        case .audio:
-            AudioView().removeFromSuperview()
+    private func removeExtraView(with tag: Int){
+        for subview in contentView.subviews{
+            if subview.tag == tag{
+                subview.removeFromSuperview()
+                containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+                containerViewBottomConstraint.isActive = true
+            }
         }
     }
     

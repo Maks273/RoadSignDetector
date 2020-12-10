@@ -13,7 +13,7 @@ enum StorybardService: String {
     case main = "Main"
     
     private var instance: UIStoryboard {
-        return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
+        return UIStoryboard(name: self.rawValue, bundle: nil)
     }
     
     func viewController<T: UIViewController>(viewControllerClass: T.Type) -> T {

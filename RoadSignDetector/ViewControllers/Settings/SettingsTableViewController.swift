@@ -13,6 +13,9 @@ protocol SettingProtocol: class {
     func getCellIndexPath(for cell: UITableViewCell) -> IndexPath
     func increaseCellSize(at indexPath: IndexPath)
     func getTypeOfExpandedCell(at indexPath: IndexPath) -> CellType
+    func addChildVC(_ viewController: UIViewController)
+    func setExpandedCellIndexPath(_ indexPath: IndexPath?)
+    func isExpandedIndexPath() -> Bool
 }
 
 class SettingsTableViewController: UITableViewController {
@@ -21,7 +24,7 @@ class SettingsTableViewController: UITableViewController {
     
     let settingsViewModel = SettingsViewModel()
     let cellIdentifire = "settingCell"
-    
+    private var expandedCellIndexPath: IndexPath?
     //MARK: - Life cycles
     
     override func viewDidLoad() {
@@ -73,7 +76,7 @@ class SettingsTableViewController: UITableViewController {
         let title = settingsViewModel.getCellTitle(at: indexPath)
         let cellPosition = settingsViewModel.defineCellPosition(at: indexPath)
         let showMoreStatus = settingsViewModel.showMoreStatus(at: indexPath)
-        cell.configure(text: title, for: cellPosition, showMoreVisible: showMoreStatus)
+        cell.configure(text: title, for: cellPosition, showMoreVisible: showMoreStatus, at: indexPath)
         return cell
     }
     
@@ -99,8 +102,10 @@ extension SettingsTableViewController: SettingProtocol {
     func increaseCellSize(at indexPath: IndexPath) {
         if settingsViewModel.canExpand(indexPath){
             settingsViewModel.setSelectedIndex(indexPath)
-            UIView.animate(withDuration: 0.55) {
-                self.tableView.reloadRows(at: [indexPath], with: .fade)
+            UIView.animate(withDuration: 0.55) { [self] in
+                let indexPaths = self.expandedCellIndexPath != nil ? [indexPath,self.expandedCellIndexPath!] : [indexPath]
+                print("INDEX PATTTTT = \(indexPaths)")
+                self.tableView.reloadRows(at: indexPaths, with: .fade)
                 self.tableView.layoutIfNeeded()
             }
         }
@@ -114,4 +119,15 @@ extension SettingsTableViewController: SettingProtocol {
         return settingsViewModel.defineExpandViewForCell(at: indexPath)
     }
     
+    func addChildVC(_ viewController: UIViewController){
+        addChild(viewController)
+    }
+    
+    func setExpandedCellIndexPath(_ indexPath: IndexPath?){
+        self.expandedCellIndexPath = indexPath
+    }
+    
+    func isExpandedIndexPath() -> Bool {
+        return self.expandedCellIndexPath != nil
+    }
 }

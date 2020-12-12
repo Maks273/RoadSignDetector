@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MessageUI
 
 protocol SettingProtocol: class {
     func getCellIndexPath(for cell: UITableViewCell) -> IndexPath
@@ -22,9 +22,19 @@ class SettingsTableViewController: UITableViewController {
     
     //MARK: - Variables
     
-    let settingsViewModel = SettingsViewModel()
+    let headerTitles = ["General".localized(),"Extra".localized()]
+    var menuItemTitles: [[String]] {
+        return [generalMenuItem,extraMenuItem]
+    }
     let cellIdentifire = "settingCell"
+    
+    //MARK: Private
+    
+    private var selectedIndex: IndexPath?
     private var expandedCellIndexPath: IndexPath?
+    private let generalMenuItem = ["Languages".localized(),"Audio".localized()]
+    private let extraMenuItem  = ["Contact us".localized(),"Privacy policy".localized(),"Rate the app".localized()]
+    private let developerEmail = "paydich28@gmail.com"
     
     //MARK: - Life cycles
     
@@ -36,6 +46,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     //MARK: - Helper
+    
     private func configureHeaderLabel(with title: String) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,32 +69,97 @@ class SettingsTableViewController: UITableViewController {
         return view
     }
     
+    private func getNumberOfSection() -> Int {
+        return headerTitles.count
+    }
+    
+    private func getNumberOfRow(at section: Int) -> Int {
+        return menuItemTitles[section].count
+    }
+    
+    private func getRowHeight(at indexPath: IndexPath) -> CGFloat {
+        if selectedIndex != nil && indexPath == selectedIndex {
+            return 188
+        }
+        return 65
+    }
+    
+    private func defineCellPosition(at indexPath: IndexPath) -> CellPosition {
+        if indexPath.row == 0 {
+            return .first
+        }else if indexPath.row == menuItemTitles[indexPath.section].count - 1 {
+            return .last
+        }else {
+            return .intermediate
+        }
+    }
+    
+    private func canExpand(_ indexPath: IndexPath) -> Bool {
+        return indexPath.section == 0
+    }
+    
+    private func setSelectedIndex(_ selectedIndex: IndexPath) {
+        self.selectedIndex = selectedIndex == self.selectedIndex ? nil : selectedIndex
+    }
+    
+    private func getSelectedIndex() -> IndexPath? {
+        return selectedIndex
+    }
+    
+    private func defineExpandViewForCell(at indexPath: IndexPath) -> CellType {
+        switch indexPath {
+        case IndexPath(row: 0, section: 0):
+            return .language
+        case IndexPath(row: 1, section: 0):
+            return .audio
+        default:
+            return .language
+        }
+    }
+    
+    private func getCellTitle(at indexPath: IndexPath) -> String {
+        return indexPath.section > menuItemTitles.count-1 || indexPath.row > menuItemTitles[indexPath.section].count-1 ? "" : menuItemTitles[indexPath.section][indexPath.row]
+    }
+    
+    private func showMoreStatus(at indexPath: IndexPath) -> Bool {
+        return indexPath.section == menuItemTitles.count - 1
+    }
+    
+    private func openEmailApp() {
+        if MFMailComposeViewController.canSendMail() {
+            let mailVC = MFMailComposeViewController()
+            mailVC.mailComposeDelegate = self
+            mailVC.setToRecipients([developerEmail])
+            present(mailVC, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return settingsViewModel.getNumberOfSection()
+        return getNumberOfSection()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsViewModel.getNumberOfRow(at: section)
+        return getNumberOfRow(at: section)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return settingsViewModel.getRowHeight(at: indexPath)
+        return getRowHeight(at: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifire, for: indexPath) as! SettingTableViewCell
         cell.delegate = self
-        let title = settingsViewModel.getCellTitle(at: indexPath)
-        let cellPosition = settingsViewModel.defineCellPosition(at: indexPath)
-        let showMoreStatus = settingsViewModel.showMoreStatus(at: indexPath)
-        cell.configure(text: title, for: cellPosition, showMoreVisible: showMoreStatus, at: indexPath)
+        let title = getCellTitle(at: indexPath)
+        let cellPosition = defineCellPosition(at: indexPath)
+        let showMore = showMoreStatus(at: indexPath)
+        cell.configure(text: title, for: cellPosition, showMoreVisible: showMore, at: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerTitle = settingsViewModel.headerTitles[section]
+        let headerTitle = headerTitles[section]
         return configureHeaderView(with: headerTitle)
     }
     
@@ -92,21 +168,27 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !settingsViewModel.canExpand(indexPath){
-            print("second section")
+        if !canExpand(indexPath){
+            switch indexPath.row {
+            case 0:
+                self.openEmailApp()
+            default:
+                break
+            }
         }
     }
     
 }
 
+//MARK: - SettingProtocol
+
 extension SettingsTableViewController: SettingProtocol {
     
     func increaseCellSize(at indexPath: IndexPath) {
-        if settingsViewModel.canExpand(indexPath){
-            settingsViewModel.setSelectedIndex(indexPath)
+        if canExpand(indexPath){
+            setSelectedIndex(indexPath)
             UIView.animate(withDuration: 0.55) { [self] in
                 let indexPaths = self.expandedCellIndexPath != nil ? [indexPath,self.expandedCellIndexPath!] : [indexPath]
-                print("INDEX PATTTTT = \(indexPaths)")
                 self.tableView.reloadRows(at: indexPaths, with: .fade)
                 self.tableView.layoutIfNeeded()
             }
@@ -118,7 +200,7 @@ extension SettingsTableViewController: SettingProtocol {
     }
     
     func getTypeOfExpandedCell(at indexPath: IndexPath) -> CellType {
-        return settingsViewModel.defineExpandViewForCell(at: indexPath)
+        return defineExpandViewForCell(at: indexPath)
     }
     
     func addChildVC(_ viewController: UIViewController){
@@ -131,5 +213,13 @@ extension SettingsTableViewController: SettingProtocol {
     
     func isExpandedIndexPath() -> Bool {
         return self.expandedCellIndexPath != nil
+    }
+}
+
+//MARK: - MFMailComposeViewControllerDelegate & UINavigationControllerDelegate
+
+extension SettingsTableViewController: MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

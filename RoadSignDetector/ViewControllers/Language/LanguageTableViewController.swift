@@ -9,15 +9,15 @@
 import UIKit
 
 protocol LanguageProtocol: class {
-    func languageCode() -> String
     func reloadTableView()
 }
 
 class LanguageTableViewController: UITableViewController {
 
     //MARK: - Variables
-    var languageViewModel = LanguageViewModel()
     let cellIdentifire = "languageCell"
+    private let languages = ["English 🇺🇸".localized(),"Ukrainian 🇺🇦".localized(),"Russian 🇷🇺".localized()]
+    private let languageCode = ["en","uk","ru"]
     
     //MARK: - View cycles
     
@@ -30,6 +30,22 @@ class LanguageTableViewController: UITableViewController {
     }
     
     //MARK: - Private methods
+    
+    private func getCellNumber() -> Int {
+        return languages.count
+    }
+    
+    private func checkIsLastCell(at indexPath: IndexPath) -> Bool {
+        return indexPath.row == languages.count-1
+    }
+    
+    private func getTitle(at indexPath: IndexPath) -> String {
+        return indexPath.row > languages.count-1 ? "" : languages[indexPath.row]
+    }
+    
+    private func getLanguageCode(for indexPath: IndexPath) -> String {
+        return indexPath.row > languageCode.count-1 ? "" : languageCode[indexPath.row]
+    }
 
     // MARK: - Table view data source
 
@@ -38,7 +54,7 @@ class LanguageTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return languageViewModel.getCellNumber()
+        return getCellNumber()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -47,10 +63,10 @@ class LanguageTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifire, for: indexPath) as! LanguageItemTableViewCell
-        let title = languageViewModel.getTitle(at: indexPath)
-        let isLastCell = languageViewModel.isLastCell(at: indexPath)
+        let title = getTitle(at: indexPath)
+        let isLastCell = checkIsLastCell(at: indexPath)
         cell.delegate = self
-        cell.languageCode = languageViewModel.getLanguageCode(for: indexPath)
+        cell.languageCode = getLanguageCode(for: indexPath)
         cell.cofigureCell(text: title, separateLineStatus: isLastCell)
         return cell
     }
@@ -63,10 +79,6 @@ class LanguageTableViewController: UITableViewController {
 }
 
 extension LanguageTableViewController: LanguageProtocol {
-    func languageCode() -> String {
-        return ""
-    }
-    
     func reloadTableView() {
         tableView.reloadData()
     }

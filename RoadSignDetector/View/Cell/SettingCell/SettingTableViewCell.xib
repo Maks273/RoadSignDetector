@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="371" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4B-0a-Tlg">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4B-0a-Tlg">
                         <rect key="frame" x="8" y="0.0" width="5" height="63"/>
                         <color key="backgroundColor" systemColor="linkColor"/>
                         <constraints>
@@ -73,7 +73,7 @@
                     <constraint firstAttribute="trailing" secondItem="0iv-ld-9xY" secondAttribute="trailing" constant="8" id="21W-gF-a2s"/>
                     <constraint firstItem="R4B-0a-Tlg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="DDv-zz-HQy"/>
                     <constraint firstItem="0iv-ld-9xY" firstAttribute="leading" secondItem="R4B-0a-Tlg" secondAttribute="trailing" id="W2T-WM-DTw"/>
-                    <constraint firstItem="R4B-0a-Tlg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XcF-E3-eXv"/>
+                    <constraint firstItem="R4B-0a-Tlg" firstAttribute="top" secondItem="0iv-ld-9xY" secondAttribute="top" id="XcF-E3-eXv"/>
                     <constraint firstAttribute="bottom" secondItem="0iv-ld-9xY" secondAttribute="bottom" id="gZA-Re-uaF"/>
                     <constraint firstItem="0iv-ld-9xY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uxb-if-xhh"/>
                 </constraints>

@@ -10,8 +10,29 @@ import UIKit
 
 class AudioView: UIView {
 
+    //MARK: - IBOutlets
+    
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
+    @IBOutlet weak var voiceSegmentedControll: UISegmentedControl! {
+        didSet {
+            voiceSegmentedControll.selectedSegmentIndex = getCurrentVoiceIndex()
+        }
+    }
+    @IBOutlet weak var audioSwitcher: UISwitch! {
+        didSet {
+            audioSwitcher.isOn = loadCurrentAudioStatus()
+        }
+    }
+    
+    
+    //MARK: - Variables
+    
+    private let manVoiceSegmentIndex = 0
+    private let voiceKey = "Voice"
+    private let audioStatusKey = "AudioStatus"
+    
+    //MARK: - init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,15 +44,47 @@ class AudioView: UIView {
         commonInit()
     }
     
-    private func commonInit(){
+    //MARK: - Private methods
+    
+    private func commonInit() {
         Bundle.main.loadNibNamed("AudioView", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        self.tag = 8
     }
 
-    @IBAction func soundSwitcherWasToggled(_ sender: Any) {
-        print("))))))))))))))")
+    //MARK: Speaker Voice
+    
+    private func saveCurrentVoice(_ voiceValue: String) {
+        UserDefaults.standard.setValue(voiceValue, forKey: voiceKey)
+    }
+    
+    private func loadCurrentVoice() -> String {
+        return UserDefaults.standard.string(forKey: voiceKey) ?? ""
+    }
+    
+    private func getCurrentVoiceIndex() -> Int {
+        return loadCurrentVoice() == "Man" || loadCurrentVoice() == "" ? 0 : 1
+    }
+    
+    //MARK: Audio Status
+    
+    private func saveCurrentAudioStatus(_ status: Bool) {
+        UserDefaults.standard.setValue(status, forKey: audioStatusKey)
+    }
+    
+    private func loadCurrentAudioStatus() -> Bool {
+        return UserDefaults.standard.bool(forKey: audioStatusKey)
+    }
+    
+
+    //MARK: - IBActions
+    
+    @IBAction func soundSwitcherWasToggled(_ sender: UISwitch) {
+        saveCurrentAudioStatus(sender.isOn)
+    }
+    
+    @IBAction func voiceWasToggled(_ sender: UISegmentedControl) {
+        saveCurrentVoice(sender.selectedSegmentIndex == manVoiceSegmentIndex ? "Man" : "Woman")
     }
 }

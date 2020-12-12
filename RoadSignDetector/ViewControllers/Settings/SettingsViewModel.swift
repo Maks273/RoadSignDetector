@@ -29,7 +29,7 @@ class SettingsViewModel {
     
     func getRowHeight(at indexPath: IndexPath) -> CGFloat {
         if selectedIndex != nil && indexPath == selectedIndex {
-            return 185
+            return 188
         }
         return 65
     }

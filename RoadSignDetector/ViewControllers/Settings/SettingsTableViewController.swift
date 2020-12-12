@@ -25,11 +25,13 @@ class SettingsTableViewController: UITableViewController {
     let settingsViewModel = SettingsViewModel()
     let cellIdentifire = "settingCell"
     private var expandedCellIndexPath: IndexPath?
+    
     //MARK: - Life cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "SettingTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifire)
     }
     

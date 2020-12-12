@@ -51,6 +51,7 @@ class SettingTableViewCell: UITableViewCell {
     weak var delegate: SettingProtocol?
     private var indexPath: IndexPath?
     private var cellType: CellType?
+    private var cellPosition: CellPosition?
     private let extraViewTag = 8
     
     //MARK: - Life cycles
@@ -69,18 +70,19 @@ class SettingTableViewCell: UITableViewCell {
         
         isExpanded = contentView.bounds.height > 80 ? true : false
         self.indexPath = indexPath
+        self.cellPosition = position
         
         titleLabel.text = text
         showMoreBtn.isHidden = showMoreVisible
         separatorLine.isHidden = position == .last
         verticalLine.backgroundColor = .purple
-        setupContainerViewShadow()
+        setupContentViewShadow()
+        
+        configureExtraView(!showMoreVisible)
         
         if position != .intermediate {
             setupCornerStyle(for: position)
         }
-        
-        configureExtraView(!showMoreVisible)
     }
     
     //MARK: - IBActions
@@ -112,15 +114,16 @@ class SettingTableViewCell: UITableViewCell {
         }else{
             if containerViewBottomConstraint != nil{
                 containerViewBottomConstraint.constant = 3
+                self.contentView.layoutIfNeeded()
             }
         }
         
     }
     
-    private func setupContainerViewShadow(){
-        containerView.layer.shadowColor = UIColor.lightGray.cgColor
-        containerView.layer.shadowRadius = 7
-        containerView.layer.shadowOpacity = 0.7
+    private func setupContentViewShadow(){
+        contentView.layer.shadowColor = UIColor.lightGray.cgColor
+        contentView.layer.shadowRadius = 7
+        contentView.layer.shadowOpacity = 0.7
     }
     
     private func toggleButtonImage(_ show: Bool){
@@ -188,7 +191,7 @@ class SettingTableViewCell: UITableViewCell {
         for subview in contentView.subviews{
             if subview.tag == tag{
                 subview.removeFromSuperview()
-                containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+                containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1)
                 containerViewBottomConstraint.isActive = true
             }
         }

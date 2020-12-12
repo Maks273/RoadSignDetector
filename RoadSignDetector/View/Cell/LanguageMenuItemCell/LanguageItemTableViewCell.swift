@@ -10,18 +10,24 @@ import UIKit
 
 class LanguageItemTableViewCell: UITableViewCell {
 
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var separateLineView: UIView!
     
-    var languageCode: String = ""{
+    //MARK: - Variables
+    
+    var languageCode: String? {
         didSet{
             let currentLanguage = UserDefaults.standard.string(forKey: "AppleLanguage")
             selectButton.backgroundColor = currentLanguage == languageCode ? .purple : .gray
         }
     }
-    
+
     weak var delegate: LanguageProtocol!
+    
+    //MARK: - Overrided funcs
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,12 +37,16 @@ class LanguageItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    //MARK: - IBActions
+    
     @IBAction func selectBtnWasPressed(_ sender: Any) {
         UserDefaults.standard.set(languageCode, forKey: "AppleLanguage")
         UserDefaults.standard.synchronize()
         Bundle.swizzleLocalization()
         delegate.reloadTableView()
     }
+    
+    //MARK: - Helper
     
     func cofigureCell(text: String, separateLineStatus: Bool){
         selectButton.layer.cornerRadius = selectButton.bounds.width/2

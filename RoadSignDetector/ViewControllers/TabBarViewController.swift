@@ -16,9 +16,9 @@ enum BarItems {
     
     func values() -> (String,String) {
         switch self {
-        case .settings: return ("Settings","gear")
-        case .history: return ("History","clock")
-        case .scannig: return ("Camera", "camera.viewfinder")
+        case .settings: return ("Settings".localized(),"gear")
+        case .history: return ("History".localized(),"clock")
+        case .scannig: return ("Camera".localized(), "camera.viewfinder")
         }
     }
 }

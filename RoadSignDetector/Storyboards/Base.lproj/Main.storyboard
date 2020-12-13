@@ -1,20 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Detection History Table View Controller-->
+        <scene sceneID="eT7-nc-89z">
+            <objects>
+                <viewController storyboardIdentifier="DetectionHistoryTableViewController" id="MoZ-Ua-dD6" customClass="DetectionHistoryTableViewController" customModule="RoadSignDetector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bZP-wE-7pv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fBX-n4-IRQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="DKd-8Q-5Oq">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7q-Sv-QFp" customClass="HistoryHeaderView" customModule="RoadSignDetector" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="120" id="cHY-aa-QA8"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3r-f4-bHp" customClass="SearchView" customModule="RoadSignDetector" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="132" width="384" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="4P0-9h-f6v"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="D7q-Sv-QFp" firstAttribute="top" secondItem="DKd-8Q-5Oq" secondAttribute="top" id="HLf-nb-II2"/>
+                                        <constraint firstAttribute="trailing" secondItem="t3r-f4-bHp" secondAttribute="trailing" constant="15" id="NbJ-Tg-jY6"/>
+                                        <constraint firstItem="D7q-Sv-QFp" firstAttribute="leading" secondItem="DKd-8Q-5Oq" secondAttribute="leading" id="Z24-Ke-E5a"/>
+                                        <constraint firstItem="t3r-f4-bHp" firstAttribute="leading" secondItem="DKd-8Q-5Oq" secondAttribute="leading" constant="15" id="hvi-20-8BA"/>
+                                        <constraint firstAttribute="trailing" secondItem="D7q-Sv-QFp" secondAttribute="trailing" id="kLF-Kr-KHi"/>
+                                        <constraint firstItem="t3r-f4-bHp" firstAttribute="top" secondItem="D7q-Sv-QFp" secondAttribute="bottom" constant="12" id="qTK-Zf-a5A"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vbR-BU-oSM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fBX-n4-IRQ" firstAttribute="leading" secondItem="vbR-BU-oSM" secondAttribute="leading" id="6He-0o-as7"/>
+                            <constraint firstItem="fBX-n4-IRQ" firstAttribute="top" secondItem="bZP-wE-7pv" secondAttribute="top" id="8Tk-MY-HqD"/>
+                            <constraint firstAttribute="bottom" secondItem="fBX-n4-IRQ" secondAttribute="bottom" id="SS5-ua-uKA"/>
+                            <constraint firstItem="fBX-n4-IRQ" firstAttribute="trailing" secondItem="vbR-BU-oSM" secondAttribute="trailing" id="laX-nu-Vui"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9xw-nZ-fKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1248" y="148"/>
+        </scene>
+        <!--Table View Controller-->
         <scene sceneID="PJ0-gk-lms">
             <objects>
-                <tableViewController storyboardIdentifier="DetectionHistoryTableViewController" id="d7f-7I-spc" customClass="DetectionHistoryTableViewController" customModule="RoadSignDetector" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="d7f-7I-spc" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KSw-66-Sl0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oPf-eu-QUQ">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -33,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tje-IS-V7f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546" y="142"/>
+            <point key="canvasLocation" x="-546.37681159420299" y="141.96428571428569"/>
         </scene>
         <!--Scanning View Controller-->
         <scene sceneID="bag-Jk-knz">
@@ -42,8 +98,8 @@
                     <view key="view" contentMode="scaleToFill" id="YBL-ug-CQG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="aCT-I5-JEv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5j-En-qsm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -57,8 +113,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -72,7 +128,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="X6U-UE-dsb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="tableCellGroupedBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="aFk-TZ-iNi" customClass="HeaderView" customModule="RoadSignDetector" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -84,7 +140,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="Yak-AY-xUP" firstAttribute="top" secondItem="aFk-TZ-iNi" secondAttribute="top" constant="5" id="O68-fO-m6T"/>
                                 <constraint firstAttribute="trailing" secondItem="Yak-AY-xUP" secondAttribute="trailing" id="WGa-Hb-SmY"/>
@@ -93,7 +149,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-ub-dPR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-ub-dPR">
                                 <rect key="frame" x="0.0" y="108" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ksv-ub-dPR" id="LKd-wk-NZC">
@@ -115,4 +171,12 @@
             <point key="canvasLocation" x="928.98550724637687" y="132.58928571428572"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tableCellGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

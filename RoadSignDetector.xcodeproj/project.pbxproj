@@ -21,6 +21,7 @@
 		2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D520A6B2589004D00A4744A /* RoadSignDetailViewController.swift */; };
 		2D520A70258910DA00A4744A /* ExpandedSoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D520A6F258910DA00A4744A /* ExpandedSoundView.swift */; };
 		2D520A74258910E000A4744A /* ExpandedSoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D520A73258910E000A4744A /* ExpandedSoundView.xib */; };
+		2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8219DE25A4B10600C868CE /* SettingsTableVCHelper.swift */; };
 		2D93482B2586937100B5A972 /* HistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D93482A2586937100B5A972 /* HistoryHeaderView.xib */; };
 		2D93483025869C9400B5A972 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93482E25869C9400B5A972 /* HistoryTableViewCell.swift */; };
 		2D93483125869C9400B5A972 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D93482F25869C9400B5A972 /* HistoryTableViewCell.xib */; };
@@ -58,6 +59,7 @@
 		2D520A6F258910DA00A4744A /* ExpandedSoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedSoundView.swift; sourceTree = "<group>"; };
 		2D520A73258910E000A4744A /* ExpandedSoundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedSoundView.xib; sourceTree = "<group>"; };
 		2D5943852577AEB600CE0D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		2D8219DE25A4B10600C868CE /* SettingsTableVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVCHelper.swift; sourceTree = "<group>"; };
 		2D93482A2586937100B5A972 /* HistoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryHeaderView.xib; sourceTree = "<group>"; };
 		2D93482E25869C9400B5A972 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		2D93482F25869C9400B5A972 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				2DBB569A25729A90005048CE /* SettingsTableViewController.swift */,
+				2D8219DE25A4B10600C868CE /* SettingsTableVCHelper.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				2D4ED6152572F6D300E6039E /* SettingTableViewCell.swift in Sources */,
 				2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */,
 				2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */,
+				2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */,
 				2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */,
 				2D9949B32578004D00015967 /* StringExtension.swift in Sources */,
 				2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */,

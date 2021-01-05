@@ -10,10 +10,21 @@
 		2D22A8DA2576EC0000BFEE2D /* LanguageItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */; };
 		2D22A8DB2576EC0000BFEE2D /* LanguageItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */; };
 		2D22A8E02576EF3B00BFEE2D /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */; };
+		2D36DABF258612950047EC1F /* HistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36DABE258612950047EC1F /* HistoryHeaderView.swift */; };
+		2D36DAC225861A730047EC1F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36DAC125861A730047EC1F /* SearchView.swift */; };
+		2D4120372594E0210042832F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D4120362594E0210042832F /* GoogleService-Info.plist */; };
+		2D4920352586333E0060D548 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4920342586333E0060D548 /* SearchView.xib */; };
 		2D4ED6042572DF1900E6039E /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4ED6032572DF1900E6039E /* ScanningViewController.swift */; };
 		2D4ED60C2572E78700E6039E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4ED60B2572E78700E6039E /* HeaderView.swift */; };
 		2D4ED6152572F6D300E6039E /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4ED6132572F6D300E6039E /* SettingTableViewCell.swift */; };
 		2D4ED6162572F6D300E6039E /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4ED6142572F6D300E6039E /* SettingTableViewCell.xib */; };
+		2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D520A6B2589004D00A4744A /* RoadSignDetailViewController.swift */; };
+		2D520A70258910DA00A4744A /* ExpandedSoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D520A6F258910DA00A4744A /* ExpandedSoundView.swift */; };
+		2D520A74258910E000A4744A /* ExpandedSoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D520A73258910E000A4744A /* ExpandedSoundView.xib */; };
+		2D93482B2586937100B5A972 /* HistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D93482A2586937100B5A972 /* HistoryHeaderView.xib */; };
+		2D93483025869C9400B5A972 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93482E25869C9400B5A972 /* HistoryTableViewCell.swift */; };
+		2D93483125869C9400B5A972 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D93482F25869C9400B5A972 /* HistoryTableViewCell.xib */; };
+		2D93483525869F1400B5A972 /* RoadSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93483425869F1400B5A972 /* RoadSign.swift */; };
 		2D9949AC2577F20600015967 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D9949AE2577F20600015967 /* Localizable.strings */; };
 		2D9949B32578004D00015967 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9949B22578004D00015967 /* StringExtension.swift */; };
 		2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5683257296A9005048CE /* AppDelegate.swift */; };
@@ -35,11 +46,23 @@
 		2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageItemTableViewCell.swift; sourceTree = "<group>"; };
 		2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageItemTableViewCell.xib; sourceTree = "<group>"; };
 		2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
+		2D36DABE258612950047EC1F /* HistoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHeaderView.swift; sourceTree = "<group>"; };
+		2D36DAC125861A730047EC1F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		2D4120362594E0210042832F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2D4920342586333E0060D548 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		2D4ED6032572DF1900E6039E /* ScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
 		2D4ED60B2572E78700E6039E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2D4ED6132572F6D300E6039E /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		2D4ED6142572F6D300E6039E /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		2D520A6B2589004D00A4744A /* RoadSignDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadSignDetailViewController.swift; sourceTree = "<group>"; };
+		2D520A6F258910DA00A4744A /* ExpandedSoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedSoundView.swift; sourceTree = "<group>"; };
+		2D520A73258910E000A4744A /* ExpandedSoundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedSoundView.xib; sourceTree = "<group>"; };
 		2D5943852577AEB600CE0D4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		2D93482A2586937100B5A972 /* HistoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryHeaderView.xib; sourceTree = "<group>"; };
+		2D93482E25869C9400B5A972 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		2D93482F25869C9400B5A972 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		2D93483425869F1400B5A972 /* RoadSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadSign.swift; sourceTree = "<group>"; };
+		2D958ED0259C84F300B73EA6 /* RoadSignDetector.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = RoadSignDetector.entitlements; sourceTree = "<group>"; };
 		2D9949AD2577F20600015967 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D9949B02577F23800015967 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		2D9949B12577F23800015967 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -120,12 +143,32 @@
 			path = Language;
 			sourceTree = "<group>";
 		};
+		2D36DABC25860E8F0047EC1F /* HeadersView */ = {
+			isa = PBXGroup;
+			children = (
+				2D4ED60B2572E78700E6039E /* HeaderView.swift */,
+				2D9348282586936200B5A972 /* History */,
+			);
+			path = HeadersView;
+			sourceTree = "<group>";
+		};
+		2D4920322586332F0060D548 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				2D36DAC125861A730047EC1F /* SearchView.swift */,
+				2D4920342586333E0060D548 /* SearchView.xib */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
 		2D4ED60A2572E76A00E6039E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D520A6E2589106600A4744A /* ExpandedSoundView */,
 				2D4ED6122572F6B400E6039E /* Cell */,
-				2D4ED60B2572E78700E6039E /* HeaderView.swift */,
+				2D36DABC25860E8F0047EC1F /* HeadersView */,
 				2D22A8D32576EA9800BFEE2D /* AudioMenuItemView */,
+				2D4920322586332F0060D548 /* SearchView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +176,7 @@
 		2D4ED60D2572E96400E6039E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2D93483425869F1400B5A972 /* RoadSign.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,10 +184,38 @@
 		2D4ED6122572F6B400E6039E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				2D93482D25869C6B00B5A972 /* HistoryCell */,
 				2D22A8DC2576EC1200BFEE2D /* LanguageMenuItemCell */,
 				2D22A8DD2576EEAB00BFEE2D /* SettingCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2D520A6E2589106600A4744A /* ExpandedSoundView */ = {
+			isa = PBXGroup;
+			children = (
+				2D520A6F258910DA00A4744A /* ExpandedSoundView.swift */,
+				2D520A73258910E000A4744A /* ExpandedSoundView.xib */,
+			);
+			path = ExpandedSoundView;
+			sourceTree = "<group>";
+		};
+		2D9348282586936200B5A972 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				2D36DABE258612950047EC1F /* HistoryHeaderView.swift */,
+				2D93482A2586937100B5A972 /* HistoryHeaderView.xib */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		2D93482D25869C6B00B5A972 /* HistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				2D93482E25869C9400B5A972 /* HistoryTableViewCell.swift */,
+				2D93482F25869C9400B5A972 /* HistoryTableViewCell.xib */,
+			);
+			path = HistoryCell;
 			sourceTree = "<group>";
 		};
 		2DBB5677257296A9005048CE = {
@@ -167,6 +239,7 @@
 		2DBB5682257296A9005048CE /* RoadSignDetector */ = {
 			isa = PBXGroup;
 			children = (
+				2D958ED0259C84F300B73EA6 /* RoadSignDetector.entitlements */,
 				2D4ED60D2572E96400E6039E /* Models */,
 				2D4ED60A2572E76A00E6039E /* View */,
 				2DBB56A125729BD2005048CE /* Services */,
@@ -188,6 +261,7 @@
 				2DCE379F2573FDE0006A4DF1 /* Settings */,
 				2DBB569C25729AC6005048CE /* DetectionHistoryTableViewController.swift */,
 				2D4ED6032572DF1900E6039E /* ScanningViewController.swift */,
+				2D520A6B2589004D00A4744A /* RoadSignDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -206,6 +280,7 @@
 			children = (
 				2DBB568C257296AB005048CE /* Assets.xcassets */,
 				2DBB5691257296AB005048CE /* Info.plist */,
+				2D4120362594E0210042832F /* GoogleService-Info.plist */,
 				2D9949AE2577F20600015967 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -306,10 +381,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4920352586333E0060D548 /* SearchView.xib in Resources */,
 				2D22A8DB2576EC0000BFEE2D /* LanguageItemTableViewCell.xib in Resources */,
 				2DBB5690257296AB005048CE /* LaunchScreen.storyboard in Resources */,
+				2D93482B2586937100B5A972 /* HistoryHeaderView.xib in Resources */,
+				2D520A74258910E000A4744A /* ExpandedSoundView.xib in Resources */,
+				2D4120372594E0210042832F /* GoogleService-Info.plist in Resources */,
 				2D9949AC2577F20600015967 /* Localizable.strings in Resources */,
 				2DBB568D257296AB005048CE /* Assets.xcassets in Resources */,
+				2D93483125869C9400B5A972 /* HistoryTableViewCell.xib in Resources */,
 				2DCAD511257ACAFD0090CD2A /* AudioView.xib in Resources */,
 				2D4ED6162572F6D300E6039E /* SettingTableViewCell.xib in Resources */,
 				2DBB568B257296A9005048CE /* Main.storyboard in Resources */,
@@ -367,6 +447,7 @@
 			files = (
 				2D4ED6152572F6D300E6039E /* SettingTableViewCell.swift in Sources */,
 				2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */,
+				2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */,
 				2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */,
 				2D9949B32578004D00015967 /* StringExtension.swift in Sources */,
 				2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */,
@@ -374,9 +455,14 @@
 				2D22A8DA2576EC0000BFEE2D /* LanguageItemTableViewCell.swift in Sources */,
 				2DBB56A025729B0F005048CE /* UIViewControllerExtension.swift in Sources */,
 				2D4ED60C2572E78700E6039E /* HeaderView.swift in Sources */,
+				2D93483025869C9400B5A972 /* HistoryTableViewCell.swift in Sources */,
+				2D520A70258910DA00A4744A /* ExpandedSoundView.swift in Sources */,
+				2D93483525869F1400B5A972 /* RoadSign.swift in Sources */,
 				2D22A8E02576EF3B00BFEE2D /* LanguageTableViewController.swift in Sources */,
 				2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */,
 				2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */,
+				2D36DAC225861A730047EC1F /* SearchView.swift in Sources */,
+				2D36DABF258612950047EC1F /* HistoryHeaderView.swift in Sources */,
 				2D4ED6042572DF1900E6039E /* ScanningViewController.swift in Sources */,
 				2DBB5686257296A9005048CE /* SceneDelegate.swift in Sources */,
 			);
@@ -546,6 +632,7 @@
 			baseConfigurationReference = 7032170E2571DEED8D1F222C /* Pods-RoadSignDetector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RoadSignDetector/RoadSignDetector.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HP792V2S63;
 				INFOPLIST_FILE = RoadSignDetector/Resources/Info.plist;
@@ -554,7 +641,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.paydich;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paydich.RoadSignDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -566,6 +653,7 @@
 			baseConfigurationReference = BB9DA399E5ACB00342F57396 /* Pods-RoadSignDetector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RoadSignDetector/RoadSignDetector.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HP792V2S63;
 				INFOPLIST_FILE = RoadSignDetector/Resources/Info.plist;
@@ -574,7 +662,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.paydich;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paydich.RoadSignDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

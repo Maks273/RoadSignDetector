@@ -15,20 +15,18 @@ class HeaderView: UIView {
         configureStyle()
     }
     
-    func configureStyle(){
+    private func configureStyle(){
         self.layer.cornerRadius = 30
         self.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
-        self.layer.borderWidth = 2.5
-        self.layer.borderColor = UIColor.purple.cgColor
-        
         setupShadow()
     }
     
     private func setupShadow(){
+        self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowRadius = 8
+        self.layer.shadowRadius = 2
         self.layer.shadowOpacity = 0.55
-        self.layer.shadowOffset = CGSize(width: 10, height: 10)
+        self.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
 }

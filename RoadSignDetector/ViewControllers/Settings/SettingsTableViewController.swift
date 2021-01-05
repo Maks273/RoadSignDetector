@@ -169,6 +169,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !canExpand(indexPath){
+            tableView.deselectRow(at: indexPath, animated: true)
             switch indexPath.row {
             case 0:
                 self.openEmailApp()

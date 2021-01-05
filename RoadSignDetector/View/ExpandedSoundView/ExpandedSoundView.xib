@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExpandedSoundView" customModule="RoadSignDetector" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonStackView" destination="k0q-aV-cnO" id="0pN-bE-S6s"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="bmA-Ng-w5X"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="k0q-aV-cnO">
+                    <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4p-bm-wcw">
+                            <rect key="frame" x="0.0" y="0.0" width="26" height="30"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="play.fill" catalog="system"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcF-dQ-sJr">
+                            <rect key="frame" x="31" y="0.0" width="26" height="30"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="pause.fill" catalog="system"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3G-sX-gPl">
+                            <rect key="frame" x="62" y="0.0" width="26" height="30"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="arrow.counterclockwise.circle" catalog="system"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="OcF-dQ-sJr" firstAttribute="centerY" secondItem="k0q-aV-cnO" secondAttribute="centerY" id="c0Y-bR-YJU"/>
+                        <constraint firstItem="B4p-bm-wcw" firstAttribute="centerY" secondItem="k0q-aV-cnO" secondAttribute="centerY" id="rpf-fd-IVK"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="k0q-aV-cnO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="20U-oA-vtx"/>
+                <constraint firstItem="k0q-aV-cnO" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="DLK-cc-NWR"/>
+                <constraint firstItem="k0q-aV-cnO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="U9o-Q4-svz"/>
+                <constraint firstItem="k0q-aV-cnO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rVN-6F-UyZ"/>
+                <constraint firstItem="k0q-aV-cnO" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="vJt-Ei-cmj"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-442.02898550724643" y="35.869565217391305"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.counterclockwise.circle" catalog="system" width="128" height="121"/>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

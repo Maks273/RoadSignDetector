@@ -11,6 +11,7 @@ import UIKit
 class DetectionHistoryTableViewController: UIViewController {
     
     //MARK: - IBOutlets
+    @IBOutlet weak var historyHeaderView: HistoryHeaderView!
     @IBOutlet weak var historyTableView: UITableView! {
         didSet {
             historyTableView.tableFooterView = UIView()
@@ -19,33 +20,34 @@ class DetectionHistoryTableViewController: UIViewController {
     
     //MARK: - Variables
     private let cellIdentifire = "historyCell"
-    var model = [RoadSign]()
+    private let detectionHistoryHelper = DetectionHistoryVCHelper()
     
     //MARK: - Life cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        model.append(RoadSign(title: "ROAD", desription: "SIGNFSFSAFSAFSMFSFMSKFASFKSANFKAFNSAKFANSFKSAFNSAKFNASKF", imageStringURL: "ddds"))
-        model.append(RoadSign(title: "ROAD", desription: "SIGNFSFSAFSAFSMFSFMSKFASFKSANFKAFNSAKFANSFKSAFNSAKFNASKF", imageStringURL: "ddds"))
-        model.append(RoadSign(title: "ROAD", desription: "SIGNFSFSAFSAFSMFSFMSKFASFKSANFKAFNSAKFANSFKSAFNSAKFNASKF", imageStringURL: "ddds"))
-        model.append(RoadSign(title: "ROAD", desription: "SIGNFSFSAFSAFSMFSFMSKFASFKSANFKAFNSAKFANSFKSAFNSAKFNASKF", imageStringURL: "ddds"))
-        model.append(RoadSign(title: "ROAD", desription: "SIGNFSFSAFSAFSMFSFMSKFASFKSANFKAFNSAKFANSFKSAFNSAKFNASKF", imageStringURL: "ddds"))
-        model.append(RoadSign(title: "ROAD", desription: "SIGNFSFSAFSAFSMFSFMSKFASFKSANFKAFNSAKFANSFKSAFNSAKFNASKF", imageStringURL: "ddds"))
-        
-        historyTableView.register(UINib(nibName: "HistoryTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifire)
-        historyTableView.delegate = self
-        historyTableView.dataSource = self
+        configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        detectionHistoryHelper.observeCurrentUser()
+        reloadTableView()
     }
     
     //MARK: - Private methods
     
-    private func getCurrentModel(for index: Int) -> RoadSign? {
-        canGetModel(for: index) ? model[index] : nil
+    private func reloadTableView() {
+        detectionHistoryHelper.modelWasAdded = { [weak self] in
+            self?.historyTableView.reloadData()
+        }
     }
     
-    private func canGetModel(for index: Int) -> Bool {
-        return index < model.count - 1
+    private func configureTableView() {
+        historyTableView.register(UINib(nibName: "HistoryTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifire)
+        historyTableView.delegate = self
+        historyTableView.dataSource = self
+        historyHeaderView.delegate = self
     }
     
     //MARK: Swipe images
@@ -67,33 +69,23 @@ class DetectionHistoryTableViewController: UIViewController {
 
 extension DetectionHistoryTableViewController: UITableViewDelegate {
     
-}
-
-//MARK: - UITableViewDataSource
-
-extension DetectionHistoryTableViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.count
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifire) as! HistoryTableViewCell
-        cell.configure(with: model[indexPath.row])
+        if let model = detectionHistoryHelper.getModel(for: indexPath.row) {
+            cell.configure(with: model)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        openDetailVC(for: model[indexPath.row])
+        if let model = detectionHistoryHelper.getModel(for: indexPath.row) {
+            openDetailVC(for: model)
+        }
     }
     
     //MARK: Swipe
@@ -118,4 +110,29 @@ extension DetectionHistoryTableViewController: UITableViewDataSource {
     }
     
     
+}
+
+//MARK: - UITableViewDataSource
+
+extension DetectionHistoryTableViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return detectionHistoryHelper.getNumberOfRows()
+    }
+    
+}
+//MARK: - HistoryHeaderDelegate
+
+extension DetectionHistoryTableViewController: HistoryHeaderDelegate {
+    func toggleModelSource(for tag: Int) {
+        detectionHistoryHelper.changeModelSource(for: tag)
+    }
+    
+    func changeCurrentSelectedHistoryType(for tag: Int) {
+        detectionHistoryHelper.setCurrentHistoryType(for: tag)
+    }
 }

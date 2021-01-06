@@ -29,9 +29,9 @@ class HistoryTableViewCell: UITableViewCell {
     //MARK: - Helper
     
     func configure(with model: RoadSign) {
-        signTitleLabel.text = model.title
-        signDescriptionLabel.text = model.desription
         configureStyle()
+        signTitleLabel.text = model.ukrainian?.title
+        signDescriptionLabel.text = model.ukrainian?.description
     }
 
     

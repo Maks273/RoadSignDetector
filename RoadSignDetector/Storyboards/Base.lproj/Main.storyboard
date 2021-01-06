@@ -193,6 +193,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="historyHeaderView" destination="D7q-Sv-QFp" id="Plx-NA-zRw"/>
                         <outlet property="historyTableView" destination="fBX-n4-IRQ" id="S9J-Er-MWA"/>
                     </connections>
                 </viewController>
@@ -286,7 +287,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-ub-dPR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-ub-dPR">
                                 <rect key="frame" x="0.0" y="135.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ksv-ub-dPR" id="LKd-wk-NZC">

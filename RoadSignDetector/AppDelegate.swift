@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let currentLanguage = UserDefaults.standard.string(forKey: "AppleLanguage")
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UserDefaults.standard.set(currentLanguage, forKey: "AppleLanguage")
+        //UserDefaults.standard.set(currentLanguage, forKey: "AppleLanguage")
         Bundle.swizzleLocalization()
+        FirebaseApp.configure()
+        handleUserAuthorization()
         return true
     }
 
@@ -31,6 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    //MARK: - Private methods
+    
+    private func handleUserAuthorization() {
+        FirebaseService.shared.handleAuthorization { (user) in
+            Environment.shared.currentUser = user
+            NotificationCenter.default.post(name: Notification.Name.currentUserWasIdenfied, object: nil)
+        }
     }
 
 

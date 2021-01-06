@@ -9,12 +9,27 @@
 import Foundation
 
 
-struct RoadSign {
-    var title: String
-    var desription: String
-    var imageStringURL: String
+class RoadSign {
     
-    var imageURL: URL? {
-        return URL(string: self.imageStringURL)
+    var ukrainian: LocalizeRoadSign?
+    var images = [String]()
+
+    init(from dictionary: NSDictionary) {
+        images = dictionary["images"] as? [String] ?? []
+        ukrainian = LocalizeRoadSign(from: dictionary["uk"] as? NSDictionary ?? [:])
     }
 }
+
+class LocalizeRoadSign: Codable {
+    
+    var description: String?
+    var soundStringURL: String?
+    var title: String?
+    
+    init(from dictionary: NSDictionary) {
+        description = String(dictionary["description"] as? String ?? "")
+        soundStringURL = dictionary["sound"] as? String
+        title = dictionary["title"] as? String
+    }
+}
+

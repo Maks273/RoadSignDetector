@@ -8,12 +8,21 @@
 
 import UIKit
 
+protocol HistoryHeaderDelegate: class {
+    func toggleModelSource(for tag: Int)
+    func changeCurrentSelectedHistoryType(for tag: Int)
+}
+
 class HistoryHeaderView: UIView {
     
     //MARK: - IBOutlets
     
     @IBOutlet var containerView: UIView!
     @IBOutlet var underlineViews: [UIView]!
+    
+    //MARK: - Variables
+    
+    weak var delegate: HistoryHeaderDelegate?
     
     //MARK: - Initalizers
     
@@ -71,6 +80,8 @@ class HistoryHeaderView: UIView {
     
     @IBAction func historyTypeChangeBtnWasPressed(_ sender: UIButton) {
         switchUnderlineView(for: sender.tag)
+        delegate?.toggleModelSource(for: sender.tag)
+        delegate?.changeCurrentSelectedHistoryType(for: sender.tag)
     }
-    
+
 }

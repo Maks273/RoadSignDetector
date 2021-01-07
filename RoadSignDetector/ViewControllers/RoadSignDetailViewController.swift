@@ -43,8 +43,8 @@ class RoadSignDetailViewController: UIViewController {
     //MARK: - Hepler
     
     func fillData(with model: RoadSign) {
-        roadSignTitleLabel.text = model.title
-        roadSignDescriptionTextView.text = model.desription
+//        roadSignTitleLabel.text = model.title
+//        roadSignDescriptionTextView.text = model.desription
         //loading image will be from some service
     }
     

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioView" customModule="RoadSignDetector" customModuleProvider="target">
+            <connections>
+                <outlet property="audioSwitcher" destination="cbs-Fi-SC3" id="1B4-uR-l50"/>
+                <outlet property="bottomContainerView" destination="eHZ-Lt-JSW" id="2ED-Sd-d5k"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="5Eq-dG-mBl"/>
+                <outlet property="voiceSegmentedControll" destination="K1E-hq-rt9" id="8SI-gj-GgB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="82"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIl-R2-iuB">
+                    <rect key="frame" x="0.0" y="0.0" width="413" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tc-hC-IB4">
+                            <rect key="frame" x="25" y="5" width="319" height="30"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cbs-Fi-SC3">
+                            <rect key="frame" x="354" y="4.6666666666666679" width="51" height="31.000000000000004"/>
+                            <connections>
+                                <action selector="soundSwitcherWasToggled:" destination="-1" eventType="valueChanged" id="sJe-gg-ESZ"/>
+                            </connections>
+                        </switch>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="2tc-hC-IB4" firstAttribute="centerY" secondItem="QIl-R2-iuB" secondAttribute="centerY" id="9p3-v8-ACV"/>
+                        <constraint firstAttribute="trailing" secondItem="cbs-Fi-SC3" secondAttribute="trailing" constant="10" id="IA5-VJ-xbd"/>
+                        <constraint firstAttribute="bottom" secondItem="2tc-hC-IB4" secondAttribute="bottom" constant="5" id="IsK-vX-DXq"/>
+                        <constraint firstItem="cbs-Fi-SC3" firstAttribute="centerY" secondItem="2tc-hC-IB4" secondAttribute="centerY" id="QGb-dV-lNj"/>
+                        <constraint firstItem="2tc-hC-IB4" firstAttribute="top" secondItem="QIl-R2-iuB" secondAttribute="top" constant="5" id="ndT-0N-2ly"/>
+                        <constraint firstItem="2tc-hC-IB4" firstAttribute="leading" secondItem="QIl-R2-iuB" secondAttribute="leading" constant="25" id="tTY-yX-6fv"/>
+                        <constraint firstItem="cbs-Fi-SC3" firstAttribute="leading" secondItem="2tc-hC-IB4" secondAttribute="trailing" constant="10" id="u5X-wf-xqe"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Es-Jz-z8z" userLabel="Line">
+                    <rect key="frame" x="25" y="40" width="378" height="2"/>
+                    <color key="backgroundColor" systemColor="systemGray2Color"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="3MB-uS-2Is"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHZ-Lt-JSW">
+                    <rect key="frame" x="0.0" y="42" width="413" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5h-Y5-y3X">
+                            <rect key="frame" x="25.000000000000004" y="8.3333333333333339" width="43.333333333333343" height="23.333333333333329"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K1E-hq-rt9">
+                            <rect key="frame" x="272" y="5" width="131" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="1OY-yR-zM3"/>
+                            </constraints>
+                            <segments>
+                                <segment title="Man"/>
+                                <segment title="Woman"/>
+                            </segments>
+                            <connections>
+                                <action selector="voiceWasToggled:" destination="-1" eventType="valueChanged" id="E5M-j2-Ng1"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="BVJ-4X-aut"/>
+                        <constraint firstItem="K1E-hq-rt9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A5h-Y5-y3X" secondAttribute="trailing" constant="10" id="KnW-UT-Yng"/>
+                        <constraint firstItem="A5h-Y5-y3X" firstAttribute="centerY" secondItem="eHZ-Lt-JSW" secondAttribute="centerY" id="YJZ-we-PFZ"/>
+                        <constraint firstItem="K1E-hq-rt9" firstAttribute="centerY" secondItem="eHZ-Lt-JSW" secondAttribute="centerY" id="gdp-hx-rhz"/>
+                        <constraint firstItem="A5h-Y5-y3X" firstAttribute="leading" secondItem="eHZ-Lt-JSW" secondAttribute="leading" constant="25" id="mbd-4U-VDR"/>
+                        <constraint firstAttribute="trailing" secondItem="K1E-hq-rt9" secondAttribute="trailing" constant="10" id="oJ5-ft-ciK"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="QIl-R2-iuB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0DF-5L-ChL"/>
+                <constraint firstItem="9Es-Jz-z8z" firstAttribute="leading" secondItem="2tc-hC-IB4" secondAttribute="leading" id="0x9-cN-jKL"/>
+                <constraint firstItem="eHZ-Lt-JSW" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="3A8-Zq-FUV"/>
+                <constraint firstItem="eHZ-Lt-JSW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="42f-OU-Ipw"/>
+                <constraint firstItem="QIl-R2-iuB" firstAttribute="height" secondItem="eHZ-Lt-JSW" secondAttribute="height" id="9FP-s8-Ipy"/>
+                <constraint firstAttribute="trailing" secondItem="QIl-R2-iuB" secondAttribute="trailing" id="AR2-M6-4z2"/>
+                <constraint firstItem="9Es-Jz-z8z" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-10" id="Etm-FH-8zT"/>
+                <constraint firstItem="eHZ-Lt-JSW" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="VtP-tp-18k"/>
+                <constraint firstItem="QIl-R2-iuB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="gKv-GF-iPw"/>
+                <constraint firstItem="9Es-Jz-z8z" firstAttribute="top" secondItem="QIl-R2-iuB" secondAttribute="bottom" id="lPw-39-B4D"/>
+                <constraint firstItem="eHZ-Lt-JSW" firstAttribute="top" secondItem="9Es-Jz-z8z" secondAttribute="bottom" id="tVT-WE-m7N"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="10.869565217391305" y="393.34239130434787"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

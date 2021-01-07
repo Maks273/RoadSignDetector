@@ -50,10 +50,9 @@ class DetectionHistoryTableViewController: UIViewController {
         
         detectionHistoryHelper.modelWasAdded = { [weak self] in
             self?.historyTableView.reloadData()
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            ProgressHUD.dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                ProgressHUD.dismiss()
+            }
         }
     }
     

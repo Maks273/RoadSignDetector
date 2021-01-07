@@ -103,7 +103,7 @@ class SearchView: UIView {
     
     //MARK: - IBActions
     @IBAction func editingChanged(_ sender: UITextField) {
-        
+        launchFilteringTimer(searchText: sender.text ?? "")
     }
     
 }
@@ -122,7 +122,6 @@ extension SearchView: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        launchFilteringTimer(searchText: textField.text ?? "")
         return true
     }
 }

@@ -12,49 +12,40 @@ class DetectionHistoryVCHelper {
     
     //MARK: - Variables
     
+    private let favoriteHistoryIndex = 1
+    private let allHistoryIndex = 0
+    
     private var model = [[RoadSign]](repeating: [RoadSign](), count: 2){
         didSet{
             modelWasAdded?()
         }
     }
     
-    var modelWasAdded: (() -> Void)?
-    
     private var currentType: HistoryType = .all {
         didSet{
+            setupModel()
             modelWasAdded?()
         }
     }
+    
+    var modelWasAdded: (() -> Void)?
+    
     
     //MARK: - Initalizer/Deinitalizer
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .currentUserWasIdenfied, object: nil)
+        NotificationCenter.default.removeObserver(self,name: .historyWasChanged, object: nil)
     }
     
     //MARK: - Helper
     
     func getModel(for index: Int) -> RoadSign? {
-        canGetModel(for: index) ? model[currentType == .favorite ? 1 : 0][index] : nil
+        canGetModel(for: index) ? model[currentType == .favorite ? favoriteHistoryIndex : allHistoryIndex][index] : nil
     }
     
     func getNumberOfRows() -> Int {
-        return model.isEmpty ? 0 : model[currentType == .favorite ? 1 : 0].count
-    }
-    
-    func changeModelSource(for tag: Int) {
-        setupModel(for: tag == 1 ? .favorite : .all)
-    }
-    
-    func setupModel(for type: HistoryType) {
-        if let currentUser = Environment.shared.currentUser {
-            switch type {
-            case .favorite:
-                model[1] = currentUser.history!.favorite
-            default:
-                model[0] = currentUser.history!.all
-            }
-        }
+        return model.isEmpty ? 0 : model[currentType == .favorite ? favoriteHistoryIndex : allHistoryIndex].count
     }
     
     func observeCurrentUser() {
@@ -63,34 +54,44 @@ class DetectionHistoryVCHelper {
     }
     
     func observeChangesInHistory() {
-        NotificationCenter.default.addObserver(self, selector: #selector(historySourceWasChanged), name: .allHistoryWasChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(historySourceWasChanged), name: .favoriteHistoryWasChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(historySourceWasChanged), name: .historyWasChanged, object: nil)
     }
     
     func setCurrentHistoryType(for tag: Int) {
-        currentType = tag == 1 ? .favorite : .all
+        currentType = tag == favoriteHistoryIndex ? .favorite : .all
+    }
+    
+    func removeHistoryItem(for index: Int) {
+        guard let itemID = model[allHistoryIndex][index].id else {
+            return
+        }
+        FirebaseService.shared.removeHistoryItem(by: itemID)
     }
     
     //MARK: - Private methods
     
-    @objc private func currentUserDidChange() {
-        setupModel(for: .all)
-    }
-    
-    @objc private func historySourceWasChanged(_ notification: Notification) {
-        if notification.name == .allHistoryWasChanged {
-            setupModel(for: .all)
-        }else if notification.name == .favoriteHistoryWasChanged {
-            setupModel(for: .favorite)
+    private func setupModel() {
+        if let currentUser = Environment.shared.currentUser {
+            model[allHistoryIndex] = currentUser.history!.all
+            model[favoriteHistoryIndex] = currentUser.history!.all.compactMap({ (roadSign) -> RoadSign? in
+                return roadSign.isFavorite ? roadSign : nil
+            })
         }
     }
     
-    @objc private func favoriteHistoryWasChanged() {
-        setupModel(for: .favorite)
+    //MARK: objc methods
+    
+    @objc private func currentUserDidChange() {
+        setupModel()
+    }
+    
+    @objc private func historySourceWasChanged(_ notification: Notification) {
+        print("historySourceWasChanged".capitalized)
+        setupModel()
     }
     
     private func canGetModel(for index: Int) -> Bool {
-        return index < model[currentType == .favorite ? 1 : 0].count
+        return index < model[currentType == .favorite ? favoriteHistoryIndex : allHistoryIndex].count
     }
     
 }

@@ -18,29 +18,16 @@ class History {
     var all = [RoadSign]()
     var favorite = [RoadSign]()
     
-    var toDictionary: NSDictionary{
-        return ["all": "",
-                "favorite": ""]
-    }
+//    var toDictionary: NSDictionary{
+//        return ["":""]
+//    }
     
     init() {
     }
     
     init(from dictionary: NSDictionary) {
-        all = FirebaseService.shared.decodeDataToRoadSignArray(from: dictionary["all"] as? NSDictionary ?? [:])
-        favorite = FirebaseService.shared.decodeDataToRoadSignArray(from: dictionary["favorite"] as? NSDictionary ?? [:])
+        all = FirebaseService.shared.decodeDataToRoadSignArray(from: dictionary)
     }
-    
-//    private func decodeDataToRoadSignArray(from dicts: NSDictionary) -> [RoadSign] {
-//        var decodedArray = [RoadSign]()
-//
-//        for item in dicts {
-//            if let itemValueDict = item.value as? NSDictionary {
-//                let decodedItem = RoadSign(from: itemValueDict)
-//                decodedArray.append(decodedItem)
-//            }
-//        }
-//        return decodedArray
-//    }
+
 }
 

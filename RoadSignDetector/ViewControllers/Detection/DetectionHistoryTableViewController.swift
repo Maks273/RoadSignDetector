@@ -101,8 +101,8 @@ extension DetectionHistoryTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (action, view, status) in
-            // TODO: action for removing cell from history and from server db
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, status) in
+            self?.detectionHistoryHelper.removeHistoryItem(for: indexPath.row)
         }
         deleteAction.image = prepareSwipeImage(name: "garbageIcon", color: .systemRed)
         deleteAction.backgroundColor = .white
@@ -127,11 +127,7 @@ extension DetectionHistoryTableViewController: UITableViewDataSource {
 }
 //MARK: - HistoryHeaderDelegate
 
-extension DetectionHistoryTableViewController: HistoryHeaderDelegate {
-    func toggleModelSource(for tag: Int) {
-        detectionHistoryHelper.changeModelSource(for: tag)
-    }
-    
+extension DetectionHistoryTableViewController: HistoryHeaderDelegate {    
     func changeCurrentSelectedHistoryType(for tag: Int) {
         detectionHistoryHelper.setCurrentHistoryType(for: tag)
     }

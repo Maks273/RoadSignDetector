@@ -17,7 +17,7 @@ class User {
     var userDictionary: NSDictionary{
         return [ "phoneName": phoneName ?? "",
                  "phoneUID": phoneUID ?? "",
-                 "history": History().toDictionary
+                 "history": ""
         ]
     }
     
@@ -32,7 +32,6 @@ class User {
         phoneUID = dictionary["phoneUID"] as? String ?? ""
         if let historyDict = dictionary["history"] as? NSDictionary {
             history = History(from: historyDict)
-            
         }
     }
     

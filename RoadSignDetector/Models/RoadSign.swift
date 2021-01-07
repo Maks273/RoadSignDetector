@@ -13,10 +13,14 @@ class RoadSign {
     
     var ukrainian: LocalizeRoadSign?
     var images = [String]()
+    var isFavorite = false
+    var id: String?
 
     init(from dictionary: NSDictionary) {
+        id = dictionary["id"] as? String
         images = dictionary["images"] as? [String] ?? []
         ukrainian = LocalizeRoadSign(from: dictionary["uk"] as? NSDictionary ?? [:])
+        isFavorite = dictionary["isFavorite"] as? Bool ?? false
     }
 }
 

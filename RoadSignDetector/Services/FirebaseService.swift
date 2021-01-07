@@ -47,8 +47,7 @@ class FirebaseService {
             }else{
                 self?.registerUserDevice(with: phoneUID)
             }
-            self?.loadHistoryTypeItems(for: phoneUID, for: .favorite)
-            self?.loadHistoryTypeItems(for: phoneUID, for: .all)
+            self?.loadHistoryItems(for: phoneUID)
         }
     }
     
@@ -72,36 +71,6 @@ class FirebaseService {
     
     //MARK: - Historie's types observers
     
-    func loadHistoryTypeItems(for phoneID: String, for historyType: HistoryType) {
-        let child = historyType == .all ? all : favorite
-        userDbReference.child(phoneID).child(history).child(child).observe(.value) { [weak self] (snapshot) in
-            if let value = snapshot.value as? NSDictionary {
-                if let decodedHistoryTypeData = self?.decodeDataToRoadSignArray(from: value) {
-                    self?.pushHistoryTypeData(for: historyType, data: decodedHistoryTypeData)
-                    self?.postHistoryTypeNotification(for: historyType)
-                }
-            }
-        }
-    }
-    
-    private func pushHistoryTypeData(for type: HistoryType, data: [RoadSign]) {
-        switch type {
-        case .favorite:
-            Environment.shared.currentUser?.history?.favorite = data
-        default:
-            Environment.shared.currentUser?.history?.all = data
-        }
-    }
-    
-    private func postHistoryTypeNotification(for type: HistoryType) {
-        switch type {
-        case .favorite:
-            NotificationCenter.default.post(name: .favoriteHistoryWasChanged, object: nil)
-        default:
-            NotificationCenter.default.post(name: .allHistoryWasChanged, object: nil)
-        }
-    }
-    
     func decodeDataToRoadSignArray(from dicts: NSDictionary) -> [RoadSign] {
         var decodedArray = [RoadSign]()
         
@@ -114,4 +83,33 @@ class FirebaseService {
         return decodedArray
     }
     
+    func loadHistoryItems(for phoneID: String) {
+        userDbReference.child(phoneID).child(history).observe(.value) { [weak self] (snapshot) in
+            if let value = snapshot.value as? NSDictionary {
+                if let decodedHistoryData = self?.decodeDataToRoadSignArray(from: value) {
+                    self?.fillHistoryData(data: decodedHistoryData)
+                    self?.postHistoryTypeNotification()
+                }
+            }
+        }
+    }
+    
+    private func fillHistoryData(data: [RoadSign]) {
+        Environment.shared.currentUser?.history?.all = data
+    }
+    
+    private func postHistoryTypeNotification() {
+        NotificationCenter.default.post(name: .historyWasChanged, object: nil)
+    }
+    
+    //MARK: - Make star/unstar and delete historie's item
+    
+    func removeHistoryItem(by id: String) {
+        guard let currentUserID = Environment.shared.currentUser?.phoneUID else {
+            return
+        }
+        userDbReference.child(currentUserID).child(history).child(id).removeValue { (error, _) in
+            print(error?.localizedDescription)
+        }
+    }
 }

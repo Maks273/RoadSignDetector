@@ -11,6 +11,6 @@ import UIKit
 
 extension NSNotification.Name {
     static let currentUserWasIdenfied = Notification.Name("currentUserWasIdenfied")
-    static let allHistoryWasChanged = Notification.Name("allHistoryWasChanged")
-    static let favoriteHistoryWasChanged = Notification.Name("favoriteHistoryWasChanged")
+    static let historyWasChanged = Notification.Name("historyWasChanged")
+    //static let favoriteHistoryWasChanged = Notification.Name("favoriteHistoryWasChanged")
 }

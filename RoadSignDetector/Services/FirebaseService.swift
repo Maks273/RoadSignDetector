@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseDatabase
+import ProgressHUD
 
 class FirebaseService {
     
@@ -20,8 +21,7 @@ class FirebaseService {
     
     private let phoneID = "phoneUUID"
     private let phoneName = "phoneName"
-    private let all = "all"
-    private let favorite = "favorite"
+    private let isFavorite = "isFavorite"
     private let history = "history"
     
     //MARK: - Variables
@@ -87,6 +87,7 @@ class FirebaseService {
         userDbReference.child(phoneID).child(history).observe(.value) { [weak self] (snapshot) in
             if let value = snapshot.value as? NSDictionary {
                 if let decodedHistoryData = self?.decodeDataToRoadSignArray(from: value) {
+                    ProgressHUD.show()
                     self?.fillHistoryData(data: decodedHistoryData)
                     self?.postHistoryTypeNotification()
                 }
@@ -114,5 +115,15 @@ class FirebaseService {
             }
         }
     }
+    
+    func toggleFavoriteStatus(with itemID: String, isFavoriteStatus: Bool) {
+        guard let currentUserID = Environment.shared.currentUser?.phoneUID else {
+            return
+        }
+        
+        userDbReference.child(currentUserID).child(history).child(itemID).updateChildValues([isFavorite:isFavoriteStatus])
+    }
+    
+    
 
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class DetectionHistoryVCHelper {
     
@@ -75,6 +76,26 @@ class DetectionHistoryVCHelper {
             return unfavoriteImageName
         }
         return model.isFavorite ? isFavoriteImageName : unfavoriteImageName
+    }
+    
+    func handleFavoriteStatus(for index: Int) {
+        guard let model = getModel(for: index), let modelID = model.id else {
+            return
+        }
+        
+        FirebaseService.shared.toggleFavoriteStatus(with: modelID, isFavoriteStatus: !model.isFavorite)
+    }
+    
+    func isNoDataLabelVisible() -> Bool {
+        return getNumberOfRows() == 0
+    }
+    
+    func loadHistoryData() {
+        guard let userID = Environment.shared.currentUser?.phoneUID else {
+            return
+        }
+        
+        FirebaseService.shared.loadHistoryItems(for: userID)
     }
     
     //MARK: - Private methods

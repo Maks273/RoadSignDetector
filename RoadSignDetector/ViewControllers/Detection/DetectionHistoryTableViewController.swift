@@ -91,10 +91,11 @@ extension DetectionHistoryTableViewController: UITableViewDelegate {
     //MARK: Swipe
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let favoriteAction = UIContextualAction(style: .normal, title: nil) { (action, view, status) in
+        let favoriteAction = UIContextualAction(style: .normal, title: nil) { [weak self] (action, view, status) in
             // TODO: action for set and unset cell favorite
         }
-        favoriteAction.image = prepareSwipeImage(name: "filledStar", color: .systemYellow)
+        let imageName = detectionHistoryHelper.getFavoriteImageName(for: indexPath.row)
+        favoriteAction.image = prepareSwipeImage(name: imageName, color: .systemYellow)
         favoriteAction.backgroundColor = .white
         
         return UISwipeActionsConfiguration(actions: [favoriteAction])

@@ -14,6 +14,8 @@ class DetectionHistoryVCHelper {
     
     private let favoriteHistoryIndex = 1
     private let allHistoryIndex = 0
+    private let isFavoriteImageName = "filledStar"
+    private let unfavoriteImageName = "unfilledStar"
     
     private var model = [[RoadSign]](repeating: [RoadSign](), count: 2){
         didSet{
@@ -66,6 +68,13 @@ class DetectionHistoryVCHelper {
             return
         }
         FirebaseService.shared.removeHistoryItem(by: itemID)
+    }
+    
+    func getFavoriteImageName(for index: Int) -> String {
+        guard let model = getModel(for: index) else {
+            return unfavoriteImageName
+        }
+        return model.isFavorite ? isFavoriteImageName : unfavoriteImageName
     }
     
     //MARK: - Private methods

@@ -109,7 +109,10 @@ class FirebaseService {
             return
         }
         userDbReference.child(currentUserID).child(history).child(id).removeValue { (error, _) in
-            print(error?.localizedDescription)
+            if let error = error {
+                print(error.localizedDescription)
+            }
         }
     }
+
 }

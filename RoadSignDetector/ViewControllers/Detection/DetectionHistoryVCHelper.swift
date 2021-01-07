@@ -17,6 +17,8 @@ class DetectionHistoryVCHelper {
     private let allHistoryIndex = 0
     private let isFavoriteImageName = "filledStar"
     private let unfavoriteImageName = "unfilledStar"
+    private var tempModel: [[RoadSign]]?
+    private var filterCurrentType: HistoryType?
     
     private var model = [[RoadSign]](repeating: [RoadSign](), count: 2){
         didSet{
@@ -44,11 +46,11 @@ class DetectionHistoryVCHelper {
     //MARK: - Helper
     
     func getModel(for index: Int) -> RoadSign? {
-        canGetModel(for: index) ? model[currentType == .favorite ? favoriteHistoryIndex : allHistoryIndex][index] : nil
+        canGetModel(for: index) ? model[getCurrentModelIndex()][index] : nil
     }
     
     func getNumberOfRows() -> Int {
-        return model.isEmpty ? 0 : model[currentType == .favorite ? favoriteHistoryIndex : allHistoryIndex].count
+        return model.isEmpty ? 0 : model[getCurrentModelIndex()].count
     }
     
     func observeCurrentUser() {
@@ -98,6 +100,25 @@ class DetectionHistoryVCHelper {
         FirebaseService.shared.loadHistoryItems(for: userID)
     }
     
+    func filterHistoryModel(with searchText: String) {
+   
+        let filtredModel = model[getCurrentModelIndex()].compactMap { (item) -> RoadSign? in
+            return item.localizationInfo?.title?.lowercased().contains(searchText.lowercased()) ?? false ? item : nil
+        }
+        model[getCurrentModelIndex()] = filtredModel
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            filtredModel.isEmpty ? ProgressHUD.showError("Can't find any item by searching text.", image: nil, interaction: true) : ProgressHUD.showSuccess()
+            
+        }
+    }
+    
+    func resetFilterModel() {
+        if let tempModel = tempModel {
+            model[getCurrentModelIndex()] = tempModel[getCurrentModelIndex()]
+        }
+    }
+    
     //MARK: - Private methods
     
     private func setupModel() {
@@ -106,7 +127,16 @@ class DetectionHistoryVCHelper {
             model[favoriteHistoryIndex] = currentUser.history!.all.compactMap({ (roadSign) -> RoadSign? in
                 return roadSign.isFavorite ? roadSign : nil
             })
+            tempModel = model
         }
+    }
+    
+    private func getCurrentModelIndex() -> Int {
+        return currentType == .favorite ? favoriteHistoryIndex : allHistoryIndex
+    }
+    
+    private func canGetModel(for index: Int) -> Bool {
+        return index < model[currentType == .favorite ? favoriteHistoryIndex : allHistoryIndex].count
     }
     
     //MARK: objc methods
@@ -118,10 +148,6 @@ class DetectionHistoryVCHelper {
     @objc private func historySourceWasChanged(_ notification: Notification) {
         print("historySourceWasChanged".capitalized)
         setupModel()
-    }
-    
-    private func canGetModel(for index: Int) -> Bool {
-        return index < model[currentType == .favorite ? favoriteHistoryIndex : allHistoryIndex].count
     }
     
 }

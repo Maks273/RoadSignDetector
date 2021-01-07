@@ -195,6 +195,7 @@
                     <connections>
                         <outlet property="historyHeaderView" destination="D7q-Sv-QFp" id="Plx-NA-zRw"/>
                         <outlet property="historyTableView" destination="fBX-n4-IRQ" id="S9J-Er-MWA"/>
+                        <outlet property="searchView" destination="t3r-f4-bHp" id="MoX-nd-hUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xw-nZ-fKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

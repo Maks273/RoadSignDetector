@@ -11,12 +11,13 @@ import UIKit
 class HistoryTableViewCell: UITableViewCell {
     
     //MARK: - IBOutlets
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var signImageView: UIImageView!
     @IBOutlet weak var signTitleLabel: UILabel!
     @IBOutlet weak var signDescriptionLabel: UILabel!
 
-    //MARK: - Override funcs
+    //MARK: - Overrided funcs
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,10 +32,9 @@ class HistoryTableViewCell: UITableViewCell {
     
     func configure(with model: RoadSign) {
         configureStyle()
-        signTitleLabel.text = model.ukrainian?.title
-        signDescriptionLabel.text = model.ukrainian?.description
+        signTitleLabel.text = model.localizationInfo?.title
+        signDescriptionLabel.text = model.localizationInfo?.description
     }
-
     
     //MARK: - Private methods
     

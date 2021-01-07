@@ -15,4 +15,5 @@ class Environment {
     static let shared = Environment()
     
     var currentUser: User?
+    var currentLocalizationInfo: LocalizationInfo = .ukrainian
 }

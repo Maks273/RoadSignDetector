@@ -18,7 +18,8 @@ class DetectionHistoryTableViewController: UIViewController {
             historyTableView.tableFooterView = UIView()
         }
     }
-
+    @IBOutlet weak var searchView: SearchView!
+    
     
     //MARK: - Variables
     private let cellIdentifire = "historyCell"
@@ -39,15 +40,20 @@ class DetectionHistoryTableViewController: UIViewController {
         setTargetForRefreshControll()
     }
     
+    //MARK: - IBActions
+    
+    
     //MARK: - Private methods
     
     private func reloadTableView() {
         ProgressHUD.show()
+        
         detectionHistoryHelper.modelWasAdded = { [weak self] in
             self?.historyTableView.reloadData()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                ProgressHUD.dismiss()
-            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            ProgressHUD.dismiss()
         }
     }
     
@@ -56,6 +62,7 @@ class DetectionHistoryTableViewController: UIViewController {
         historyTableView.delegate = self
         historyTableView.dataSource = self
         historyHeaderView.delegate = self
+        searchView.delegate = self
         historyTableView.refreshControl = refreshControll
     }
     
@@ -165,5 +172,18 @@ extension DetectionHistoryTableViewController: UITableViewDataSource {
 extension DetectionHistoryTableViewController: HistoryHeaderDelegate {    
     func changeCurrentSelectedHistoryType(for tag: Int) {
         detectionHistoryHelper.setCurrentHistoryType(for: tag)
+    }
+}
+
+//MARK: - SearchViewDelegate
+
+extension DetectionHistoryTableViewController: SearchViewDelegate {
+    func filterModel(with searchText: String) {
+        ProgressHUD.show()
+        detectionHistoryHelper.filterHistoryModel(with: searchText)
+    }
+    
+    func resetFilterModel() {
+        detectionHistoryHelper.resetFilterModel()
     }
 }

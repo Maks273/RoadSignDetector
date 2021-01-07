@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SearchViewDelegate: class {
+    func filterModel(with searchText: String)
+    func resetFilterModel()
+}
+
 class SearchView: UIView {
     
     //MARK: - IBOutlets
@@ -18,6 +23,17 @@ class SearchView: UIView {
         didSet {
             setSearchImageView()
         }
+    }
+    
+    //MARK: - Variables
+    
+    private var timer: Timer?
+    weak var delegate: SearchViewDelegate?
+    
+    //MARK: - Initalizer/Deinitalizer
+    
+    deinit {
+        invalidateTimer()
     }
     
     //MARK: - Initalizers
@@ -66,9 +82,29 @@ class SearchView: UIView {
         searchImageView.image = UIImage(named: "searchIcon")?.withAlignmentRectInsets(UIEdgeInsets(top: -5, left: -5, bottom: -5, right: -5))
     }
     
+    private func invalidateTimer() {
+        if let timer = timer {
+            timer.invalidate()
+        }
+    }
+    
+    private func launchFilteringTimer(searchText: String) {
+        invalidateTimer()
+        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(filteringTimerLaunched), userInfo: ["searchText": searchText], repeats: false)
+    }
+    
+    @objc private func filteringTimerLaunched(_ timer: Timer) {
+        if let userInfoDict = timer.userInfo as? [String:String] {
+            if let searchText = userInfoDict["searchText"] {
+                !searchText.isEmpty ? delegate?.filterModel(with: searchText) : delegate?.resetFilterModel()
+            }
+        }
+    }
+    
     //MARK: - IBActions
-    
-    
+    @IBAction func editingChanged(_ sender: UITextField) {
+        
+    }
     
 }
 
@@ -77,6 +113,16 @@ class SearchView: UIView {
 extension SearchView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         containerView.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        delegate?.resetFilterModel()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        launchFilteringTimer(searchText: textField.text ?? "")
         return true
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseDatabase
+import FirebaseStorage
 import ProgressHUD
 
 class FirebaseService {
@@ -18,11 +19,16 @@ class FirebaseService {
     private let roadSigns = "roadSigns"
     
     //MARK: User's fields
-    
     private let phoneID = "phoneUUID"
     private let phoneName = "phoneName"
     private let isFavorite = "isFavorite"
     private let history = "history"
+    
+    //MARK: Storage's fields
+    private let images = "images"
+    
+    //MARK: Storage references
+    private let imageStorageReference = Storage.storage().reference().child("images")
     
     //MARK: - Variables
     
@@ -124,6 +130,20 @@ class FirebaseService {
         userDbReference.child(currentUserID).child(history).child(itemID).updateChildValues([isFavorite:isFavoriteStatus])
     }
     
+    //MARK: - Image loading
+    
+    func loadImages(imageName: String, completion: @escaping (_ data: Data?, _ error: Error?) -> Void) {
+        //var downloadedData = [Data]()
+        //for imageName in imagesName {
+            imageStorageReference.child(imageName).getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                if let error = error {
+                    completion(nil,error)
+                }else {
+                    completion(data,nil)
+                }
+            }
+        //}
+    }
     
 
 }

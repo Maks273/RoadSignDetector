@@ -9,11 +9,18 @@
 import UIKit
 
 class Environment {
-    
-    private init() {}
+  
+    //MARK: - Variables
     
     static let shared = Environment()
     
     var currentUser: User?
     var currentLocalizationInfo: LocalizationInfo = .ukrainian
+    
+    //MARK: - Initalizer
+    
+    private init() {}
+    
+    //MARK: - Helper
+    
 }

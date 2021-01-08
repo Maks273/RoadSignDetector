@@ -36,9 +36,19 @@ class RoadSign {
     
     init(from dictionary: NSDictionary) {
         id = dictionary["id"] as? String
-        images = dictionary["images"] as? [String] ?? []
+        decodeImageArray(from: dictionary["images"] as? NSDictionary ?? [:])
         ukrainian = LocalizeRoadSign(from: dictionary["uk"] as? NSDictionary ?? [:])
         isFavorite = dictionary["isFavorite"] as? Bool ?? false
+    }
+    
+    //MARK: - Private methods
+    
+    private func decodeImageArray(from dict: NSDictionary) {
+        for item in dict {
+            if let itemValue = item.value as? String {
+                images.append(itemValue)
+            }
+        }
     }
 }
 

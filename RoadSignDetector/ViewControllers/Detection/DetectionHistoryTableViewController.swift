@@ -31,12 +31,12 @@ class DetectionHistoryTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        detectionHistoryHelper.observeCurrentUser()
+        reloadTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        detectionHistoryHelper.observeCurrentUser()
-        reloadTableView()
         setTargetForRefreshControll()
     }
     
@@ -47,7 +47,6 @@ class DetectionHistoryTableViewController: UIViewController {
     
     private func reloadTableView() {
         ProgressHUD.show()
-        
         detectionHistoryHelper.modelWasAdded = { [weak self] in
             self?.historyTableView.reloadData()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

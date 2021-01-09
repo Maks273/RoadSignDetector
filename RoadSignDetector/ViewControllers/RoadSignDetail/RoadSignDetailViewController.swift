@@ -17,6 +17,7 @@ class RoadSignDetailViewController: UIViewController {
     @IBOutlet weak var expandedSoundContainerView: UIView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var imagePageControll: UIPageControl!
+    @IBOutlet weak var expandedSoundView: ExpandedSoundView!
     
     //MARK: - Variables
     let detailHelper = RoadSignDetailVCHelper()
@@ -27,12 +28,14 @@ class RoadSignDetailViewController: UIViewController {
         super.viewDidLoad()
         configureHeaderViewStyle()
         configureCollectionView()
+        expandedSoundView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fillData()
         reloadImageCollectionView()
+        showSoundLoadingError()
     }
     
     //MARK: - IBActions
@@ -98,7 +101,18 @@ class RoadSignDetailViewController: UIViewController {
         imagePageControll.currentPage = pageNumber
     }
     
-
+    private func showSoundLoadingError() {
+        detailHelper.errorWithLoading = { [weak self] errorMessage in
+            self?.showAlert(with: errorMessage)
+        }
+    }
+    
+    private func showAlert(with message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -120,8 +134,16 @@ extension RoadSignDetailViewController: UICollectionViewDataSource {
     
 }
 
-//MARK: - ICollectionViewDelegate
+//MARK: - UICollectionViewDelegate
 
 extension RoadSignDetailViewController: UICollectionViewDelegate {
     
+}
+
+//MARK: - ExpandedSoundDelegate
+
+extension RoadSignDetailViewController: ExpandedSoundDelegate {
+    func callSpecificHandler(for tag: Int) {
+        detailHelper.soundHandler(for: tag)
+    }
 }

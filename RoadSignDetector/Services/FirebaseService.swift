@@ -29,6 +29,7 @@ class FirebaseService {
     
     //MARK: Storage references
     private let imageStorageReference = Storage.storage().reference().child("images")
+    private let soundStrageReference = Storage.storage().reference().child("sounds")
     
     //MARK: - Variables
     
@@ -134,11 +135,15 @@ class FirebaseService {
     
     func loadImages(imageName: String, completion: @escaping (_ data: Data?, _ error: Error?) -> Void) {
         imageStorageReference.child(imageName).getData(maxSize: 1 * 1024 * 1024) { (data, error) in
-            if let error = error {
-                completion(nil,error)
-            }else {
-                completion(data,nil)
-            }
+            completion(data,error)
+        }
+    }
+    
+    //MARK: - Loading sound
+    
+    func loadSound(soundName: String, completion: @escaping (_ data: Data?, _ error: Error?) -> Void) {
+        soundStrageReference.child(soundName).getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            completion(data,error)
         }
     }
     

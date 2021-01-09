@@ -8,12 +8,21 @@
 
 import UIKit
 
+protocol ExpandedSoundDelegate: class {
+    func callSpecificHandler(for tag: Int)
+}
+
 class ExpandedSoundView: UIView {
     
     //MARK: - IBOutlets
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var buttonStackView: UIStackView!
-
+    @IBOutlet var soundControllButtons: [UIButton]!
+    
+    //MARK: - Variables
+    
+    weak var delegate: ExpandedSoundDelegate?
+    
     //MARK: - Initalizers
     
     override init(frame: CGRect) {
@@ -45,11 +54,17 @@ class ExpandedSoundView: UIView {
         containerView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
     }
     
-    //MARK: - IBActions
-    
-    @IBAction func collapsedBtnWasPressed(_ sender: Any) {
-        
+    private func toggleButtonColor(with tag: Int) {
+        for soundButton in soundControllButtons {
+            soundButton.isSelected = soundButton.tag == tag ? true : false
+            soundButton.tintColor = soundButton.isSelected ? .systemPurple : .black
+        }
     }
     
-
+    //MARK: - IBActions
+    
+    @IBAction func soundControllBtnPressed(_ sender: UIButton) {
+        toggleButtonColor(with: sender.tag)
+        delegate?.callSpecificHandler(for: sender.tag)
+    }
 }

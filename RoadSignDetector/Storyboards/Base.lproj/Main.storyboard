@@ -179,6 +179,7 @@
                     </view>
                     <connections>
                         <outlet property="expandedSoundContainerView" destination="skI-VO-LTM" id="EzW-5S-Qqz"/>
+                        <outlet property="expandedSoundView" destination="uBG-H0-v3T" id="e8C-gL-zPZ"/>
                         <outlet property="headerView" destination="aXk-Am-cW8" id="uuO-fp-06j"/>
                         <outlet property="imageCollectionView" destination="Ggw-cv-ni2" id="fnE-WR-cTB"/>
                         <outlet property="imagePageControll" destination="QX7-Jf-KJB" id="QaH-dg-Cx2"/>

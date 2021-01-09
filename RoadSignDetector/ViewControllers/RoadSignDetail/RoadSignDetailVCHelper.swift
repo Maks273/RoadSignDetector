@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RoadSignDetailVCHelper {
     
@@ -17,10 +18,13 @@ class RoadSignDetailVCHelper {
             loadImages {
                 self.didLoadImages?(self.images.count)
             }
+            loadSound()
         }
     }
     private var images = [UIImage?]()
+    private var sound: AVAudioPlayer?
     var didLoadImages: ((_ imagesCount: Int) -> Void)?
+    var errorWithLoading: ((_ errorMessage: String) -> Void)?
     
     //MARK: - Helper
     
@@ -49,10 +53,28 @@ class RoadSignDetailVCHelper {
         return collectionView.indexPathForItem(at: visiblePoint)?.item ?? 0
     }
     
+    func soundHandler(for tag: Int) {
+        guard isSoundValid() else {
+            return
+        }
+        
+        switch tag {
+        case 0:
+            sound?.play()
+        case 1:
+            sound?.pause()
+        case 2:
+            sound?.currentTime = 0
+            sound?.play()
+        default:
+            sound?.stop()
+        }
+    }
+    
     //MARK: - Private methods
     
     private func loadImages(completion: @escaping () -> Void) {
-        guard model != nil, !model.images.isEmpty else {
+        guard isModelValid(), !model.images.isEmpty else {
             return
         }
     
@@ -71,4 +93,34 @@ class RoadSignDetailVCHelper {
         return index < model.images.count
     }
     
+    private func isModelValid() -> Bool {
+        return model != nil
+    }
+    
+    private func loadSound() {
+        guard isModelValid(),
+              let localizeInfo = model.localizationInfo,
+              let soundName = localizeInfo.soundName,
+              !soundName.isEmpty
+        else {
+            return
+        }
+        
+        FirebaseService.shared.loadSound(soundName: soundName) { [weak self] (data, error) in
+            if let error = error {
+                self?.errorWithLoading?(error.localizedDescription)
+            }else {
+                do {
+                    self?.sound = try AVAudioPlayer(data: data!)
+                    self?.sound?.play()
+                }catch (let error) {
+                    self?.errorWithLoading?(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    private func isSoundValid() -> Bool {
+        return sound != nil
+    }
 }

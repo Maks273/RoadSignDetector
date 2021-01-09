@@ -61,6 +61,7 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     private func loadImage(with imageName: String) {
+        signImageView.image = nil
         FirebaseService.shared.loadImages(imageName: imageName) { [weak self] (data, error) in
             if let error = error {
                 NSLog("ERROR with loading image = \(imageName) -> ", error.localizedDescription)

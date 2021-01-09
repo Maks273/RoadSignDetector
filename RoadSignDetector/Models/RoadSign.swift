@@ -57,14 +57,14 @@ class LocalizeRoadSign: Codable {
     //MARK: - Variables
     
     var description: String?
-    var soundStringURL: String?
+    var soundName: String?
     var title: String?
     
     //MARK: - Initalizer
     
     init(from dictionary: NSDictionary) {
         description = String(dictionary["description"] as? String ?? "")
-        soundStringURL = dictionary["sound"] as? String
+        soundName = dictionary["sound"] as? String
         title = dictionary["title"] as? String
     }
 }

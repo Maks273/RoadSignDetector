@@ -99,6 +99,7 @@ class DetectionHistoryTableViewController: UIViewController {
     private func openDetailVC(for model: RoadSign) {
         let detailVC = StorybardService.main.viewController(viewControllerClass: RoadSignDetailViewController.self)
         detailVC.modalPresentationStyle = .fullScreen
+        detailVC.detailHelper.setModel(model)
         present(detailVC, animated: true, completion: nil)
     }
 }

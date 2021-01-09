@@ -13,6 +13,9 @@
             <connections>
                 <outlet property="buttonStackView" destination="k0q-aV-cnO" id="0pN-bE-S6s"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="bmA-Ng-w5X"/>
+                <outletCollection property="soundControllButtons" destination="B4p-bm-wcw" collectionClass="NSMutableArray" id="gdg-RS-OUQ"/>
+                <outletCollection property="soundControllButtons" destination="OcF-dQ-sJr" collectionClass="NSMutableArray" id="MlP-kq-Kd2"/>
+                <outletCollection property="soundControllButtons" destination="W3G-sX-gPl" collectionClass="NSMutableArray" id="BSy-j1-uhJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,16 +30,25 @@
                             <rect key="frame" x="0.0" y="0.0" width="26" height="30"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="play.fill" catalog="system"/>
+                            <connections>
+                                <action selector="soundControllBtnPressed:" destination="-1" eventType="touchUpInside" id="r9o-HK-7uB"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcF-dQ-sJr">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcF-dQ-sJr">
                             <rect key="frame" x="31" y="0.0" width="26" height="30"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="pause.fill" catalog="system"/>
+                            <connections>
+                                <action selector="soundControllBtnPressed:" destination="-1" eventType="touchUpInside" id="q4O-Zj-60T"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3G-sX-gPl">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3G-sX-gPl">
                             <rect key="frame" x="62" y="0.0" width="26" height="30"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="arrow.counterclockwise.circle" catalog="system"/>
+                            <connections>
+                                <action selector="soundControllBtnPressed:" destination="-1" eventType="touchUpInside" id="SJz-Kt-OVr"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

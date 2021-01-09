@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpE-tV-UA3">
-                                <rect key="frame" x="95" y="5" width="256" height="28"/>
+                                <rect key="frame" x="100" y="5" width="251" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="Z8N-bW-N7j"/>
                                 </constraints>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8q-vN-3fp">
-                                <rect key="frame" x="95" y="38" width="256" height="23.5"/>
+                                <rect key="frame" x="100" y="38" width="251" height="23.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,10 +48,10 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="l8q-vN-3fp" secondAttribute="bottom" constant="5" id="0GS-13-7Qb"/>
                             <constraint firstItem="l8q-vN-3fp" firstAttribute="top" secondItem="FpE-tV-UA3" secondAttribute="bottom" constant="5" id="2wz-rO-r4v"/>
-                            <constraint firstItem="FpE-tV-UA3" firstAttribute="leading" secondItem="QTa-lf-Sch" secondAttribute="trailing" constant="5" id="C6p-2Z-guZ"/>
+                            <constraint firstItem="FpE-tV-UA3" firstAttribute="leading" secondItem="QTa-lf-Sch" secondAttribute="trailing" constant="10" id="C6p-2Z-guZ"/>
                             <constraint firstItem="QTa-lf-Sch" firstAttribute="top" secondItem="Tvz-WA-x2H" secondAttribute="top" constant="5" id="EuA-f5-o0g"/>
                             <constraint firstAttribute="bottom" secondItem="QTa-lf-Sch" secondAttribute="bottom" constant="5" id="Zlq-z1-f2W"/>
-                            <constraint firstItem="l8q-vN-3fp" firstAttribute="leading" secondItem="QTa-lf-Sch" secondAttribute="trailing" constant="5" id="adx-s5-bne"/>
+                            <constraint firstItem="l8q-vN-3fp" firstAttribute="leading" secondItem="QTa-lf-Sch" secondAttribute="trailing" constant="10" id="adx-s5-bne"/>
                             <constraint firstAttribute="trailing" secondItem="FpE-tV-UA3" secondAttribute="trailing" constant="10" id="eBw-So-BkZ"/>
                             <constraint firstItem="FpE-tV-UA3" firstAttribute="top" secondItem="Tvz-WA-x2H" secondAttribute="top" constant="5" id="h7W-B7-dP8"/>
                             <constraint firstItem="QTa-lf-Sch" firstAttribute="leading" secondItem="Tvz-WA-x2H" secondAttribute="leading" constant="10" id="z0Z-Hn-CDa"/>

@@ -94,7 +94,6 @@ class FirebaseService {
         userDbReference.child(phoneID).child(history).observe(.value) { [weak self] (snapshot) in
             if let value = snapshot.value as? NSDictionary {
                 if let decodedHistoryData = self?.decodeDataToRoadSignArray(from: value) {
-                    ProgressHUD.show()
                     self?.fillHistoryData(data: decodedHistoryData)
                     self?.postHistoryTypeNotification()
                 }

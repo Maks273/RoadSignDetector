@@ -16,6 +16,7 @@ class Environment {
     
     var currentUser: User?
     var currentLocalizationInfo: LocalizationInfo = .ukrainian
+    var selectedTabIndex: Int = 1
     
     //MARK: - Initalizer
     

@@ -38,6 +38,10 @@ class DetectionHistoryVCHelper {
     
     //MARK: - Initalizer/Deinitalizer
     
+    init() {
+        setupModel()
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: .currentUserWasIdenfied, object: nil)
         NotificationCenter.default.removeObserver(self,name: .historyWasChanged, object: nil)
@@ -116,6 +120,12 @@ class DetectionHistoryVCHelper {
     func resetFilterModel() {
         if let tempModel = tempModel {
             model[getCurrentModelIndex()] = tempModel[getCurrentModelIndex()]
+        }
+    }
+    
+    func showLoadingSpinner() {
+        if Environment.shared.selectedTabIndex == 0 {
+            ProgressHUD.show()
         }
     }
     

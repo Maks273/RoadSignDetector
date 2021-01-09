@@ -87,10 +87,18 @@ class RoadSignDetailViewController: UIViewController {
     }
     
     private func reloadImageCollectionView() {
-        detailHelper.didLoadImages = { [weak self] in
+        detailHelper.didLoadImages = { [weak self] imagesCount in
             self?.imageCollectionView.reloadData()
+            self?.imagePageControll.numberOfPages = imagesCount
         }
     }
+    
+    private func changeCurrentPage() {
+        let pageNumber = detailHelper.getIndexForVisibleCell(in: imageCollectionView)
+        imagePageControll.currentPage = pageNumber
+    }
+    
+
 }
 
 //MARK: - UICollectionViewDataSource
@@ -104,6 +112,10 @@ extension RoadSignDetailViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roadSignImageCell", for: indexPath) as! RoadSignImageCollectionViewCell
         cell.setupImage(detailHelper.getImage(for: indexPath.row))
         return cell
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        changeCurrentPage()
     }
     
 }

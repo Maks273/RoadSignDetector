@@ -15,12 +15,12 @@ class RoadSignDetailVCHelper {
     private var model: RoadSign! {
         didSet {
             loadImages {
-                self.didLoadImages?()
+                self.didLoadImages?(self.images.count)
             }
         }
     }
     private var images = [UIImage?]()
-    var didLoadImages: (() -> Void)?
+    var didLoadImages: ((_ imagesCount: Int) -> Void)?
     
     //MARK: - Helper
     
@@ -38,6 +38,15 @@ class RoadSignDetailVCHelper {
     
     func getModel() -> RoadSign {
         return model
+    }
+    
+    func getIndexForVisibleCell(in collectionView: UICollectionView) -> Int {
+        var visibleRect = CGRect()
+        visibleRect.origin = collectionView.contentOffset
+        visibleRect.size = collectionView.bounds.size
+        
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        return collectionView.indexPathForItem(at: visiblePoint)?.item ?? 0
     }
     
     //MARK: - Private methods

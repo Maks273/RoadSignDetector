@@ -121,6 +121,12 @@ class RoadSignDetailViewController: UIViewController {
         }
     }
     
+    private func showFocuseImageVC(with image: UIImage?) {
+        let focusedImageVC = FocusedImageViewController()
+        focusedImageVC.image = image
+        present(focusedImageVC, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -132,19 +138,21 @@ extension RoadSignDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roadSignImageCell", for: indexPath) as! RoadSignImageCollectionViewCell
-        cell.setupImage(detailHelper.getImage(for: indexPath.row))
+        cell.setupImage(detailHelper.getImage(for: indexPath.item))
         return cell
     }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        changeCurrentPage()
-    }
-    
 }
 
 //MARK: - UICollectionViewDelegate
 
 extension RoadSignDetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showFocuseImageVC(with: detailHelper.getImage(for: indexPath.item))
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        changeCurrentPage()
+    }
     
 }
 

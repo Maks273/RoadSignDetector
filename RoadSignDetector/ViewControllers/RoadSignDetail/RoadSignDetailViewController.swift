@@ -93,6 +93,7 @@ class RoadSignDetailViewController: UIViewController {
         detailHelper.didLoadImages = { [weak self] imagesCount in
             self?.imageCollectionView.reloadData()
             self?.imagePageControll.numberOfPages = imagesCount
+            self?.animateAppearingImageCollection()
         }
     }
     
@@ -111,6 +112,13 @@ class RoadSignDetailViewController: UIViewController {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func animateAppearingImageCollection() {
+        UIView.animate(withDuration: 1) {
+            self.imagePageControll.alpha = 1
+            self.imageCollectionView.alpha = 1
+        }
     }
     
 }

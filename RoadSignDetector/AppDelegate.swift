@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Bundle.swizzleLocalization()
         FirebaseApp.configure()
         handleUserAuthorization()
+        let neteo = NetworkService.shared
         return true
     }
 

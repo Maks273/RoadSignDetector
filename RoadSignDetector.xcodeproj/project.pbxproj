@@ -48,6 +48,7 @@
 		2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE379B2573A3B1006A4DF1 /* AudioView.swift */; };
 		2DCE6B0825A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE6B0725A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift */; };
 		2DCE6B2425A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE6B2325A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift */; };
+		2DD3DB8625AA4A1F00FC5614 /* ScanningVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */; };
 		2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */; };
 		388F6F3B13460BF69EC27602 /* Pods_RoadSignDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714ADB849EBC5A75617A2DEA /* Pods_RoadSignDetector.framework */; };
 /* End PBXBuildFile section */
@@ -102,6 +103,7 @@
 		2DCE379B2573A3B1006A4DF1 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		2DCE6B0725A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadSignDetailVCHelper.swift; sourceTree = "<group>"; };
 		2DCE6B2325A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadSignImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVCHelper.swift; sourceTree = "<group>"; };
 		2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedImageViewController.swift; sourceTree = "<group>"; };
 		7032170E2571DEED8D1F222C /* Pods-RoadSignDetector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadSignDetector.debug.xcconfig"; path = "Target Support Files/Pods-RoadSignDetector/Pods-RoadSignDetector.debug.xcconfig"; sourceTree = "<group>"; };
 		714ADB849EBC5A75617A2DEA /* Pods_RoadSignDetector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadSignDetector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,7 +295,7 @@
 				2DBB5687257296A9005048CE /* TabBarViewController.swift */,
 				2DCE379F2573FDE0006A4DF1 /* SettingsVC */,
 				2D70842B25A5C47C005B59C7 /* DetectionVC */,
-				2D4ED6032572DF1900E6039E /* ScanningViewController.swift */,
+				2DD3DB8325AA4A0B00FC5614 /* ScanningVС */,
 				2DCE6B0625A8CF7700D4B2D1 /* RoadSignDetailVC */,
 			);
 			path = ViewControllers;
@@ -363,6 +365,15 @@
 				2DCE6B2325A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift */,
 			);
 			path = RoadSignImageCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		2DD3DB8325AA4A0B00FC5614 /* ScanningVС */ = {
+			isa = PBXGroup;
+			children = (
+				2D4ED6032572DF1900E6039E /* ScanningViewController.swift */,
+				2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */,
+			);
+			path = "ScanningVС";
 			sourceTree = "<group>";
 		};
 		2DD798DB25AA1C9A000792A6 /* FocusedImageVC */ = {
@@ -520,6 +531,7 @@
 				2D9949B32578004D00015967 /* StringExtension.swift in Sources */,
 				2D2A155225A4E3A8002F0E81 /* Environment.swift in Sources */,
 				2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */,
+				2DD3DB8625AA4A1F00FC5614 /* ScanningVCHelper.swift in Sources */,
 				2DBB569B25729A90005048CE /* SettingsTableViewController.swift in Sources */,
 				2D22A8DA2576EC0000BFEE2D /* LanguageItemTableViewCell.swift in Sources */,
 				2DBB56A025729B0F005048CE /* UIViewControllerExtension.swift in Sources */,

@@ -51,6 +51,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app uses the photos to load photos to the app.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses the camera to take photos to the app.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

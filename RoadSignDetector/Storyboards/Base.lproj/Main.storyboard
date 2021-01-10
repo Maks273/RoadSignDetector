@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -285,13 +286,89 @@
                     <view key="view" contentMode="scaleToFill" id="YBL-ug-CQG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanningBg" translatesAutoresizingMaskIntoConstraints="NO" id="ahZ-cH-6YP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaN-xU-JD9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Md4-tT-pFz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="systemUltraThinMaterialDark"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixf-Ct-RRr">
+                                <rect key="frame" x="0.0" y="388" width="414" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8v-6L-r5V">
+                                        <rect key="frame" x="10" y="5" width="394" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Ehh-3g-drg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Load from Photos">
+                                            <color key="titleColor" systemColor="systemPurpleColor"/>
+                                            <imageReference key="image" image="photo.on.rectangle" catalog="system" symbolScale="medium"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openGalleryBtnPressed:" destination="BZ3-rX-fqk" eventType="touchUpInside" id="FTX-f8-oKy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4R4-jQ-AVJ">
+                                        <rect key="frame" x="10" y="65" width="394" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3bg-L5-RDD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Open Camera" image="camera.fill" catalog="system">
+                                            <color key="titleColor" systemColor="systemPurpleColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openCameraBtnPressed:" destination="BZ3-rX-fqk" eventType="touchUpInside" id="ns6-8g-Yjs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="q8v-6L-r5V" firstAttribute="leading" secondItem="ixf-Ct-RRr" secondAttribute="leading" constant="10" id="3cC-0B-Dh7"/>
+                                    <constraint firstItem="q8v-6L-r5V" firstAttribute="top" secondItem="ixf-Ct-RRr" secondAttribute="top" constant="5" id="FBn-h0-UIS"/>
+                                    <constraint firstAttribute="trailing" secondItem="4R4-jQ-AVJ" secondAttribute="trailing" constant="10" id="Qf1-p0-81T"/>
+                                    <constraint firstAttribute="trailing" secondItem="q8v-6L-r5V" secondAttribute="trailing" constant="10" id="e9p-GQ-bAP"/>
+                                    <constraint firstItem="4R4-jQ-AVJ" firstAttribute="leading" secondItem="ixf-Ct-RRr" secondAttribute="leading" constant="10" id="i1f-FB-UcY"/>
+                                    <constraint firstItem="4R4-jQ-AVJ" firstAttribute="top" secondItem="q8v-6L-r5V" secondAttribute="bottom" constant="10" id="o4l-bL-XdN"/>
+                                    <constraint firstAttribute="bottom" secondItem="4R4-jQ-AVJ" secondAttribute="bottom" constant="5" id="wVl-l3-cRi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aCT-I5-JEv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RaN-xU-JD9" firstAttribute="leading" secondItem="aCT-I5-JEv" secondAttribute="leading" id="7ND-5O-S1F"/>
+                            <constraint firstItem="ixf-Ct-RRr" firstAttribute="leading" secondItem="aCT-I5-JEv" secondAttribute="leading" id="CRi-cV-Nee"/>
+                            <constraint firstItem="RaN-xU-JD9" firstAttribute="top" secondItem="YBL-ug-CQG" secondAttribute="top" id="E3z-jp-Q8I"/>
+                            <constraint firstItem="aCT-I5-JEv" firstAttribute="trailing" secondItem="ixf-Ct-RRr" secondAttribute="trailing" id="HaS-zF-ieS"/>
+                            <constraint firstItem="RaN-xU-JD9" firstAttribute="trailing" secondItem="aCT-I5-JEv" secondAttribute="trailing" id="Hwd-3k-zsV"/>
+                            <constraint firstItem="ixf-Ct-RRr" firstAttribute="centerX" secondItem="YBL-ug-CQG" secondAttribute="centerX" id="VRh-mm-eVH"/>
+                            <constraint firstItem="ixf-Ct-RRr" firstAttribute="centerY" secondItem="YBL-ug-CQG" secondAttribute="centerY" id="eoX-YX-ppk"/>
+                            <constraint firstAttribute="bottom" secondItem="ahZ-cH-6YP" secondAttribute="bottom" id="iwZ-9a-YaP"/>
+                            <constraint firstItem="ahZ-cH-6YP" firstAttribute="trailing" secondItem="aCT-I5-JEv" secondAttribute="trailing" id="jdM-qw-NyT"/>
+                            <constraint firstItem="ahZ-cH-6YP" firstAttribute="top" secondItem="YBL-ug-CQG" secondAttribute="top" id="kKO-7a-PN1"/>
+                            <constraint firstItem="ahZ-cH-6YP" firstAttribute="leading" secondItem="aCT-I5-JEv" secondAttribute="leading" id="nGW-l4-cdV"/>
+                            <constraint firstAttribute="bottom" secondItem="RaN-xU-JD9" secondAttribute="bottom" id="trC-Kf-BIp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="openCameraBtn" destination="4R4-jQ-AVJ" id="QTB-2f-hXY"/>
+                        <outlet property="openGalleryBtn" destination="q8v-6L-r5V" id="7Dw-nr-tZm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5j-En-qsm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="129"/>
+            <point key="canvasLocation" x="173.91304347826087" y="128.57142857142856"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -359,9 +436,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="garbageIcon" width="90" height="90"/>
         <image name="leftArrow" width="172" height="280"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="rightArrow" width="172" height="280"/>
+        <image name="scanningBg" width="563" height="846"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

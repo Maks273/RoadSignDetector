@@ -18,10 +18,14 @@ class ScanningViewController: UIViewController {
     @IBOutlet weak var openGalleryBtn: UIButton!
     @IBOutlet weak var openCameraBtn: UIButton!
     
-    
     //MARK: - Variables
     
     private var imagePicker = UIImagePickerController()
+    private var pickedImage: UIImage? {
+        didSet {
+            showConfirmAlert()
+        }
+    }
     
     //MARK: - Life cycles
     
@@ -117,13 +121,25 @@ class ScanningViewController: UIViewController {
         }
     }
     
+    private func showConfirmAlert() {
+        dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "Detection preprocess", message: "Are you sure to start detecting process?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ready", style: .default, handler: { (action) in
+            //TODO will start detection process and show progressHUD etc
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 
 extension ScanningViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("didFinishPickingMediaWithInfo")
+        if let image = info[.originalImage] as? UIImage {
+            pickedImage = image
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

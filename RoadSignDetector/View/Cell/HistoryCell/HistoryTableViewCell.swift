@@ -34,7 +34,7 @@ class HistoryTableViewCell: UITableViewCell {
         configureStyle()
         signTitleLabel.text = model.localizationInfo?.title
         signDescriptionLabel.text = model.localizationInfo?.description
-        loadImage(with: model.images[0])
+        loadAvatarSignImage(from: model)
         animateAppearing()
     }
     
@@ -58,6 +58,13 @@ class HistoryTableViewCell: UITableViewCell {
         containerView.layer.shadowRadius = 6
         containerView.layer.shadowOpacity = 0.3
         containerView.layer.shadowOffset = CGSize(width: 0, height: 3)
+    }
+    
+    private func loadAvatarSignImage(from model: RoadSign) {
+        guard !model.images.isEmpty, let imageName = model.images.first else {
+            return
+        }
+        loadImage(with: imageName)
     }
     
     private func loadImage(with imageName: String) {

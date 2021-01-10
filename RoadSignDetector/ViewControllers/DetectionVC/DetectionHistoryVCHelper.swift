@@ -38,6 +38,10 @@ class DetectionHistoryVCHelper {
     
     //MARK: - Initalizer/Deinitalizer
     
+    init() {
+        setupModel()
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: .currentUserWasIdenfied, object: nil)
         NotificationCenter.default.removeObserver(self,name: .historyWasChanged, object: nil)
@@ -119,11 +123,17 @@ class DetectionHistoryVCHelper {
         }
     }
     
+    func showLoadingSpinner() {
+        if Environment.shared.selectedTabIndex == 0 {
+            ProgressHUD.show()
+        }
+    }
+    
     //MARK: - Private methods
     
     private func setupModel() {
         if let currentUser = Environment.shared.currentUser {
-            model[allHistoryIndex] = currentUser.history!.all
+            model[allHistoryIndex] = currentUser.history?.all ?? []
             model[favoriteHistoryIndex] = currentUser.history!.all.compactMap({ (roadSign) -> RoadSign? in
                 return roadSign.isFavorite ? roadSign : nil
             })

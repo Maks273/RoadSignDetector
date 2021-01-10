@@ -8,6 +8,7 @@
 
 import UIKit
 import SOTabBar
+import ProgressHUD
 
 enum BarItems {
     case settings
@@ -37,6 +38,7 @@ class TabBarViewController: SOTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         setupBarItems()
     }
 
@@ -84,4 +86,10 @@ class TabBarViewController: SOTabBarController {
 
 }
 
+extension TabBarViewController: SOTabBarControllerDelegate {
+    func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController) {
+        Environment.shared.selectedTabIndex = ((viewController as? DetectionHistoryTableViewController) != nil) ? 0 : 1
+        ProgressHUD.dismiss()
+    }
+}
 

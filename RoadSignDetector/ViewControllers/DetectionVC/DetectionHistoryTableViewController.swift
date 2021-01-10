@@ -23,7 +23,7 @@ class DetectionHistoryTableViewController: UIViewController {
     
     //MARK: - Variables
     private let cellIdentifire = "historyCell"
-    private let detectionHistoryHelper = DetectionHistoryVCHelper()
+    private var detectionHistoryHelper: DetectionHistoryVCHelper?
     let refreshControll = UIRefreshControl()
     
     //MARK: - Life cycles
@@ -31,12 +31,15 @@ class DetectionHistoryTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        detectionHistoryHelper.observeCurrentUser()
-        reloadTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if detectionHistoryHelper == nil {
+            detectionHistoryHelper = DetectionHistoryVCHelper()
+        }
+        detectionHistoryHelper?.observeCurrentUser()
+        reloadTableView()
         setTargetForRefreshControll()
     }
     
@@ -46,8 +49,8 @@ class DetectionHistoryTableViewController: UIViewController {
     //MARK: - Private methods
     
     private func reloadTableView() {
-        ProgressHUD.show()
-        detectionHistoryHelper.modelWasAdded = { [weak self] in
+        detectionHistoryHelper?.modelWasAdded = { [weak self] in
+            self?.detectionHistoryHelper?.showLoadingSpinner()
             self?.historyTableView.reloadData()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 ProgressHUD.dismiss()
@@ -69,7 +72,7 @@ class DetectionHistoryTableViewController: UIViewController {
     }
     
     @objc private func refreshData(_ refreshControll: UIRefreshControl) {
-        detectionHistoryHelper.loadHistoryData()
+        detectionHistoryHelper?.loadHistoryData()
         refreshControll.endRefreshing()
     }
     
@@ -114,7 +117,7 @@ extension DetectionHistoryTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifire) as! HistoryTableViewCell
-        if let model = detectionHistoryHelper.getModel(for: indexPath.row) {
+        if let model = detectionHistoryHelper?.getModel(for: indexPath.row) {
             cell.configure(with: model)
         }
         return cell
@@ -122,7 +125,7 @@ extension DetectionHistoryTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let model = detectionHistoryHelper.getModel(for: indexPath.row) {
+        if let model = detectionHistoryHelper?.getModel(for: indexPath.row) {
             openDetailVC(for: model)
         }
     }
@@ -131,10 +134,11 @@ extension DetectionHistoryTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let favoriteAction = UIContextualAction(style: .normal, title: nil) { [weak self] (action, view, status) in
-            self?.detectionHistoryHelper.handleFavoriteStatus(for: indexPath.row)
+            self?.detectionHistoryHelper?.handleFavoriteStatus(for: indexPath.row)
         }
-        let imageName = detectionHistoryHelper.getFavoriteImageName(for: indexPath.row)
-        favoriteAction.image = prepareSwipeImage(name: imageName, color: .systemYellow)
+        if let imageName = detectionHistoryHelper?.getFavoriteImageName(for: indexPath.row) {
+            favoriteAction.image = prepareSwipeImage(name: imageName, color: .systemYellow)
+        }
         favoriteAction.backgroundColor = .white
         
         return UISwipeActionsConfiguration(actions: [favoriteAction])
@@ -142,7 +146,7 @@ extension DetectionHistoryTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, status) in
-            self?.detectionHistoryHelper.removeHistoryItem(for: indexPath.row)
+            self?.detectionHistoryHelper?.removeHistoryItem(for: indexPath.row)
         }
         deleteAction.image = prepareSwipeImage(name: "garbageIcon", color: .systemRed)
         deleteAction.backgroundColor = .white
@@ -161,8 +165,8 @@ extension DetectionHistoryTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        handleBgViewForTable(needShow: detectionHistoryHelper.isNoDataLabelVisible())
-        return detectionHistoryHelper.getNumberOfRows()
+        handleBgViewForTable(needShow: detectionHistoryHelper?.isNoDataLabelVisible() ?? false)
+        return detectionHistoryHelper?.getNumberOfRows() ?? 0
     }
     
 }
@@ -170,7 +174,7 @@ extension DetectionHistoryTableViewController: UITableViewDataSource {
 
 extension DetectionHistoryTableViewController: HistoryHeaderDelegate {    
     func changeCurrentSelectedHistoryType(for tag: Int) {
-        detectionHistoryHelper.setCurrentHistoryType(for: tag)
+        detectionHistoryHelper?.setCurrentHistoryType(for: tag)
     }
 }
 
@@ -179,10 +183,10 @@ extension DetectionHistoryTableViewController: HistoryHeaderDelegate {
 extension DetectionHistoryTableViewController: SearchViewDelegate {
     func filterModel(with searchText: String) {
         ProgressHUD.show()
-        detectionHistoryHelper.filterHistoryModel(with: searchText)
+        detectionHistoryHelper?.filterHistoryModel(with: searchText)
     }
     
     func resetFilterModel() {
-        detectionHistoryHelper.resetFilterModel()
+        detectionHistoryHelper?.resetFilterModel()
     }
 }

@@ -13,4 +13,5 @@ target 'RoadSignDetector' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Storage'
 	pod 'ProgressHUD'
+	pod 'ReachabilitySwift'
 end

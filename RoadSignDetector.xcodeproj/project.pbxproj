@@ -15,6 +15,7 @@
 		2D2A153525A4B952002F0E81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A153425A4B952002F0E81 /* User.swift */; };
 		2D2A153825A4B98A002F0E81 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A153725A4B98A002F0E81 /* History.swift */; };
 		2D2A155225A4E3A8002F0E81 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A155125A4E3A8002F0E81 /* Environment.swift */; };
+		2D32BAB825AB70DF0073F73B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D32BAB725AB70DF0073F73B /* NetworkService.swift */; };
 		2D36DABF258612950047EC1F /* HistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36DABE258612950047EC1F /* HistoryHeaderView.swift */; };
 		2D36DAC225861A730047EC1F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36DAC125861A730047EC1F /* SearchView.swift */; };
 		2D4920352586333E0060D548 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4920342586333E0060D548 /* SearchView.xib */; };
@@ -34,6 +35,8 @@
 		2D93483525869F1400B5A972 /* RoadSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93483425869F1400B5A972 /* RoadSign.swift */; };
 		2D9949AC2577F20600015967 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D9949AE2577F20600015967 /* Localizable.strings */; };
 		2D9949B32578004D00015967 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9949B22578004D00015967 /* StringExtension.swift */; };
+		2D9B60B325ACED6F00498EB9 /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */; };
+		2DB9AD0B25AB7CC20013CA6D /* OfflineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB9AD0A25AB7CC20013CA6D /* OfflineAlert.swift */; };
 		2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5683257296A9005048CE /* AppDelegate.swift */; };
 		2DBB5686257296A9005048CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5685257296A9005048CE /* SceneDelegate.swift */; };
 		2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5687257296A9005048CE /* TabBarViewController.swift */; };
@@ -62,6 +65,7 @@
 		2D2A153425A4B952002F0E81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D2A153725A4B98A002F0E81 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		2D2A155125A4E3A8002F0E81 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		2D32BAB725AB70DF0073F73B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2D36DABE258612950047EC1F /* HistoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHeaderView.swift; sourceTree = "<group>"; };
 		2D36DAC125861A730047EC1F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		2D4920342586333E0060D548 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		2D9949B02577F23800015967 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		2D9949B12577F23800015967 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D9949B22578004D00015967 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
+		2DB9AD0A25AB7CC20013CA6D /* OfflineAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineAlert.swift; sourceTree = "<group>"; };
 		2DBB5680257296A9005048CE /* RoadSignDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadSignDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBB5683257296A9005048CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DBB5685257296A9005048CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 		2D4ED60A2572E76A00E6039E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2DB9AD0925AB7C7B0013CA6D /* OfflineAlert */,
 				2D520A6E2589106600A4744A /* ExpandedSoundView */,
 				2D4ED6122572F6B400E6039E /* Cell */,
 				2D36DABC25860E8F0047EC1F /* HeadersView */,
@@ -250,6 +257,14 @@
 				2D93482F25869C9400B5A972 /* HistoryTableViewCell.xib */,
 			);
 			path = HistoryCell;
+			sourceTree = "<group>";
+		};
+		2DB9AD0925AB7C7B0013CA6D /* OfflineAlert */ = {
+			isa = PBXGroup;
+			children = (
+				2DB9AD0A25AB7CC20013CA6D /* OfflineAlert.swift */,
+			);
+			path = OfflineAlert;
 			sourceTree = "<group>";
 		};
 		2DBB5677257296A9005048CE = {
@@ -327,6 +342,7 @@
 				2DBB569F25729B0F005048CE /* UIViewControllerExtension.swift */,
 				2D9949B22578004D00015967 /* StringExtension.swift */,
 				2D70843025A5D9A7005B59C7 /* NotificationNameExtension.swift */,
+				2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,6 +353,7 @@
 				2DBB56A225729BE1005048CE /* StoryboardService.swift */,
 				2D2A153125A4B7A7002F0E81 /* FirebaseService.swift */,
 				2D2A155125A4E3A8002F0E81 /* Environment.swift */,
+				2D32BAB725AB70DF0073F73B /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -523,11 +540,13 @@
 				2D70842E25A5C48C005B59C7 /* DetectionHistoryVCHelper.swift in Sources */,
 				2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */,
 				2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */,
+				2D9B60B325ACED6F00498EB9 /* NotificationCenterExtension.swift in Sources */,
 				2D2A153225A4B7A7002F0E81 /* FirebaseService.swift in Sources */,
 				2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */,
 				2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */,
 				2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */,
 				2DCE6B2425A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift in Sources */,
+				2DB9AD0B25AB7CC20013CA6D /* OfflineAlert.swift in Sources */,
 				2D9949B32578004D00015967 /* StringExtension.swift in Sources */,
 				2D2A155225A4E3A8002F0E81 /* Environment.swift in Sources */,
 				2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */,
@@ -540,6 +559,7 @@
 				2D520A70258910DA00A4744A /* ExpandedSoundView.swift in Sources */,
 				2D93483525869F1400B5A972 /* RoadSign.swift in Sources */,
 				2D22A8E02576EF3B00BFEE2D /* LanguageTableViewController.swift in Sources */,
+				2D32BAB825AB70DF0073F73B /* NetworkService.swift in Sources */,
 				2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */,
 				2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */,
 				2D2A153825A4B98A002F0E81 /* History.swift in Sources */,

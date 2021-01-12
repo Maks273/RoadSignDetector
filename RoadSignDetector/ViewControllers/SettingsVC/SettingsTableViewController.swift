@@ -34,6 +34,17 @@ class SettingsTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "SettingTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifire)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addNetworkObserver(in: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeNetworkObserver(in: self)
+    }
+    
+    
     //MARK: - Helper
     
     private func configureHeaderLabel(with title: String) -> UILabel {

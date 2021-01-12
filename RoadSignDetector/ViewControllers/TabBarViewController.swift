@@ -27,7 +27,8 @@ enum BarItems {
 class TabBarViewController: SOTabBarController {
     
     //MARK: - Variables
-   
+    
+    private var previoussVC: UIViewController?
 
     //MARK: - Life cycles
     
@@ -83,12 +84,20 @@ class TabBarViewController: SOTabBarController {
         SOTabBarSetting.tabBarSizeSelectedImage = 30
         SOTabBarSetting.tabBarSizeImage = 35
     }
+    
+    private func setupInitfialPreviousVC() {
+        if viewControllers.count > 2 {
+            previoussVC = viewControllers[1]
+        }
+    }
 
 }
 
 extension TabBarViewController: SOTabBarControllerDelegate {
     func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController) {
         Environment.shared.selectedTabIndex = ((viewController as? DetectionHistoryTableViewController) != nil) ? 0 : 1
+        previoussVC?.viewWillDisappear(true)
+        previoussVC = viewController
         ProgressHUD.dismiss()
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import AVFoundation
 import ProgressHUD
+import Reachability
 
 class ScanningViewController: UIViewController {
     
@@ -34,6 +35,17 @@ class ScanningViewController: UIViewController {
         setupStyleForOpenButtons()
         configureImagePicker()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addNetworkObserver(in: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeNetworkObserver(in: self)
+    }
+    
     
     //MARK: - IBActions
     
@@ -103,7 +115,7 @@ class ScanningViewController: UIViewController {
     //MARK: authCameraRequest
     
     private func handleCameraRequest() {
-       let status = AVCaptureDevice.authorizationStatus(for: .video)
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
         
         switch status {
         case .authorized:
@@ -143,7 +155,7 @@ extension ScanningViewController: UIImagePickerControllerDelegate, UINavigationC
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-       dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
 }

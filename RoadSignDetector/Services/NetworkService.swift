@@ -15,21 +15,12 @@ class NetworkService {
     
     private var reachability: Reachability!
     
-    //MARK: - Initalizer/Deinitalizer
+    static let shared = NetworkService()
     
-    init() {
-        do {
-            reachability = try Reachability()
-            addObserver()
-            try reachability.startNotifier()
-        }catch {
-            
-        }
-    }
+    //MARK: - Initalizer/Deinitalizer
     
     deinit {
         stopNotifier()
-        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
     }
     
     //MARK: - Helper
@@ -37,13 +28,28 @@ class NetworkService {
     func stopNotifier() {
         if reachability.connection != .unavailable {
             reachability.stopNotifier()
+            NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
         }
+    }
+    
+    func startObserving() {
+        initReachability()
     }
     
     //MARK: - Private methods
     
+    private func initReachability() {
+        do {
+            reachability = try Reachability()
+            try reachability.startNotifier()
+            addObserver()
+        }catch(let error) {
+            print("Error with starting reachability = \(error.localizedDescription)")
+        }
+    }
+
     private func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(networkStatusChanged), name: .reachabilityChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(networkStatusChanged(_:)), name: .reachabilityChanged, object: nil)
     }
     
     @objc private func networkStatusChanged(_ notification: Notification) {
@@ -52,17 +58,6 @@ class NetworkService {
         }
         
         let reachabilityStatus = reachabilityObject.connection
-        
-        switch reachabilityStatus {
-        case .cellular, .wifi:
-            print("CELLULAR AND WIFI")
-        default:
-            print("UNAVAILABLE")
-        }
-        print("IT WORKS")
-    }
-    
-    private func showOfflineAlert() {
-        
+        Environment.shared.currentConnectionStatus = reachabilityStatus
     }
 }

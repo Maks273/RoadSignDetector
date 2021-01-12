@@ -15,8 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let currentLanguage = UserDefaults.standard.string(forKey: "AppleLanguage")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //UserDefaults.standard.set(currentLanguage, forKey: "AppleLanguage")
+        //UserDefaults.standard.set(currentLanguage, forKey: "AppleLanguage"
         Bundle.swizzleLocalization()
+        NetworkService.shared.startObserving()
         FirebaseApp.configure()
         handleUserAuthorization()
         return true

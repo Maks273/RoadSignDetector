@@ -12,5 +12,5 @@ import UIKit
 extension NSNotification.Name {
     static let currentUserWasIdenfied = Notification.Name("currentUserWasIdenfied")
     static let historyWasChanged = Notification.Name("historyWasChanged")
-    //static let favoriteHistoryWasChanged = Notification.Name("favoriteHistoryWasChanged")
+    static let currentConnectionStatusWasChanged = Notification.Name("currentConnectionStatusWasChanged")
 }

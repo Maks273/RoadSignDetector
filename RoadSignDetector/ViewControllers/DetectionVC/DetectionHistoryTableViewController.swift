@@ -35,6 +35,7 @@ class DetectionHistoryTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationCenter.default.addNetworkObserver(in: self)
         if detectionHistoryHelper == nil {
             detectionHistoryHelper = DetectionHistoryVCHelper()
         }
@@ -42,6 +43,12 @@ class DetectionHistoryTableViewController: UIViewController {
         reloadTableView()
         setTargetForRefreshControll()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeNetworkObserver(in: self)
+    }
+    
     
     //MARK: - IBActions
     

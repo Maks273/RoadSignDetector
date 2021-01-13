@@ -27,6 +27,8 @@ class ScanningViewController: UIViewController {
             showConfirmAlert()
         }
     }
+    private let detectionService = DetectionService()
+    private let scanningHelper = ScanningVCHelper()
     
     //MARK: - Life cycles
     
@@ -38,11 +40,13 @@ class ScanningViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        scanningHelper.addObserver()
         NotificationCenter.default.addNetworkObserver(in: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        scanningHelper.removeObserver()
         NotificationCenter.default.removeNetworkObserver(in: self)
     }
     
@@ -136,8 +140,11 @@ class ScanningViewController: UIViewController {
     private func showConfirmAlert() {
         dismiss(animated: true, completion: nil)
         let alert = UIAlertController(title: "Detection preprocess", message: "Are you sure to start detecting process?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ready", style: .default, handler: { (action) in
-            //TODO will start detection process and show progressHUD etc
+        alert.addAction(UIAlertAction(title: "Start", style: .default, handler: { [weak self] (action) in
+            guard let sSelf = self, let image = sSelf.pickedImage else {
+                return
+            }
+            sSelf.detectionService.updateClassification(for: image)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -152,6 +159,7 @@ extension ScanningViewController: UIImagePickerControllerDelegate, UINavigationC
         if let image = info[.originalImage] as? UIImage {
             pickedImage = image
         }
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

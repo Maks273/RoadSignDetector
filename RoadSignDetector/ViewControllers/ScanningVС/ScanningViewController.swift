@@ -11,6 +11,7 @@ import Photos
 import AVFoundation
 import ProgressHUD
 import Reachability
+import Vision
 
 class ScanningViewController: UIViewController {
     
@@ -28,7 +29,7 @@ class ScanningViewController: UIViewController {
         }
     }
     private let detectionService = DetectionService()
-    private let scanningHelper = ScanningVCHelper()
+//    /private let scanningHelper = ScanningVCHelper()
     
     //MARK: - Life cycles
     
@@ -40,13 +41,13 @@ class ScanningViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        scanningHelper.addObserver()
+        addObserver()
         NotificationCenter.default.addNetworkObserver(in: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        scanningHelper.removeObserver()
+        removeObserver()
         NotificationCenter.default.removeNetworkObserver(in: self)
     }
     
@@ -148,6 +149,32 @@ class ScanningViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func showRecognizedVC(with results: [VNRecognizedObjectObservation]) {
+        let recognizedVC = StorybardService.main.viewController(viewControllerClass: RecognizedViewController.self)
+        recognizedVC.image = pickedImage
+        recognizedVC.modalPresentationStyle = .fullScreen
+        recognizedVC.setRecognizedResults(results)
+        present(recognizedVC, animated: true, completion: nil)
+    }
+    
+    //MARK: recognistion observer
+    
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(recognizingCompleted(_:)), name: Notification.Name("recognitionCompleted"), object: nil)
+    }
+    
+    private func removeObserver() {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("recognitionCompleted"), object: nil)
+    
+    }
+    
+    @objc private func recognizingCompleted(_ notification: Notification) {
+        guard let results = notification.userInfo?["results"] as? [VNRecognizedObjectObservation] else {
+            return
+        }
+        showRecognizedVC(with: results)
     }
     
 }

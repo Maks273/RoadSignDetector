@@ -54,6 +54,8 @@
 		2DCFFC7C25AF2EB600F8B49B /*  roadSignsModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC7B25AF2EB600F8B49B /*  roadSignsModel.mlmodel */; };
 		2DCFFC8025AF31A700F8B49B /* DetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC7F25AF31A700F8B49B /* DetectionService.swift */; };
 		2DCFFC8325AF352D00F8B49B /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */; };
+		2DCFFC8725AF568F00F8B49B /* RecognizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC8625AF568F00F8B49B /* RecognizedViewController.swift */; };
+		2DCFFC8B25AF56BC00F8B49B /* RecognizedVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC8A25AF56BC00F8B49B /* RecognizedVCHelper.swift */; };
 		2DD3DB8625AA4A1F00FC5614 /* ScanningVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */; };
 		2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */; };
 		388F6F3B13460BF69EC27602 /* Pods_RoadSignDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714ADB849EBC5A75617A2DEA /* Pods_RoadSignDetector.framework */; };
@@ -115,6 +117,8 @@
 		2DCFFC7B25AF2EB600F8B49B /*  roadSignsModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = " roadSignsModel.mlmodel"; sourceTree = "<group>"; };
 		2DCFFC7F25AF31A700F8B49B /* DetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionService.swift; sourceTree = "<group>"; };
 		2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
+		2DCFFC8625AF568F00F8B49B /* RecognizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedViewController.swift; sourceTree = "<group>"; };
+		2DCFFC8A25AF56BC00F8B49B /* RecognizedVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedVCHelper.swift; sourceTree = "<group>"; };
 		2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVCHelper.swift; sourceTree = "<group>"; };
 		2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedImageViewController.swift; sourceTree = "<group>"; };
 		7032170E2571DEED8D1F222C /* Pods-RoadSignDetector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadSignDetector.debug.xcconfig"; path = "Target Support Files/Pods-RoadSignDetector/Pods-RoadSignDetector.debug.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 		2DBB569725729924005048CE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DCFFC8525AF567500F8B49B /* RecognizedTableVC */,
 				2DD798DB25AA1C9A000792A6 /* FocusedImageVC */,
 				2D22A8DE2576EF1F00BFEE2D /* LanguageTableVC */,
 				2DBB5687257296A9005048CE /* TabBarViewController.swift */,
@@ -391,6 +396,15 @@
 				2DCE6B2325A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift */,
 			);
 			path = RoadSignImageCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		2DCFFC8525AF567500F8B49B /* RecognizedTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				2DCFFC8625AF568F00F8B49B /* RecognizedViewController.swift */,
+				2DCFFC8A25AF56BC00F8B49B /* RecognizedVCHelper.swift */,
+			);
+			path = RecognizedTableVC;
 			sourceTree = "<group>";
 		};
 		2DD3DB8325AA4A0B00FC5614 /* ScanningVС */ = {
@@ -553,6 +567,8 @@
 				2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */,
 				2D9B60B325ACED6F00498EB9 /* NotificationCenterExtension.swift in Sources */,
 				2D2A153225A4B7A7002F0E81 /* FirebaseService.swift in Sources */,
+				2DCFFC8725AF568F00F8B49B /* RecognizedViewController.swift in Sources */,
+				2DCFFC8B25AF56BC00F8B49B /* RecognizedVCHelper.swift in Sources */,
 				2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */,
 				2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */,
 				2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */,

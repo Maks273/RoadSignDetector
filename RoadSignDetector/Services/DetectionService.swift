@@ -21,7 +21,7 @@ class DetectionService {
             let request = VNCoreMLRequest(model: model) { (request, error) in
                 self.processRecognition(for: request, error: error)
             }
-            request.imageCropAndScaleOption = .centerCrop
+            request.imageCropAndScaleOption = .scaleFit
             return request
         }catch (let error) {
             print("COREML CREATING REQUEST ", error.localizedDescription)
@@ -59,9 +59,6 @@ class DetectionService {
             
             let recognitionResults = results as! [VNRecognizedObjectObservation]
             NotificationCenter.default.post(name: Notification.Name("recognitionCompleted"), object: nil, userInfo: ["results": recognitionResults])
-            for result in recognitionResults {
-                print("result.uuid = \(result.labels.first)")
-            }
         }
     }
     

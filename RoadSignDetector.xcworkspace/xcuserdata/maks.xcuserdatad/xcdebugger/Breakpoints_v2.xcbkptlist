@@ -7,64 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "073B3F50-9429-4D79-ACD2-12528249AD32"
+            uuid = "5D77A24B-6A56-4C60-AF96-68BFB1343516"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RoadSignDetector/Extensions/UIViewControllerExtension.swift"
+            filePath = "RoadSignDetector/ViewControllers/RecognizedTableVC/RecognizedViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "connectionWasChanged()"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "paintRecognizedFrames()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AA308717-A8FA-4912-9039-40393EFEE797"
+            uuid = "77302FBE-37E0-43BE-8D0C-D0CE54199781"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RoadSignDetector/Extensions/UIViewControllerExtension.swift"
+            filePath = "RoadSignDetector/ViewControllers/ScanningV&#x421;/ScanningViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "animateClearing()"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "showRecognizedVC(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "03CB7C1A-B86B-41DE-910C-DE5A64275BDE"
+            uuid = "8335E21C-79CB-4D3B-B850-BEF0A525C0EE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RoadSignDetector/Services/DetectionService.swift"
+            filePath = "RoadSignDetector/ViewControllers/RecognizedTableVC/RecognizedViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "processRecognition(for:error:)"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "swipeDetected(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6133CDE1-2C5C-4D92-8DA1-CFE6CDE49569"
+            uuid = "F5BED0E2-1B1E-4435-BFAE-44A52B5180DE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RoadSignDetector/ViewControllers/ScanningV&#x421;/ScanningVCHelper.swift"
+            filePath = "RoadSignDetector/ViewControllers/RecognizedTableVC/RecognizedViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "recognizingCompleted(_:)"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "setupSwipeGestureRecognizers()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

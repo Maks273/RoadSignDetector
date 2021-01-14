@@ -25,22 +25,6 @@ class ScanningVCHelper {
     
     //MARK: - Private methods
     
-    func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(recognizingCompleted(_:)), name: Notification.Name("recognitionCompleted"), object: nil)
-    }
     
-    func removeObserver() {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("recognitionCompleted"), object: nil)
-    
-    }
-    
-    @objc private func recognizingCompleted(_ notification: Notification) {
-        guard let result = notification.userInfo?["results"] as? [VNRecognizedObjectObservation] else {
-            return
-        }
-        
-        recognizedResults = result
-        print("JUST GOT = \(result)")
-    }
-     
+ 
 }

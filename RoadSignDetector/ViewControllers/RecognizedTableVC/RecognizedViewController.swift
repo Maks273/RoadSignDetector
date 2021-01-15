@@ -18,6 +18,9 @@ class RecognizedViewController: UIViewController {
     @IBOutlet weak var expandedViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var navigationView: UIView!
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var navigationTitleLabel: UILabel!
     
     //MARK: - Variables
     
@@ -37,7 +40,7 @@ class RecognizedViewController: UIViewController {
         setupExpandedViewStyle()
         setupSwipeGestureRecognizers()
         setupLineViewStyle()
-        setLeftSwipeGestureRecognizer()
+        configureNavView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,6 +126,7 @@ class RecognizedViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
     //MARK: Paint recognized frame
     
     private func paintRecognizedFrames() {
@@ -145,18 +149,30 @@ class RecognizedViewController: UIViewController {
         
         imageView.layer.addSublayer(shapeLayer)
     }
-    
-    //MARK: main view swipe
 
-    private func setLeftSwipeGestureRecognizer() {
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(leftSwipeDetected))
-        leftSwipe.direction = .right
-        view.addGestureRecognizer(leftSwipe)
+    //MARK: nav bar
+    
+    private func configureNavView() {
+        navigationTitleLabel.text = "Recognized"
+        setupNavBarStyle()
+        setupBtnTarget()
     }
-   
-    @objc private func leftSwipeDetected() {
+    
+    private func setupNavBarStyle() {
+        navigationView.layer.borderWidth = 1
+        navigationView.layer.borderColor = UIColor.systemPurple.cgColor
+        navigationView.backgroundColor = .white
+    }
+    
+    private func setupBtnTarget() {
+        backBtn.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+    }
+    
+    @objc private func backBtnPressed() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
 }
 
 //MARK: - UITableViewDelegate

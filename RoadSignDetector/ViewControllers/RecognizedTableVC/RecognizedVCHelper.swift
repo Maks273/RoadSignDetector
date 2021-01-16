@@ -8,13 +8,21 @@
 
 import UIKit
 import Vision
+import ProgressHUD
 
 class RecognizedVCHelper {
     
     //MARK: - Variables
     
+    private var recognizedItems = [RecognizedItem]()
     private var model = [RoadSign]()
-    private var recognizedResults = [VNRecognizedObjectObservation]()
+    private var recognizedResults = [VNRecognizedObjectObservation]() {
+        didSet {
+            loadDetectedItems()
+        }
+    }
+    
+    var modelWasAdded: (() -> Void)?
     
     //MARK: - Helper
     
@@ -23,13 +31,56 @@ class RecognizedVCHelper {
     }
     
     func getNumberOfRows() -> Int {
-        recognizedResults.count
+        recognizedItems.count
     }
     
     func getBoundsBoxes() -> [CGRect] {
         return recognizedResults.map({$0.boundingBox})
     }
     
+    func getModel(for index: Int) -> RecognizedItem? {
+        return canGetModel(for: index) ? recognizedItems[index] : nil
+    }
+    
     //MARK: - Private methods
+    
+    private func canGetModel(for index: Int) -> Bool {
+        return index < recognizedItems.count
+    }
+    
+    //MARK: Configure recognized model
+
+    private func configureRecoginzedModel(with roadSign: RoadSign, item: VNClassificationObservation) {
+        let convertedPercentValue = convertPercentValue(from: item.confidence.magnitude)
+        let recognizedItem = RecognizedItem(precent: convertedPercentValue, roadSign: roadSign)
+        recognizedItems.append(recognizedItem)
+        modelWasAdded?()
+    }
+    
+    private func convertPercentValue(from value: Float) -> String {
+        return String(value * 100).prefix(5).description
+    }
+    
+    //MARK: Loading item from server
+    
+    func loadDetectedItems() {
+        for result in recognizedResults {
+            if canLoadItem(result) {
+                loadItem(by: result.labels[0])
+            }
+        }
+    }
+    
+    private func loadItem(by item: VNClassificationObservation) {
+        FirebaseService.shared.loadRoadSign(name: item.identifier) { [weak self] (roadSign) in
+            if let roadSign = roadSign {
+                self?.configureRecoginzedModel(with: roadSign, item: item)
+            }
+        }
+    }
+    
+    private func canLoadItem(_ item: VNRecognizedObjectObservation) -> Bool {
+        return !item.labels.isEmpty
+    }
     
 }

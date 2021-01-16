@@ -35,6 +35,7 @@ class FirebaseService {
     
     static let shared = FirebaseService()
     private let userDbReference = Database.database().reference().child("users")
+    private let roadSignsReference = Database.database().reference().child("roadSigns")
     
     //MARK: - Initalizers
     
@@ -146,5 +147,17 @@ class FirebaseService {
         }
     }
     
+    //MARK: - Loading road sign
+    
+    func loadRoadSign(name: String, completion: @escaping (_ roadSign: RoadSign?) -> Void ) {
+        roadSignsReference.child(name).observe(.value) { (snapshot) in
+            if let value = snapshot.value as? NSDictionary {
+                let roadSign = RoadSign(from: value)
+                completion(roadSign)
+                return
+            }
+            completion(nil)
+        }
+    }
 
 }

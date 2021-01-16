@@ -15,6 +15,8 @@
 		2D2A153525A4B952002F0E81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A153425A4B952002F0E81 /* User.swift */; };
 		2D2A153825A4B98A002F0E81 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A153725A4B98A002F0E81 /* History.swift */; };
 		2D2A155225A4E3A8002F0E81 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A155125A4E3A8002F0E81 /* Environment.swift */; };
+		2D309D5325B22D3F006965FD /* RecognizedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D309D5225B22D3F006965FD /* RecognizedTableViewCell.swift */; };
+		2D309D5625B23315006965FD /* RecognizedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D309D5525B23315006965FD /* RecognizedItem.swift */; };
 		2D32BAB825AB70DF0073F73B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D32BAB725AB70DF0073F73B /* NetworkService.swift */; };
 		2D36DABF258612950047EC1F /* HistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36DABE258612950047EC1F /* HistoryHeaderView.swift */; };
 		2D36DAC225861A730047EC1F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36DAC125861A730047EC1F /* SearchView.swift */; };
@@ -70,6 +72,8 @@
 		2D2A153425A4B952002F0E81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D2A153725A4B98A002F0E81 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		2D2A155125A4E3A8002F0E81 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		2D309D5225B22D3F006965FD /* RecognizedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTableViewCell.swift; sourceTree = "<group>"; };
+		2D309D5525B23315006965FD /* RecognizedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedItem.swift; sourceTree = "<group>"; };
 		2D32BAB725AB70DF0073F73B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2D36DABE258612950047EC1F /* HistoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHeaderView.swift; sourceTree = "<group>"; };
 		2D36DAC125861A730047EC1F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				2D93483425869F1400B5A972 /* RoadSign.swift */,
 				2D2A153425A4B952002F0E81 /* User.swift */,
 				2D2A153725A4B98A002F0E81 /* History.swift */,
+				2D309D5525B23315006965FD /* RecognizedItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				2D22A8DC2576EC1200BFEE2D /* LanguageMenuItemCell */,
 				2D22A8DD2576EEAB00BFEE2D /* SettingCell */,
 				2DCE6B2625A8D93B00D4B2D1 /* RoadSignImageCollectionViewCell */,
+				2DC19F7C25B2FAB000798668 /* RecognizedTableViewCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -370,6 +376,14 @@
 				2DCFFC7F25AF31A700F8B49B /* DetectionService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		2DC19F7C25B2FAB000798668 /* RecognizedTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2D309D5225B22D3F006965FD /* RecognizedTableViewCell.swift */,
+			);
+			path = RecognizedTableViewCell;
 			sourceTree = "<group>";
 		};
 		2DCE379F2573FDE0006A4DF1 /* SettingsVC */ = {
@@ -571,6 +585,7 @@
 				2DCFFC8B25AF56BC00F8B49B /* RecognizedVCHelper.swift in Sources */,
 				2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */,
 				2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */,
+				2D309D5325B22D3F006965FD /* RecognizedTableViewCell.swift in Sources */,
 				2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */,
 				2DCE6B2425A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift in Sources */,
 				2DB9AD0B25AB7CC20013CA6D /* OfflineAlert.swift in Sources */,
@@ -589,6 +604,7 @@
 				2DCFFC8025AF31A700F8B49B /* DetectionService.swift in Sources */,
 				2D32BAB825AB70DF0073F73B /* NetworkService.swift in Sources */,
 				2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */,
+				2D309D5625B23315006965FD /* RecognizedItem.swift in Sources */,
 				2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */,
 				2D2A153825A4B98A002F0E81 /* History.swift in Sources */,
 				2D36DAC225861A730047EC1F /* SearchView.swift in Sources */,

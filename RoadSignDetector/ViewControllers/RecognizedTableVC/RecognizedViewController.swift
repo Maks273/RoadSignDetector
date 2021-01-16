@@ -41,12 +41,14 @@ class RecognizedViewController: UIViewController {
         setupSwipeGestureRecognizers()
         setupLineViewStyle()
         configureNavView()
+        configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupImage()
         paintRecognizedFrames()
+        reloadTableView()
     }
     
     //MARK: - Helper
@@ -56,7 +58,19 @@ class RecognizedViewController: UIViewController {
     }
     
     //MARK: - Private methods
+    
+    private func showDetailVC(with model: RoadSign) {
+        let detailVC = StorybardService.main.viewController(viewControllerClass: RoadSignDetailViewController.self)
+        detailVC.detailHelper.setModel(model)
+        detailVC.modalPresentationStyle = .fullScreen
+        self.present(detailVC, animated: true, completion: nil)
+    }
 
+    private func reloadTableView() {
+        recognizedHelper.modelWasAdded = { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
     
     private func setupImage() {
         guard let image = image else {
@@ -178,18 +192,32 @@ class RecognizedViewController: UIViewController {
 //MARK: - UITableViewDelegate
 
 extension RecognizedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let model = recognizedHelper.getModel(for: indexPath.row) {
+            showDetailVC(with: model.roadSign)
+        }
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 }
 
 //MARK: - UITableViewDataSource
 
 extension RecognizedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return recognizedHelper.getNumberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recognizedCell", for: indexPath) as! RecognizedTableViewCell
+        if let model = recognizedHelper.getModel(for: indexPath.row) {
+            cell.configureCell(with: model)
+        }
+
+        return cell
     }
 }
 

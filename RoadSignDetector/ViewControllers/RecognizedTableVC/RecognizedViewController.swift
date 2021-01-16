@@ -83,10 +83,18 @@ class RecognizedViewController: UIViewController {
         lineView.layer.cornerRadius = 5
     }
     
+    //MARK: Table View
+    
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+    }
+    
+    private func handleBgViewForTable(needShow: Bool) {
+        let noDataLabel = UILabel()
+        noDataLabel.configureNoDataLabel(for: tableView)
+        tableView.backgroundView = needShow ? noDataLabel : nil
     }
     
     //MARK: ExpandedView
@@ -208,6 +216,7 @@ extension RecognizedViewController: UITableViewDelegate {
 
 extension RecognizedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        handleBgViewForTable(needShow: recognizedHelper.isNoDataLabelVisible())
         return recognizedHelper.getNumberOfRows()
     }
     

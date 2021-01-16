@@ -49,6 +49,7 @@
 		2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB569C25729AC6005048CE /* DetectionHistoryTableViewController.swift */; };
 		2DBB56A025729B0F005048CE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB569F25729B0F005048CE /* UIViewControllerExtension.swift */; };
 		2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB56A225729BE1005048CE /* StoryboardService.swift */; };
+		2DC19F7F25B2FBC800798668 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC19F7E25B2FBC800798668 /* UILabelExtension.swift */; };
 		2DCAD511257ACAFD0090CD2A /* AudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DCAD513257ACAFD0090CD2A /* AudioView.xib */; };
 		2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE379B2573A3B1006A4DF1 /* AudioView.swift */; };
 		2DCE6B0825A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE6B0725A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift */; };
@@ -112,6 +113,7 @@
 		2DBB569C25729AC6005048CE /* DetectionHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionHistoryTableViewController.swift; sourceTree = "<group>"; };
 		2DBB569F25729B0F005048CE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		2DBB56A225729BE1005048CE /* StoryboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardService.swift; sourceTree = "<group>"; };
+		2DC19F7E25B2FBC800798668 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2DCAD512257ACAFD0090CD2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AudioView.xib; sourceTree = "<group>"; };
 		2DCAD515257ACB140090CD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AudioView.strings; sourceTree = "<group>"; };
 		2DCAD517257ACB1B0090CD2A /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/AudioView.strings; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				2D70843025A5D9A7005B59C7 /* NotificationNameExtension.swift */,
 				2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */,
 				2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */,
+				2DC19F7E25B2FBC800798668 /* UILabelExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				2D70843125A5D9A7005B59C7 /* NotificationNameExtension.swift in Sources */,
 				2D4ED6152572F6D300E6039E /* SettingTableViewCell.swift in Sources */,
 				2DCFFC7C25AF2EB600F8B49B /*  roadSignsModel.mlmodel in Sources */,
+				2DC19F7F25B2FBC800798668 /* UILabelExtension.swift in Sources */,
 				2D70842E25A5C48C005B59C7 /* DetectionHistoryVCHelper.swift in Sources */,
 				2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */,
 				2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */,

@@ -42,6 +42,18 @@ class RecognizedVCHelper {
         return canGetModel(for: index) ? recognizedItems[index] : nil
     }
     
+    func isNoDataLabelVisible() -> Bool {
+        return recognizedItems.isEmpty
+    }
+    
+    func loadDetectedItems() {
+        for result in recognizedResults {
+            if canLoadItem(result) {
+                loadItem(by: result.labels[0])
+            }
+        }
+    }
+    
     //MARK: - Private methods
     
     private func canGetModel(for index: Int) -> Bool {
@@ -62,14 +74,7 @@ class RecognizedVCHelper {
     }
     
     //MARK: Loading item from server
-    
-    func loadDetectedItems() {
-        for result in recognizedResults {
-            if canLoadItem(result) {
-                loadItem(by: result.labels[0])
-            }
-        }
-    }
+
     
     private func loadItem(by item: VNClassificationObservation) {
         FirebaseService.shared.loadRoadSign(name: item.identifier) { [weak self] (roadSign) in

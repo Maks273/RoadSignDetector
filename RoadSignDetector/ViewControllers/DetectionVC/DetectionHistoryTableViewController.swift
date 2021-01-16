@@ -84,7 +84,8 @@ class DetectionHistoryTableViewController: UIViewController {
     }
     
     private func handleBgViewForTable(needShow: Bool) {
-        let noDataLabel = configureNoDataLabel()
+        let noDataLabel = UILabel()
+        noDataLabel.configureNoDataLabel(for: historyTableView)
         historyTableView.backgroundView = needShow ? noDataLabel : nil
     }
     

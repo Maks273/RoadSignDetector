@@ -44,6 +44,7 @@ class SettingTableViewCell: UITableViewCell {
     @IBOutlet weak var containerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var showMoreBtn: UIButton!
+    @IBOutlet weak var arrowImageView: UIImageView!
     
     //MARK: - Variables
     
@@ -74,6 +75,7 @@ class SettingTableViewCell: UITableViewCell {
         
         titleLabel.text = text
         showMoreBtn.isHidden = showMoreVisible
+        arrowImageView.isHidden = showMoreVisible
         separatorLine.isHidden = position == .last
         verticalLine.backgroundColor = .purple
         setupContentViewShadow()
@@ -126,10 +128,10 @@ class SettingTableViewCell: UITableViewCell {
         contentView.layer.shadowOpacity = 0.7
     }
     
-    private func toggleButtonImage(_ show: Bool){
+    private func toggleArrowImage(_ show: Bool){
         let image = UIImage(named: show ? "upArrow" : "downArrow")
         image?.withTintColor(.black)
-        showMoreBtn.setImage(image, for: .normal)
+        arrowImageView.image = image
     }
     
     //MARK: - Extra View configuration
@@ -183,7 +185,7 @@ class SettingTableViewCell: UITableViewCell {
             if isExpanded! {
                 setupExtraView(for: cellType!)
             }
-            toggleButtonImage(isExpanded!)
+            toggleArrowImage(isExpanded!)
         }
     }
     

@@ -11,6 +11,7 @@ import Photos
 import AVFoundation
 import ProgressHUD
 import Reachability
+import Vision
 
 class ScanningViewController: UIViewController {
     
@@ -27,6 +28,8 @@ class ScanningViewController: UIViewController {
             showConfirmAlert()
         }
     }
+    private let detectionService = DetectionService()
+//    /private let scanningHelper = ScanningVCHelper()
     
     //MARK: - Life cycles
     
@@ -38,11 +41,13 @@ class ScanningViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        addObserver()
         NotificationCenter.default.addNetworkObserver(in: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeObserver()
         NotificationCenter.default.removeNetworkObserver(in: self)
     }
     
@@ -136,11 +141,40 @@ class ScanningViewController: UIViewController {
     private func showConfirmAlert() {
         dismiss(animated: true, completion: nil)
         let alert = UIAlertController(title: "Detection preprocess", message: "Are you sure to start detecting process?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ready", style: .default, handler: { (action) in
-            //TODO will start detection process and show progressHUD etc
+        alert.addAction(UIAlertAction(title: "Start", style: .default, handler: { [weak self] (action) in
+            guard let sSelf = self, let image = sSelf.pickedImage else {
+                return
+            }
+            sSelf.detectionService.updateClassification(for: image)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func showRecognizedVC(with results: [VNRecognizedObjectObservation]) {
+        let recognizedVC = StorybardService.main.viewController(viewControllerClass: RecognizedViewController.self)
+        recognizedVC.image = pickedImage
+        recognizedVC.modalPresentationStyle = .fullScreen
+        recognizedVC.setRecognizedResults(results)
+        present(recognizedVC, animated: true, completion: nil)
+    }
+    
+    //MARK: recognistion observer
+    
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(recognizingCompleted(_:)), name: Notification.Name("recognitionCompleted"), object: nil)
+    }
+    
+    private func removeObserver() {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("recognitionCompleted"), object: nil)
+    
+    }
+    
+    @objc private func recognizingCompleted(_ notification: Notification) {
+        guard let results = notification.userInfo?["results"] as? [VNRecognizedObjectObservation] else {
+            return
+        }
+        showRecognizedVC(with: results)
     }
     
 }
@@ -152,6 +186,7 @@ extension ScanningViewController: UIImagePickerControllerDelegate, UINavigationC
         if let image = info[.originalImage] as? UIImage {
             pickedImage = image
         }
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

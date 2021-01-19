@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import Vision
 
 class ScanningVCHelper {
     
     //MARK: - Variables
     
+    private var recognizedResults = [VNRecognizedObjectObservation]()
+    
+    //MARK:  - Initalizer/Deinitalizer
+  
+
+    
     //MARK: - Helper
+    
+    
     
     //MARK: - Private methods
     
+    
+ 
 }

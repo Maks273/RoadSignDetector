@@ -23,6 +23,10 @@ class Environment {
             postCurrentConnectionStatusObserver()
         }
     }
+    var currentVoice: VoiceType = .man
+
+    private let voiceKey = "Voice"
+    
     
     //MARK: - Initalizer
     
@@ -30,6 +34,21 @@ class Environment {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .currentConnectionStatusWasChanged, object: nil)
+    }
+    
+    //MARK: - Helper
+    
+    func saveCurrentVoice(_ voiceValue: String) {
+        UserDefaults.standard.setValue(voiceValue, forKey: voiceKey)
+    }
+    
+    func loadCurrentVoice() -> String {
+        return UserDefaults.standard.string(forKey: voiceKey) ?? ""
+    }
+    
+    func changeCurrentVoiceType() {
+        let voice = loadCurrentVoice()
+        currentVoice = voice == VoiceType.man.rawValue ? .man : .woman
     }
     
     //MARK: - Private methods

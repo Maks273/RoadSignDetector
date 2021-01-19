@@ -52,19 +52,21 @@ class RoadSign {
     }
 }
 
-class LocalizeRoadSign: Codable {
+class LocalizeRoadSign {
     
     //MARK: - Variables
     
     var description: String?
-    var soundName: String?
+    var sound: Voice?
     var title: String?
     
     //MARK: - Initalizer
     
     init(from dictionary: NSDictionary) {
         description = String(dictionary["description"] as? String ?? "")
-        soundName = dictionary["sound"] as? String
+        if let soundDict = dictionary["sound"] as? NSDictionary {
+            sound = Voice(from: soundDict)
+        }
         title = dictionary["title"] as? String
     }
 }

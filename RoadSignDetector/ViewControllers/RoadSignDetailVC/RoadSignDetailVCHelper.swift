@@ -100,7 +100,7 @@ class RoadSignDetailVCHelper {
     private func loadSound() {
         guard isModelValid(),
               let localizeInfo = model.localizationInfo,
-              let soundName = localizeInfo.soundName,
+              let soundName = localizeInfo.sound?.name,
               !soundName.isEmpty
         else {
             return

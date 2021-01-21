@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkService.shared.startObserving()
         FirebaseApp.configure()
         handleUserAuthorization()
+        changeCurrentVoice()
         return true
     }
 
@@ -45,7 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NotificationCenter.default.post(name: Notification.Name.currentUserWasIdenfied, object: nil)
         }
     }
-
+    
+    private func changeCurrentVoice() {
+        Environment.shared.changeCurrentVoiceType()
+    }
 
 }
 

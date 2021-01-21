@@ -29,7 +29,6 @@ class AudioView: UIView {
     //MARK: - Variables
     
     private let manVoiceSegmentIndex = 0
-    private let voiceKey = "Voice"
     private let audioStatusKey = "AudioStatus"
     
     //MARK: - init
@@ -55,16 +54,8 @@ class AudioView: UIView {
 
     //MARK: Speaker Voice
     
-    private func saveCurrentVoice(_ voiceValue: String) {
-        UserDefaults.standard.setValue(voiceValue, forKey: voiceKey)
-    }
-    
-    private func loadCurrentVoice() -> String {
-        return UserDefaults.standard.string(forKey: voiceKey) ?? ""
-    }
-    
     private func getCurrentVoiceIndex() -> Int {
-        return loadCurrentVoice() == "Man" || loadCurrentVoice() == "" ? 0 : 1
+        return Environment.shared.loadCurrentVoice() == VoiceType.man.rawValue || Environment.shared.loadCurrentVoice() == "" ? 0 : 1
     }
     
     //MARK: Audio Status
@@ -85,6 +76,7 @@ class AudioView: UIView {
     }
     
     @IBAction func voiceWasToggled(_ sender: UISegmentedControl) {
-        saveCurrentVoice(sender.selectedSegmentIndex == manVoiceSegmentIndex ? "Man" : "Woman")
+        Environment.shared.saveCurrentVoice(sender.selectedSegmentIndex == manVoiceSegmentIndex ? VoiceType.man.rawValue : VoiceType.woman.rawValue)
+        Environment.shared.changeCurrentVoiceType()
     }
 }

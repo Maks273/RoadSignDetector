@@ -38,6 +38,7 @@
 		2D9949AC2577F20600015967 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D9949AE2577F20600015967 /* Localizable.strings */; };
 		2D9949B32578004D00015967 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9949B22578004D00015967 /* StringExtension.swift */; };
 		2D9B60B325ACED6F00498EB9 /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */; };
+		2DA7214825B6C9C000C8B217 /* Voice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7214725B6C9C000C8B217 /* Voice.swift */; };
 		2DB9AD0B25AB7CC20013CA6D /* OfflineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB9AD0A25AB7CC20013CA6D /* OfflineAlert.swift */; };
 		2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5683257296A9005048CE /* AppDelegate.swift */; };
 		2DBB5686257296A9005048CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5685257296A9005048CE /* SceneDelegate.swift */; };
@@ -100,6 +101,7 @@
 		2D9949B12577F23800015967 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D9949B22578004D00015967 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
+		2DA7214725B6C9C000C8B217 /* Voice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voice.swift; sourceTree = "<group>"; };
 		2DB9AD0A25AB7CC20013CA6D /* OfflineAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineAlert.swift; sourceTree = "<group>"; };
 		2DBB5680257296A9005048CE /* RoadSignDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadSignDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBB5683257296A9005048CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				2D2A153425A4B952002F0E81 /* User.swift */,
 				2D2A153725A4B98A002F0E81 /* History.swift */,
 				2D309D5525B23315006965FD /* RecognizedItem.swift */,
+				2DA7214725B6C9C000C8B217 /* Voice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				2D309D5625B23315006965FD /* RecognizedItem.swift in Sources */,
 				2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */,
 				2D2A153825A4B98A002F0E81 /* History.swift in Sources */,
+				2DA7214825B6C9C000C8B217 /* Voice.swift in Sources */,
 				2D36DAC225861A730047EC1F /* SearchView.swift in Sources */,
 				2D36DABF258612950047EC1F /* HistoryHeaderView.swift in Sources */,
 				2D4ED6042572DF1900E6039E /* ScanningViewController.swift in Sources */,

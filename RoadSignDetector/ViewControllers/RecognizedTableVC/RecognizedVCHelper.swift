@@ -66,6 +66,7 @@ class RecognizedVCHelper {
         let convertedPercentValue = convertPercentValue(from: item.confidence.magnitude)
         let recognizedItem = RecognizedItem(precent: convertedPercentValue, roadSign: roadSign)
         recognizedItems.append(recognizedItem)
+        FirebaseService.shared.saveHistoryItem(roadSign)
         modelWasAdded?()
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 import SOTabBar
 import ProgressHUD
+import RevealingSplashView
 
 enum BarItems {
     case settings
@@ -29,6 +30,7 @@ class TabBarViewController: SOTabBarController {
     //MARK: - Variables
     
     private var previoussVC: UIViewController?
+    private let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "icon") ?? UIImage(), iconInitialSize: CGSize(width: 100, height: 100), backgroundColor: .white)
 
     //MARK: - Life cycles
     
@@ -39,12 +41,21 @@ class TabBarViewController: SOTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startRevealAnimation()
         delegate = self
         setupBarItems()
+        revealingSplashView.heartAttack = true
     }
 
     
     //MARK: - Private methods
+    
+    private func startRevealAnimation() {
+        view.addSubview(revealingSplashView)
+        revealingSplashView.animationType = .heartBeat
+        revealingSplashView.startAnimation()
+    }
+    
     
     private func setupBarItems(){
         let settingsVC = StorybardService.main.viewController(viewControllerClass: SettingsTableViewController.self)

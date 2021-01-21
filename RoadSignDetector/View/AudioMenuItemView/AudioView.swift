@@ -25,11 +25,10 @@ class AudioView: UIView {
         }
     }
     
-    
     //MARK: - Variables
     
     private let manVoiceSegmentIndex = 0
-    private let audioStatusKey = "AudioStatus"
+    //private let audioStatusKey = "AudioStatus"
     
     //MARK: - init
     
@@ -61,11 +60,11 @@ class AudioView: UIView {
     //MARK: Audio Status
     
     private func saveCurrentAudioStatus(_ status: Bool) {
-        UserDefaults.standard.setValue(status, forKey: audioStatusKey)
+        Environment.shared.savePlaySoundStatus(status)
     }
     
     private func loadCurrentAudioStatus() -> Bool {
-        return UserDefaults.standard.bool(forKey: audioStatusKey)
+        return Environment.shared.loadPlaySoundStatus()
     }
     
 
@@ -73,6 +72,7 @@ class AudioView: UIView {
     
     @IBAction func soundSwitcherWasToggled(_ sender: UISwitch) {
         saveCurrentAudioStatus(sender.isOn)
+        Environment.shared.changePlaySoundStatus()
     }
     
     @IBAction func voiceWasToggled(_ sender: UISegmentedControl) {

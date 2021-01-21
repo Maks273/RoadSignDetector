@@ -112,7 +112,9 @@ class RoadSignDetailVCHelper {
             }else {
                 do {
                     self?.sound = try AVAudioPlayer(data: data!)
-                    self?.sound?.play()
+                    if self?.canPlaySoundAutomatically() == true {
+                        self?.sound?.play()
+                    }
                 }catch (let error) {
                     self?.errorWithLoading?(error.localizedDescription)
                 }
@@ -122,5 +124,9 @@ class RoadSignDetailVCHelper {
     
     private func isSoundValid() -> Bool {
         return sound != nil
+    }
+    
+    private func canPlaySoundAutomatically() -> Bool {
+        return Environment.shared.loadPlaySoundStatus()
     }
 }

@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         handleUserAuthorization()
         changeCurrentVoice()
+        changePlaySoundStatus()
         return true
     }
 
@@ -49,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func changeCurrentVoice() {
         Environment.shared.changeCurrentVoiceType()
+    }
+    
+    private func changePlaySoundStatus() {
+        Environment.shared.changePlaySoundStatus()
     }
 
 }

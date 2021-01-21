@@ -142,7 +142,7 @@ class FirebaseService {
     //MARK: - Loading sound
     
     func loadSound(soundName: String, completion: @escaping (_ data: Data?, _ error: Error?) -> Void) {
-        soundStrageReference.child(soundName).getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+        soundStrageReference.child(soundName).getData(maxSize: 100 * 1024 * 1024) { (data, error) in
             completion(data,error)
         }
     }

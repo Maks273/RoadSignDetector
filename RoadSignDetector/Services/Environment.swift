@@ -24,6 +24,7 @@ class Environment {
         }
     }
     var currentVoice: VoiceType = .man
+    var playSoundStatus: Bool = false
 
     private let voiceKey = "Voice"
     private let playSoundKey = "PlaySound"
@@ -62,6 +63,11 @@ class Environment {
     
     func loadPlaySoundStatus() -> Bool {
         return UserDefaults.standard.bool(forKey: playSoundKey)
+    }
+    
+    func changePlaySoundStatus() {
+        let status = loadPlaySoundStatus()
+        playSoundStatus = status
     }
     
     //MARK: - Private methods

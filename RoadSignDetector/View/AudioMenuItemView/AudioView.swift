@@ -72,6 +72,7 @@ class AudioView: UIView {
     
     @IBAction func soundSwitcherWasToggled(_ sender: UISwitch) {
         saveCurrentAudioStatus(sender.isOn)
+        Environment.shared.changePlaySoundStatus()
     }
     
     @IBAction func voiceWasToggled(_ sender: UISegmentedControl) {

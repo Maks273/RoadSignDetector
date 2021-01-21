@@ -31,7 +31,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cbs-Fi-SC3">
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cbs-Fi-SC3">
                             <rect key="frame" x="354" y="4.6666666666666679" width="51" height="31.000000000000004"/>
                             <connections>
                                 <action selector="soundSwitcherWasToggled:" destination="-1" eventType="valueChanged" id="sJe-gg-ESZ"/>

@@ -18,10 +18,6 @@ class History {
     var all = [RoadSign]()
     var favorite = [RoadSign]()
     
-//    var toDictionary: NSDictionary{
-//        return ["":""]
-//    }
-    
     init() {
     }
     

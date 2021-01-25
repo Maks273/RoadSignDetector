@@ -12,7 +12,7 @@ class User {
     
     var phoneName: String?
     var phoneUID: String?
-    var history: History?
+    var history: History = History()
     
     var userDictionary: NSDictionary{
         return [ "phoneName": phoneName ?? "",

@@ -103,7 +103,7 @@ class FirebaseService {
     }
     
     private func fillHistoryData(data: [RoadSign]) {
-        Environment.shared.currentUser?.history?.all = data
+        Environment.shared.currentUser?.history.all = data
     }
     
     private func postHistoryTypeNotification() {
@@ -118,15 +118,24 @@ class FirebaseService {
         userDbReference.child(phoneUID).child(history).child(itemID).setValue(item.dict)
     }
     
+    private func clearAllHistoryData() {
+        Environment.shared.currentUser?.history.all = []
+        postHistoryTypeNotification()
+    }
+    
     //MARK: - Make star/unstar and delete historie's item
     
-    func removeHistoryItem(by id: String) {
+    func removeHistoryItem(by id: String, isLastItem: Bool) {
         guard let currentUserID = Environment.shared.currentUser?.phoneUID else {
             return
         }
-        userDbReference.child(currentUserID).child(history).child(id).removeValue { (error, _) in
+        userDbReference.child(currentUserID).child(history).child(id).removeValue { [weak self] (error, _) in
             if let error = error {
                 print(error.localizedDescription)
+            }else {
+                if isLastItem {
+                    self?.clearAllHistoryData()
+                }
             }
         }
     }

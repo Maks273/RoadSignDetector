@@ -74,7 +74,8 @@ class DetectionHistoryVCHelper {
         guard let itemID = model[allHistoryIndex][index].id else {
             return
         }
-        FirebaseService.shared.removeHistoryItem(by: itemID)
+        
+        FirebaseService.shared.removeHistoryItem(by: itemID, isLastItem: model[allHistoryIndex].count == 1)
     }
     
     func getFavoriteImageName(for index: Int) -> String {
@@ -133,11 +134,8 @@ class DetectionHistoryVCHelper {
     
     private func setupModel() {
         if let currentUser = Environment.shared.currentUser {
-            guard let allHistory = currentUser.history?.all else {
-                return
-            }
-            model[allHistoryIndex] = allHistory
-            model[favoriteHistoryIndex] = allHistory.compactMap({ (roadSign) -> RoadSign? in
+            model[allHistoryIndex] = currentUser.history.all
+            model[favoriteHistoryIndex] = currentUser.history.all.compactMap({ (roadSign) -> RoadSign? in
                 return roadSign.isFavorite ? roadSign : nil
             })
             tempModel = model

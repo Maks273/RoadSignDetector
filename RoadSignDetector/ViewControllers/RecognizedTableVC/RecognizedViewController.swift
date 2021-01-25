@@ -5,7 +5,6 @@
 //  Created by Макс Пайдич on 13.01.2021.
 //  Copyright © 2021 Макс Пайдич. All rights reserved.
 //
-
 import UIKit
 import Vision
 
@@ -198,7 +197,6 @@ class RecognizedViewController: UIViewController {
 }
 
 //MARK: - UITableViewDelegate
-
 extension RecognizedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -213,7 +211,6 @@ extension RecognizedViewController: UITableViewDelegate {
 }
 
 //MARK: - UITableViewDataSource
-
 extension RecognizedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         handleBgViewForTable(needShow: recognizedHelper.isNoDataLabelVisible())
@@ -229,4 +226,3 @@ extension RecognizedViewController: UITableViewDataSource {
         return cell
     }
 }
-

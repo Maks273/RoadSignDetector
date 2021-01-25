@@ -15,7 +15,6 @@
 		2D2A153525A4B952002F0E81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A153425A4B952002F0E81 /* User.swift */; };
 		2D2A153825A4B98A002F0E81 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A153725A4B98A002F0E81 /* History.swift */; };
 		2D2A155225A4E3A8002F0E81 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A155125A4E3A8002F0E81 /* Environment.swift */; };
-		2D309D5325B22D3F006965FD /* RecognizedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D309D5225B22D3F006965FD /* RecognizedTableViewCell.swift */; };
 		2D309D5625B23315006965FD /* RecognizedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D309D5525B23315006965FD /* RecognizedItem.swift */; };
 		2D32BAB825AB70DF0073F73B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D32BAB725AB70DF0073F73B /* NetworkService.swift */; };
 		2D36DABF258612950047EC1F /* HistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36DABE258612950047EC1F /* HistoryHeaderView.swift */; };
@@ -39,7 +38,6 @@
 		2D9949B32578004D00015967 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9949B22578004D00015967 /* StringExtension.swift */; };
 		2D9B60B325ACED6F00498EB9 /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */; };
 		2DA7214825B6C9C000C8B217 /* Voice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7214725B6C9C000C8B217 /* Voice.swift */; };
-		2DB9AD0B25AB7CC20013CA6D /* OfflineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB9AD0A25AB7CC20013CA6D /* OfflineAlert.swift */; };
 		2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5683257296A9005048CE /* AppDelegate.swift */; };
 		2DBB5686257296A9005048CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5685257296A9005048CE /* SceneDelegate.swift */; };
 		2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5687257296A9005048CE /* TabBarViewController.swift */; };
@@ -59,10 +57,12 @@
 		2DCFFC7C25AF2EB600F8B49B /*  roadSignsModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC7B25AF2EB600F8B49B /*  roadSignsModel.mlmodel */; };
 		2DCFFC8025AF31A700F8B49B /* DetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC7F25AF31A700F8B49B /* DetectionService.swift */; };
 		2DCFFC8325AF352D00F8B49B /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */; };
-		2DCFFC8725AF568F00F8B49B /* RecognizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC8625AF568F00F8B49B /* RecognizedViewController.swift */; };
-		2DCFFC8B25AF56BC00F8B49B /* RecognizedVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC8A25AF56BC00F8B49B /* RecognizedVCHelper.swift */; };
 		2DD3DB8625AA4A1F00FC5614 /* ScanningVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */; };
 		2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */; };
+		2DEF4DCF25BF74E4006F0E9E /* RecognizedVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */; };
+		2DEF4DD225BF756F006F0E9E /* RecognizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */; };
+		2DEF4DD725BF75FB006F0E9E /* OfflineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DD625BF75FB006F0E9E /* OfflineAlert.swift */; };
+		2DEF4DDB25BF7617006F0E9E /* RecognizedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DDA25BF7617006F0E9E /* RecognizedTableViewCell.swift */; };
 		388F6F3B13460BF69EC27602 /* Pods_RoadSignDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714ADB849EBC5A75617A2DEA /* Pods_RoadSignDetector.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +75,6 @@
 		2D2A153425A4B952002F0E81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D2A153725A4B98A002F0E81 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		2D2A155125A4E3A8002F0E81 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		2D309D5225B22D3F006965FD /* RecognizedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTableViewCell.swift; sourceTree = "<group>"; };
 		2D309D5525B23315006965FD /* RecognizedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedItem.swift; sourceTree = "<group>"; };
 		2D32BAB725AB70DF0073F73B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2D36DABE258612950047EC1F /* HistoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHeaderView.swift; sourceTree = "<group>"; };
@@ -103,7 +102,6 @@
 		2D9949B22578004D00015967 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
 		2DA7214725B6C9C000C8B217 /* Voice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voice.swift; sourceTree = "<group>"; };
-		2DB9AD0A25AB7CC20013CA6D /* OfflineAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineAlert.swift; sourceTree = "<group>"; };
 		2DBB5680257296A9005048CE /* RoadSignDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadSignDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBB5683257296A9005048CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DBB5685257296A9005048CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,10 +125,12 @@
 		2DCFFC7B25AF2EB600F8B49B /*  roadSignsModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = " roadSignsModel.mlmodel"; sourceTree = "<group>"; };
 		2DCFFC7F25AF31A700F8B49B /* DetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionService.swift; sourceTree = "<group>"; };
 		2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
-		2DCFFC8625AF568F00F8B49B /* RecognizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedViewController.swift; sourceTree = "<group>"; };
-		2DCFFC8A25AF56BC00F8B49B /* RecognizedVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedVCHelper.swift; sourceTree = "<group>"; };
 		2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVCHelper.swift; sourceTree = "<group>"; };
 		2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedImageViewController.swift; sourceTree = "<group>"; };
+		2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedVCHelper.swift; sourceTree = "<group>"; };
+		2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedViewController.swift; sourceTree = "<group>"; };
+		2DEF4DD625BF75FB006F0E9E /* OfflineAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineAlert.swift; sourceTree = "<group>"; };
+		2DEF4DDA25BF7617006F0E9E /* RecognizedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizedTableViewCell.swift; sourceTree = "<group>"; };
 		7032170E2571DEED8D1F222C /* Pods-RoadSignDetector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadSignDetector.debug.xcconfig"; path = "Target Support Files/Pods-RoadSignDetector/Pods-RoadSignDetector.debug.xcconfig"; sourceTree = "<group>"; };
 		714ADB849EBC5A75617A2DEA /* Pods_RoadSignDetector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadSignDetector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9DA399E5ACB00342F57396 /* Pods-RoadSignDetector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadSignDetector.release.xcconfig"; path = "Target Support Files/Pods-RoadSignDetector/Pods-RoadSignDetector.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		2DB9AD0925AB7C7B0013CA6D /* OfflineAlert */ = {
 			isa = PBXGroup;
 			children = (
-				2DB9AD0A25AB7CC20013CA6D /* OfflineAlert.swift */,
+				2DEF4DD625BF75FB006F0E9E /* OfflineAlert.swift */,
 			);
 			path = OfflineAlert;
 			sourceTree = "<group>";
@@ -390,7 +390,7 @@
 		2DC19F7C25B2FAB000798668 /* RecognizedTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				2D309D5225B22D3F006965FD /* RecognizedTableViewCell.swift */,
+				2DEF4DDA25BF7617006F0E9E /* RecognizedTableViewCell.swift */,
 			);
 			path = RecognizedTableViewCell;
 			sourceTree = "<group>";
@@ -424,8 +424,8 @@
 		2DCFFC8525AF567500F8B49B /* RecognizedTableVC */ = {
 			isa = PBXGroup;
 			children = (
-				2DCFFC8625AF568F00F8B49B /* RecognizedViewController.swift */,
-				2DCFFC8A25AF56BC00F8B49B /* RecognizedVCHelper.swift */,
+				2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */,
+				2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */,
 			);
 			path = RecognizedTableVC;
 			sourceTree = "<group>";
@@ -584,6 +584,7 @@
 				2DCFFC8325AF352D00F8B49B /* CGImagePropertyOrientation.swift in Sources */,
 				2D70843125A5D9A7005B59C7 /* NotificationNameExtension.swift in Sources */,
 				2D4ED6152572F6D300E6039E /* SettingTableViewCell.swift in Sources */,
+				2DEF4DDB25BF7617006F0E9E /* RecognizedTableViewCell.swift in Sources */,
 				2DCFFC7C25AF2EB600F8B49B /*  roadSignsModel.mlmodel in Sources */,
 				2DC19F7F25B2FBC800798668 /* UILabelExtension.swift in Sources */,
 				2D70842E25A5C48C005B59C7 /* DetectionHistoryVCHelper.swift in Sources */,
@@ -592,14 +593,11 @@
 				2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */,
 				2D9B60B325ACED6F00498EB9 /* NotificationCenterExtension.swift in Sources */,
 				2D2A153225A4B7A7002F0E81 /* FirebaseService.swift in Sources */,
-				2DCFFC8725AF568F00F8B49B /* RecognizedViewController.swift in Sources */,
-				2DCFFC8B25AF56BC00F8B49B /* RecognizedVCHelper.swift in Sources */,
 				2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */,
 				2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */,
-				2D309D5325B22D3F006965FD /* RecognizedTableViewCell.swift in Sources */,
+				2DEF4DCF25BF74E4006F0E9E /* RecognizedVCHelper.swift in Sources */,
 				2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */,
 				2DCE6B2425A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift in Sources */,
-				2DB9AD0B25AB7CC20013CA6D /* OfflineAlert.swift in Sources */,
 				2D9949B32578004D00015967 /* StringExtension.swift in Sources */,
 				2D2A155225A4E3A8002F0E81 /* Environment.swift in Sources */,
 				2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */,
@@ -615,9 +613,11 @@
 				2DCFFC8025AF31A700F8B49B /* DetectionService.swift in Sources */,
 				2D32BAB825AB70DF0073F73B /* NetworkService.swift in Sources */,
 				2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */,
+				2DEF4DD225BF756F006F0E9E /* RecognizedViewController.swift in Sources */,
 				2D309D5625B23315006965FD /* RecognizedItem.swift in Sources */,
 				2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */,
 				2D2A153825A4B98A002F0E81 /* History.swift in Sources */,
+				2DEF4DD725BF75FB006F0E9E /* OfflineAlert.swift in Sources */,
 				2DA7214825B6C9C000C8B217 /* Voice.swift in Sources */,
 				2D36DAC225861A730047EC1F /* SearchView.swift in Sources */,
 				2D36DABF258612950047EC1F /* HistoryHeaderView.swift in Sources */,

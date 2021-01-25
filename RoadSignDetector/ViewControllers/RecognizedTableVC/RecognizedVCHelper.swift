@@ -5,7 +5,6 @@
 //  Created by Макс Пайдич on 13.01.2021.
 //  Copyright © 2021 Макс Пайдич. All rights reserved.
 //
-
 import UIKit
 import Vision
 import ProgressHUD
@@ -61,7 +60,6 @@ class RecognizedVCHelper {
     }
     
     //MARK: Configure recognized model
-
     private func configureRecoginzedModel(with roadSign: RoadSign, item: VNClassificationObservation) {
         let convertedPercentValue = convertPercentValue(from: item.confidence.magnitude)
         let recognizedItem = RecognizedItem(precent: convertedPercentValue, roadSign: roadSign)
@@ -75,7 +73,6 @@ class RecognizedVCHelper {
     }
     
     //MARK: Loading item from server
-
     
     private func loadItem(by item: VNClassificationObservation) {
         FirebaseService.shared.loadRoadSign(name: item.identifier) { [weak self] (roadSign) in

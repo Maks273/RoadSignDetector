@@ -20,6 +20,11 @@ class Voice {
     private var man: String?
     private var woman: String?
     var name: String?
+    var dict: [String:Any] {
+        return ["man": man ?? "",
+                "woman": woman ?? ""
+        ]
+    }
     
     //MARK: - Initalizer
     

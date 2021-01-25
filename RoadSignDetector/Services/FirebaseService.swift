@@ -110,6 +110,14 @@ class FirebaseService {
         NotificationCenter.default.post(name: .historyWasChanged, object: nil)
     }
     
+    func saveHistoryItem(_ item: RoadSign) {
+        guard let phoneUID = Environment.shared.currentUser?.phoneUID, let itemID = item.id else {
+            return
+        }
+        
+        userDbReference.child(phoneUID).child(history).child(itemID).setValue(item.dict)
+    }
+    
     //MARK: - Make star/unstar and delete historie's item
     
     func removeHistoryItem(by id: String) {

@@ -28,6 +28,13 @@ class RoadSign {
     var images = [String]()
     var isFavorite = false
     var id: String?
+    var dict: [String:Any] {
+        return ["id": id ?? "",
+                "isFavorite": isFavorite,
+                "images": images,
+                "uk": ukrainian?.dict ?? [:]
+        ]
+    }
     
     private var ukrainian: LocalizeRoadSign?
     private var english: LocalizeRoadSign?
@@ -36,7 +43,7 @@ class RoadSign {
     
     init(from dictionary: NSDictionary) {
         id = dictionary["id"] as? String
-        decodeImageArray(from: dictionary["images"] as? NSDictionary ?? [:])
+        handleImagesDecoding(from: dictionary)
         ukrainian = LocalizeRoadSign(from: dictionary["uk"] as? NSDictionary ?? [:])
         isFavorite = dictionary["isFavorite"] as? Bool ?? false
     }
@@ -50,24 +57,13 @@ class RoadSign {
             }
         }
     }
-}
-
-class LocalizeRoadSign {
     
-    //MARK: - Variables
-    
-    var description: String?
-    var sound: Voice?
-    var title: String?
-    
-    //MARK: - Initalizer
-    
-    init(from dictionary: NSDictionary) {
-        description = String(dictionary["description"] as? String ?? "")
-        if let soundDict = dictionary["sound"] as? NSDictionary {
-            sound = Voice(from: soundDict)
+    private func handleImagesDecoding(from dict: NSDictionary) {
+        if let images = dict["images"] as? [String] {
+            self.images = images
+        }else {
+            decodeImageArray(from: dict["images"] as? NSDictionary ?? [:])
         }
-        title = dictionary["title"] as? String
     }
 }
 

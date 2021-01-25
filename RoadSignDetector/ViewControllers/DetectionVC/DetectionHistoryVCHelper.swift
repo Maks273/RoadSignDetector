@@ -133,11 +133,8 @@ class DetectionHistoryVCHelper {
     
     private func setupModel() {
         if let currentUser = Environment.shared.currentUser {
-            guard let allHistory = currentUser.history?.all else {
-                return
-            }
-            model[allHistoryIndex] = allHistory
-            model[favoriteHistoryIndex] = allHistory.compactMap({ (roadSign) -> RoadSign? in
+            model[allHistoryIndex] = currentUser.history.all
+            model[favoriteHistoryIndex] = currentUser.history.all.compactMap({ (roadSign) -> RoadSign? in
                 return roadSign.isFavorite ? roadSign : nil
             })
             tempModel = model

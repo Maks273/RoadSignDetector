@@ -103,7 +103,7 @@ class FirebaseService {
     }
     
     private func fillHistoryData(data: [RoadSign]) {
-        Environment.shared.currentUser?.history?.all = data
+        Environment.shared.currentUser?.history.all = data
     }
     
     private func postHistoryTypeNotification() {

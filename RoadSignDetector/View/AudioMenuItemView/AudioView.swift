@@ -77,6 +77,8 @@ class AudioView: UIView {
     
     @IBAction func voiceWasToggled(_ sender: UISegmentedControl) {
         Environment.shared.saveCurrentVoice(sender.selectedSegmentIndex == manVoiceSegmentIndex ? VoiceType.man.rawValue : VoiceType.woman.rawValue)
+        
+        print("SAVED = \(sender.selectedSegmentIndex == manVoiceSegmentIndex ? VoiceType.man.rawValue : VoiceType.woman.rawValue)")
         Environment.shared.changeCurrentVoiceType()
     }
 }

@@ -19,7 +19,6 @@ class Voice {
     
     private var man: String?
     private var woman: String?
-    var name: String?
     var dict: [String:Any] {
         return ["man": man ?? "",
                 "woman": woman ?? ""
@@ -31,12 +30,12 @@ class Voice {
     init(from dict: NSDictionary) {
         man = dict["man"] as? String
         woman = dict["woman"] as? String
-        changeCurrentSoundName()
     }
     
-    //MARK: - Private methods
+    //MARK: - Helper
     
-    private func changeCurrentSoundName() {
-        name = Environment.shared.currentVoice == .man ? man : woman
+    func name() -> String? {
+        return Environment.shared.currentVoice == .man ? man : woman
     }
+
 }

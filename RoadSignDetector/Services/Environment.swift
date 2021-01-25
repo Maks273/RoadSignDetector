@@ -52,7 +52,9 @@ class Environment {
     
     func changeCurrentVoiceType() {
         let voice = loadCurrentVoice()
+        print("LOADED = \(voice)")
         currentVoice = voice == VoiceType.man.rawValue ? .man : .woman
+        print("Current = \(currentVoice)")
     }
     
         //MARK:  Play sound settings item

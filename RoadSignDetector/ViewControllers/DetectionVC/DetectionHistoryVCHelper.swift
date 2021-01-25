@@ -74,7 +74,8 @@ class DetectionHistoryVCHelper {
         guard let itemID = model[allHistoryIndex][index].id else {
             return
         }
-        FirebaseService.shared.removeHistoryItem(by: itemID)
+        
+        FirebaseService.shared.removeHistoryItem(by: itemID, isLastItem: model[allHistoryIndex].count == 1)
     }
     
     func getFavoriteImageName(for index: Int) -> String {

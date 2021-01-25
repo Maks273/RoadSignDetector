@@ -145,6 +145,7 @@ class ScanningViewController: UIViewController {
             guard let sSelf = self, let image = sSelf.pickedImage else {
                 return
             }
+            ProgressHUD.show()
             sSelf.detectionService.updateClassification(for: image)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

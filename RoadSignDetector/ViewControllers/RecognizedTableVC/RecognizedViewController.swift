@@ -7,6 +7,7 @@
 //
 import UIKit
 import Vision
+import ProgressHUD
 
 class RecognizedViewController: UIViewController {
     
@@ -45,6 +46,7 @@ class RecognizedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        ProgressHUD.dismiss()
         setupImage()
         paintRecognizedFrames()
         reloadTableView()

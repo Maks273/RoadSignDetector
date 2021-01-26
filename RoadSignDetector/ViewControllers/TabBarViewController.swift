@@ -31,6 +31,7 @@ class TabBarViewController: SOTabBarController {
     
     private var previoussVC: UIViewController?
     private let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "icon") ?? UIImage(), iconInitialSize: CGSize(width: 100, height: 100), backgroundColor: .white)
+    var langWasChanged: Bool = false
 
     //MARK: - Life cycles
     
@@ -41,10 +42,9 @@ class TabBarViewController: SOTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startRevealAnimation()
         delegate = self
         setupBarItems()
-        revealingSplashView.heartAttack = true
+        !langWasChanged ? performLoadingAnimation() : selectTab(at: 2)
     }
 
     
@@ -101,6 +101,14 @@ class TabBarViewController: SOTabBarController {
             previoussVC = viewControllers[1]
         }
     }
+    
+    private func performLoadingAnimation() {
+        startRevealAnimation()
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.revealingSplashView.heartAttack = true
+        }
+        
+    }
 
 }
 
@@ -108,6 +116,7 @@ extension TabBarViewController: SOTabBarControllerDelegate {
     func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController) {
         Environment.shared.selectedTabIndex = ((viewController as? DetectionHistoryTableViewController) != nil) ? 0 : 1
         previoussVC?.viewWillDisappear(true)
+        viewController.viewDidLoad()
         previoussVC = viewController
         ProgressHUD.dismiss()
     }

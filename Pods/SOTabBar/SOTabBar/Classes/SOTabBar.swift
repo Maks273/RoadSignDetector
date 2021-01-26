@@ -133,8 +133,8 @@ public class SOTabBar: UIView {
         let index = Int(floor(touchArea / tabWidth))
         didSelectTab(index: index)
     }
-    
-    private func didSelectTab(index: Int) {
+
+    internal func didSelectTab(index: Int) {
         if index + 1 == selectedIndex {return}
         animateTitle(index: index)
  

@@ -20,6 +20,9 @@ protocol SettingProtocol: class {
 
 class SettingsTableViewController: UITableViewController {
     
+    //MARK: - IBOutlets
+    @IBOutlet weak var headerLabel: UILabel!
+    
     //MARK: - Variables
     private let settingsHelper = SettingsTableVCHelper()
     private let cellIdentifire = "settingCell"
@@ -29,6 +32,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        headerLabel.text = headerLabel.text?.localized()
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "SettingTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifire)

@@ -176,7 +176,7 @@ class RecognizedViewController: UIViewController {
     //MARK: nav bar
     
     private func configureNavView() {
-        navigationTitleLabel.text = "Recognized"
+        navigationTitleLabel.text = "Recognized".localized()
         setupNavBarStyle()
         setupBtnTarget()
     }

@@ -14,6 +14,8 @@
                 <outlet property="audioSwitcher" destination="cbs-Fi-SC3" id="1B4-uR-l50"/>
                 <outlet property="bottomContainerView" destination="eHZ-Lt-JSW" id="2ED-Sd-d5k"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="5Eq-dG-mBl"/>
+                <outlet property="playSoundLabel" destination="2tc-hC-IB4" id="dd1-lX-eLy"/>
+                <outlet property="voiceLabel" destination="A5h-Y5-y3X" id="Z3g-a7-d5s"/>
                 <outlet property="voiceSegmentedControll" destination="K1E-hq-rt9" id="8SI-gj-GgB"/>
             </connections>
         </placeholder>

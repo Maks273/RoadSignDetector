@@ -12,6 +12,8 @@ class AudioView: UIView {
 
     //MARK: - IBOutlets
     
+    @IBOutlet weak var voiceLabel: UILabel!
+    @IBOutlet weak var playSoundLabel: UILabel!
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var voiceSegmentedControll: UISegmentedControl! {
@@ -28,7 +30,6 @@ class AudioView: UIView {
     //MARK: - Variables
     
     private let manVoiceSegmentIndex = 0
-    //private let audioStatusKey = "AudioStatus"
     
     //MARK: - init
     
@@ -49,6 +50,14 @@ class AudioView: UIView {
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        updateLocalization()
+    }
+    
+    private func updateLocalization() {
+        playSoundLabel.localizedText()
+        voiceLabel.localizedText()
+        voiceSegmentedControll.setTitle("Man".localized(), forSegmentAt: 0)
+        voiceSegmentedControll.setTitle("Woman".localized(), forSegmentAt: 1)
     }
 
     //MARK: Speaker Voice
@@ -77,8 +86,6 @@ class AudioView: UIView {
     
     @IBAction func voiceWasToggled(_ sender: UISegmentedControl) {
         Environment.shared.saveCurrentVoice(sender.selectedSegmentIndex == manVoiceSegmentIndex ? VoiceType.man.rawValue : VoiceType.woman.rawValue)
-        
-        print("SAVED = \(sender.selectedSegmentIndex == manVoiceSegmentIndex ? VoiceType.man.rawValue : VoiceType.woman.rawValue)")
         Environment.shared.changeCurrentVoiceType()
     }
 }

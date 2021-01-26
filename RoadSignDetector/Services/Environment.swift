@@ -25,6 +25,7 @@ class Environment {
     }
     var currentVoice: VoiceType = .man
     var playSoundStatus: Bool = false
+    let appLanguageKey = "AppleLanguage"
 
     private let voiceKey = "Voice"
     private let playSoundKey = "PlaySound"

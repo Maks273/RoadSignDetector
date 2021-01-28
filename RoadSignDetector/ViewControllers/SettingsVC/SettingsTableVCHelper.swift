@@ -17,7 +17,7 @@ class SettingsTableVCHelper {
         return [generalMenuItem, extraMenuItem]
     }
     private let generalMenuItem = ["Languages".localized(),"Audio".localized()]
-    private let extraMenuItem  = ["Contact us".localized(),"Privacy policy".localized(),"Rate the app".localized()]
+    private let extraMenuItem  = ["Contact us".localized(),"Rate the app".localized(),"Privacy policy".localized(),"Terms & Conditions".localized()]
     private let developerEmail = "paydich28@gmail.com"
     private var selectedIndex: IndexPath?
     

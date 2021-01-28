@@ -22,7 +22,7 @@ class SettingsTableVCHelper {
         return [generalMenuItem, extraMenuItem]
     }
     private let generalMenuItem = ["Languages".localized(),"Audio".localized()]
-    private let extraMenuItem  = ["Contact us".localized(),"Rate the app".localized(),"Privacy policy".localized(),"Terms & Conditions".localized()]
+    private let extraMenuItem  = ["Contact us".localized(),"Rate the app".localized(),"Privacy Policy".localized(),"Terms & Conditions".localized()]
     private let developerEmail = "paydich28@gmail.com"
     private var selectedIndex: IndexPath?
     
@@ -88,23 +88,23 @@ class SettingsTableVCHelper {
         return developerEmail
     }
     
-    func loadLegalDocuments(for type: LegalDocuments, completion: @escaping (_ context: String?, _ error: Error?) -> Void) {
+    func loadLegalDocuments(for type: LegalDocuments, completion: @escaping (_ title: String? ,_ context: String?, _ error: Error?) -> Void) {
         let legalDocumentsName = getLegalDocumentsFileName(for: type)
         guard let path =  Bundle.main.path(forResource: legalDocumentsName, ofType: "txt") else {
             return
         }
         do{
             let context = try String(contentsOfFile: path)
-            completion(context,nil)
+            completion(legalDocumentsName,context,nil)
         }catch (let error) {
-            completion(nil,error)
+            completion(nil,nil,error)
         }
     }
     
     //MARK: - Private methods
     
     private func getLegalDocumentsFileName(for type: LegalDocuments) -> String {
-        return type == .privacyPolicy ? "PrivacyPolicy" : "Terms"
+        return type == .privacyPolicy ? "Privacy Policy" : "Terms"
     }
    
     

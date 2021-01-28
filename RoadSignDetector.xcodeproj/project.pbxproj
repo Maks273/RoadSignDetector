@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2D09EE8E25C362BF00D05D0F /* Terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EE8C25C362BF00D05D0F /* Terms.txt */; };
-		2D09EE8F25C362BF00D05D0F /* PrivacyPolicy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EE8D25C362BF00D05D0F /* PrivacyPolicy.txt */; };
+		2D09EE8F25C362BF00D05D0F /* Privacy Policy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EE8D25C362BF00D05D0F /* Privacy Policy.txt */; };
+		2D09EE9325C36FA100D05D0F /* LegalDocsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D09EE9225C36FA100D05D0F /* LegalDocsViewController.swift */; };
+		2D09EE9B25C3728D00D05D0F /* RecognizeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D09EE9A25C3728D00D05D0F /* RecognizeHeader.swift */; };
+		2D09EE9F25C3729700D05D0F /* RecognizeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EE9E25C3729700D05D0F /* RecognizeHeader.xib */; };
 		2D22A8DA2576EC0000BFEE2D /* LanguageItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */; };
 		2D22A8DB2576EC0000BFEE2D /* LanguageItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */; };
 		2D22A8E02576EF3B00BFEE2D /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */; };
@@ -73,7 +76,10 @@
 		2D09EE8625C3575200D05D0F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		2D09EE8725C3575200D05D0F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D09EE8C25C362BF00D05D0F /* Terms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Terms.txt; sourceTree = "<group>"; };
-		2D09EE8D25C362BF00D05D0F /* PrivacyPolicy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PrivacyPolicy.txt; sourceTree = "<group>"; };
+		2D09EE8D25C362BF00D05D0F /* Privacy Policy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Privacy Policy.txt"; sourceTree = "<group>"; };
+		2D09EE9225C36FA100D05D0F /* LegalDocsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalDocsViewController.swift; sourceTree = "<group>"; };
+		2D09EE9A25C3728D00D05D0F /* RecognizeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeHeader.swift; sourceTree = "<group>"; };
+		2D09EE9E25C3729700D05D0F /* RecognizeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecognizeHeader.xib; sourceTree = "<group>"; };
 		2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageItemTableViewCell.swift; sourceTree = "<group>"; };
 		2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageItemTableViewCell.xib; sourceTree = "<group>"; };
 		2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
@@ -165,10 +171,36 @@
 		2D09EE8B25C362A600D05D0F /* TermsAndPrivacy */ = {
 			isa = PBXGroup;
 			children = (
-				2D09EE8D25C362BF00D05D0F /* PrivacyPolicy.txt */,
+				2D09EE8D25C362BF00D05D0F /* Privacy Policy.txt */,
 				2D09EE8C25C362BF00D05D0F /* Terms.txt */,
 			);
 			path = TermsAndPrivacy;
+			sourceTree = "<group>";
+		};
+		2D09EE9125C36F8600D05D0F /* LegalDocsVC */ = {
+			isa = PBXGroup;
+			children = (
+				2D09EE9225C36FA100D05D0F /* LegalDocsViewController.swift */,
+			);
+			path = LegalDocsVC;
+			sourceTree = "<group>";
+		};
+		2D09EE9625C3725000D05D0F /* Recognize */ = {
+			isa = PBXGroup;
+			children = (
+				2D09EE9A25C3728D00D05D0F /* RecognizeHeader.swift */,
+				2D09EE9E25C3729700D05D0F /* RecognizeHeader.xib */,
+			);
+			path = Recognize;
+			sourceTree = "<group>";
+		};
+		2D09EE9825C3726B00D05D0F /* General */ = {
+			isa = PBXGroup;
+			children = (
+				2D4ED60B2572E78700E6039E /* HeaderView.swift */,
+				2DE71A0325C0C07800A1052D /* HistoryHeaderView.xib */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		2D22A8D32576EA9800BFEE2D /* AudioMenuItemView */ = {
@@ -209,8 +241,8 @@
 		2D36DABC25860E8F0047EC1F /* HeadersView */ = {
 			isa = PBXGroup;
 			children = (
-				2D4ED60B2572E78700E6039E /* HeaderView.swift */,
-				2DE71A0325C0C07800A1052D /* HistoryHeaderView.xib */,
+				2D09EE9625C3725000D05D0F /* Recognize */,
+				2D09EE9825C3726B00D05D0F /* General */,
 				2D9348282586936200B5A972 /* History */,
 			);
 			path = HeadersView;
@@ -344,6 +376,7 @@
 		2DBB569725729924005048CE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D09EE9125C36F8600D05D0F /* LegalDocsVC */,
 				2DCFFC8525AF567500F8B49B /* RecognizedTableVC */,
 				2DD798DB25AA1C9A000792A6 /* FocusedImageVC */,
 				2D22A8DE2576EF1F00BFEE2D /* LanguageTableVC */,
@@ -536,9 +569,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4920352586333E0060D548 /* SearchView.xib in Resources */,
-				2D09EE8F25C362BF00D05D0F /* PrivacyPolicy.txt in Resources */,
+				2D09EE8F25C362BF00D05D0F /* Privacy Policy.txt in Resources */,
 				2DE71A0425C0C07800A1052D /* HistoryHeaderView.xib in Resources */,
 				2D22A8DB2576EC0000BFEE2D /* LanguageItemTableViewCell.xib in Resources */,
+				2D09EE9F25C3729700D05D0F /* RecognizeHeader.xib in Resources */,
 				2DBB5690257296AB005048CE /* LaunchScreen.storyboard in Resources */,
 				2D520A74258910E000A4744A /* ExpandedSoundView.xib in Resources */,
 				2D2A152F25A4B742002F0E81 /* GoogleService-Info.plist in Resources */,
@@ -607,6 +641,7 @@
 				2DEF4DDB25BF7617006F0E9E /* RecognizedTableViewCell.swift in Sources */,
 				2DCFFC7C25AF2EB600F8B49B /*  roadSignsModel.mlmodel in Sources */,
 				2DC19F7F25B2FBC800798668 /* UILabelExtension.swift in Sources */,
+				2D09EE9B25C3728D00D05D0F /* RecognizeHeader.swift in Sources */,
 				2DE71A0925C0C27700A1052D /* UIButtonExtenstion.swift in Sources */,
 				2D70842E25A5C48C005B59C7 /* DetectionHistoryVCHelper.swift in Sources */,
 				2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */,
@@ -646,6 +681,7 @@
 				2DBB5686257296A9005048CE /* SceneDelegate.swift in Sources */,
 				2DCE6B0825A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift in Sources */,
 				2D2A153525A4B952002F0E81 /* User.swift in Sources */,
+				2D09EE9325C36FA100D05D0F /* LegalDocsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

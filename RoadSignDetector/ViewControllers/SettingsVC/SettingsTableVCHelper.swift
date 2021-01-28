@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum LegalDocuments {
+    case privacyPolicy
+    case termsAndCnditions
+}
+
 class SettingsTableVCHelper {
     
     //MARK: - Private variables
@@ -82,5 +87,25 @@ class SettingsTableVCHelper {
     func getDeveloperEmail() -> String {
         return developerEmail
     }
+    
+    func loadLegalDocuments(for type: LegalDocuments, completion: @escaping (_ context: String?, _ error: Error?) -> Void) {
+        let legalDocumentsName = getLegalDocumentsFileName(for: type)
+        guard let path =  Bundle.main.path(forResource: legalDocumentsName, ofType: "txt") else {
+            return
+        }
+        do{
+            let context = try String(contentsOfFile: path)
+            completion(context,nil)
+        }catch (let error) {
+            completion(nil,error)
+        }
+    }
+    
+    //MARK: - Private methods
+    
+    private func getLegalDocumentsFileName(for type: LegalDocuments) -> String {
+        return type == .privacyPolicy ? "PrivacyPolicy" : "Terms"
+    }
+   
     
 }

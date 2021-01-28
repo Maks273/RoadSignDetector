@@ -82,6 +82,19 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    private func showLegalDocuments(for type: LegalDocuments) {
+        settingsHelper.loadLegalDocuments(for: type) { (context, error) in
+            if error == nil {
+                //show view
+            }
+        }
+    }
+    
+    private func showLegalDocsVC() {
+        
+    }
+    
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -121,6 +134,10 @@ class SettingsTableViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 self.openEmailApp()
+            case 2:
+                self.showLegalDocuments(for: .privacyPolicy)
+            case 3:
+                self.showLegalDocuments(for: .termsAndCnditions)
             default:
                 break
             }

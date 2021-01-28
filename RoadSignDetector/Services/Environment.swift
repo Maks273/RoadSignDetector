@@ -80,6 +80,8 @@ class Environment {
             currentLocalizationInfo = .ukrainian
         case "en":
             currentLocalizationInfo = .english
+        case "ru":
+            currentLocalizationInfo = .russian
         default:
             break
         }

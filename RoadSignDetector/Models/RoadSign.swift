@@ -11,6 +11,7 @@ import Foundation
 enum LocalizationInfo {
     case ukrainian
     case english
+    case russian
 }
 
 class RoadSign {
@@ -23,6 +24,8 @@ class RoadSign {
             return ukrainian
         case .english:
             return english
+        case .russian:
+            return russian
         default:
             return ukrainian
         }
@@ -40,6 +43,7 @@ class RoadSign {
     
     private var ukrainian: LocalizeRoadSign?
     private var english: LocalizeRoadSign?
+    private var russian: LocalizeRoadSign?
 
     //MARK: - Initalizer
     
@@ -47,6 +51,8 @@ class RoadSign {
         id = dictionary["id"] as? String
         handleImagesDecoding(from: dictionary)
         ukrainian = LocalizeRoadSign(from: dictionary["uk"] as? NSDictionary ?? [:])
+        english = LocalizeRoadSign(from: dictionary["en"] as? NSDictionary ?? [:])
+        russian = LocalizeRoadSign(from: dictionary["ru"] as? NSDictionary ?? [:])
         isFavorite = dictionary["isFavorite"] as? Bool ?? false
     }
     

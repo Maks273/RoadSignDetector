@@ -68,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D09EE8625C3575200D05D0F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		2D09EE8725C3575200D05D0F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageItemTableViewCell.swift; sourceTree = "<group>"; };
 		2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageItemTableViewCell.xib; sourceTree = "<group>"; };
 		2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				en,
 				Base,
 				uk,
+				ru,
 			);
 			mainGroup = 2DBB5677257296A9005048CE;
 			productRefGroup = 2DBB5681257296A9005048CE /* Products */;
@@ -638,6 +641,7 @@
 			children = (
 				2D9949AD2577F20600015967 /* en */,
 				2D9949B12577F23800015967 /* uk */,
+				2D09EE8725C3575200D05D0F /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -648,6 +652,7 @@
 				2DBB568A257296A9005048CE /* Base */,
 				2D5943852577AEB600CE0D4F /* en */,
 				2D9949B02577F23800015967 /* uk */,
+				2D09EE8625C3575200D05D0F /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

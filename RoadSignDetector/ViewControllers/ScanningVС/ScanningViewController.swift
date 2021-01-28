@@ -35,6 +35,7 @@ class ScanningViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateLocalization() 
         setupStyleForOpenButtons()
         configureImagePicker()
     }
@@ -68,6 +69,11 @@ class ScanningViewController: UIViewController {
     
     
     //MARK: - Private methods
+    
+    private func updateLocalization() {
+        openCameraBtn.localizedTitle()
+        openGalleryBtn.localizedTitle()
+    }
     
     private func setupStyleForOpenButtons() {
         setupStyleForBtn(openCameraBtn)
@@ -106,7 +112,7 @@ class ScanningViewController: UIViewController {
         case .authorized:
             showImagePicker(by: .photoLibrary)
         case .denied, .restricted:
-            ProgressHUD.showError("To open photos you need to get access in settings.")
+            ProgressHUD.showError("To open photos you need to get access in settings.".localized())
         default:
             makePhotoLibraryRequest()
         }
@@ -126,7 +132,7 @@ class ScanningViewController: UIViewController {
         case .authorized:
             showImagePicker(by: .camera)
         case .denied,.restricted:
-            ProgressHUD.showError("To open camera you need to get access in settings.")
+            ProgressHUD.showError("To open camera you need to get access in settings.".localized())
         default:
             makeCameraRequest()
         }
@@ -140,15 +146,15 @@ class ScanningViewController: UIViewController {
     
     private func showConfirmAlert() {
         dismiss(animated: true, completion: nil)
-        let alert = UIAlertController(title: "Detection preprocess", message: "Are you sure to start detecting process?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Start", style: .default, handler: { [weak self] (action) in
+        let alert = UIAlertController(title: "Detection preprocess".localized(), message: "Are you sure to start detecting process?".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Start".localized(), style: .default, handler: { [weak self] (action) in
             guard let sSelf = self, let image = sSelf.pickedImage else {
                 return
             }
             ProgressHUD.show()
             sSelf.detectionService.updateClassification(for: image)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     

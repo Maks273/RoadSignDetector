@@ -16,7 +16,7 @@ class Environment {
     static let shared = Environment()
     
     var currentUser: User?
-    var currentLocalizationInfo: LocalizationInfo = .ukrainian
+    var currentLocalizationInfo: LocalizationInfo!
     var selectedTabIndex: Int = 1
     var currentConnectionStatus: Reachability.Connection! {
         didSet {
@@ -25,6 +25,7 @@ class Environment {
     }
     var currentVoice: VoiceType = .man
     var playSoundStatus: Bool = false
+    let appLanguageKey = "AppleLanguage"
 
     private let voiceKey = "Voice"
     private let playSoundKey = "PlaySound"
@@ -70,6 +71,20 @@ class Environment {
     func changePlaySoundStatus() {
         let status = loadPlaySoundStatus()
         playSoundStatus = status
+    }
+    
+    func changeCurrentLocalizeIntoLanguage() {
+        let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey)
+        switch currentLanguage {
+        case "uk":
+            currentLocalizationInfo = .ukrainian
+        case "en":
+            currentLocalizationInfo = .english
+        case "ru":
+            currentLocalizationInfo = .russian
+        default:
+            break
+        }
     }
     
     //MARK: - Private methods

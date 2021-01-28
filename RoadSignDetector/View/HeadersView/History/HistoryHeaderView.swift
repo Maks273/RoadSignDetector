@@ -16,6 +16,9 @@ class HistoryHeaderView: UIView {
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var allButton: UIButton!
+    @IBOutlet weak var historyLabel: UILabel!
     @IBOutlet var containerView: UIView!
     @IBOutlet var underlineViews: [UIView]!
     
@@ -48,6 +51,7 @@ class HistoryHeaderView: UIView {
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         configureStyle()
+        updateLocalization()
     }
     
     private func configureStyle(){
@@ -73,6 +77,12 @@ class HistoryHeaderView: UIView {
                 view.alpha = 1
             }
         }
+    }
+    
+    private func updateLocalization() {
+        historyLabel.localizedText()
+        favoriteButton.localizedTitle()
+        allButton.localizedTitle()
     }
     
     //MARK: - IBActions

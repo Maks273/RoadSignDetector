@@ -10,6 +10,12 @@ import UIKit
 
 extension String {
     func localized() -> String {
-        return NSLocalizedString(self, comment: "")
+        guard let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey),
+              let path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj"),
+              let bundle = Bundle(path: path)
+        else {
+            return ""
+        }
+        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: self, comment: self)
     }
 }

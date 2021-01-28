@@ -30,7 +30,6 @@
 		2D70842E25A5C48C005B59C7 /* DetectionHistoryVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D70842D25A5C48C005B59C7 /* DetectionHistoryVCHelper.swift */; };
 		2D70843125A5D9A7005B59C7 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D70843025A5D9A7005B59C7 /* NotificationNameExtension.swift */; };
 		2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8219DE25A4B10600C868CE /* SettingsTableVCHelper.swift */; };
-		2D93482B2586937100B5A972 /* HistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D93482A2586937100B5A972 /* HistoryHeaderView.xib */; };
 		2D93483025869C9400B5A972 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93482E25869C9400B5A972 /* HistoryTableViewCell.swift */; };
 		2D93483125869C9400B5A972 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D93482F25869C9400B5A972 /* HistoryTableViewCell.xib */; };
 		2D93483525869F1400B5A972 /* RoadSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93483425869F1400B5A972 /* RoadSign.swift */; };
@@ -50,7 +49,6 @@
 		2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB56A225729BE1005048CE /* StoryboardService.swift */; };
 		2DBE798425BA1E2700243579 /* LocalizeRoadSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE798325BA1E2700243579 /* LocalizeRoadSign.swift */; };
 		2DC19F7F25B2FBC800798668 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC19F7E25B2FBC800798668 /* UILabelExtension.swift */; };
-		2DCAD511257ACAFD0090CD2A /* AudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DCAD513257ACAFD0090CD2A /* AudioView.xib */; };
 		2DCE379C2573A3B1006A4DF1 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE379B2573A3B1006A4DF1 /* AudioView.swift */; };
 		2DCE6B0825A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE6B0725A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift */; };
 		2DCE6B2425A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCE6B2325A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift */; };
@@ -59,6 +57,9 @@
 		2DCFFC8325AF352D00F8B49B /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */; };
 		2DD3DB8625AA4A1F00FC5614 /* ScanningVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */; };
 		2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */; };
+		2DE71A0425C0C07800A1052D /* HistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE71A0325C0C07800A1052D /* HistoryHeaderView.xib */; };
+		2DE71A0925C0C27700A1052D /* UIButtonExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE71A0825C0C27700A1052D /* UIButtonExtenstion.swift */; };
+		2DE71A0E25C0C5F900A1052D /* AudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE71A0D25C0C5F900A1052D /* AudioView.xib */; };
 		2DEF4DCF25BF74E4006F0E9E /* RecognizedVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */; };
 		2DEF4DD225BF756F006F0E9E /* RecognizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */; };
 		2DEF4DD725BF75FB006F0E9E /* OfflineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DD625BF75FB006F0E9E /* OfflineAlert.swift */; };
@@ -67,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D09EE8625C3575200D05D0F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		2D09EE8725C3575200D05D0F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageItemTableViewCell.swift; sourceTree = "<group>"; };
 		2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageItemTableViewCell.xib; sourceTree = "<group>"; };
 		2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +94,6 @@
 		2D70842D25A5C48C005B59C7 /* DetectionHistoryVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionHistoryVCHelper.swift; sourceTree = "<group>"; };
 		2D70843025A5D9A7005B59C7 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		2D8219DE25A4B10600C868CE /* SettingsTableVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVCHelper.swift; sourceTree = "<group>"; };
-		2D93482A2586937100B5A972 /* HistoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryHeaderView.xib; sourceTree = "<group>"; };
 		2D93482E25869C9400B5A972 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		2D93482F25869C9400B5A972 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		2D93483425869F1400B5A972 /* RoadSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadSign.swift; sourceTree = "<group>"; };
@@ -116,9 +118,6 @@
 		2DBB56A225729BE1005048CE /* StoryboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardService.swift; sourceTree = "<group>"; };
 		2DBE798325BA1E2700243579 /* LocalizeRoadSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeRoadSign.swift; sourceTree = "<group>"; };
 		2DC19F7E25B2FBC800798668 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
-		2DCAD512257ACAFD0090CD2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AudioView.xib; sourceTree = "<group>"; };
-		2DCAD515257ACB140090CD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AudioView.strings; sourceTree = "<group>"; };
-		2DCAD517257ACB1B0090CD2A /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/AudioView.strings; sourceTree = "<group>"; };
 		2DCE379B2573A3B1006A4DF1 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		2DCE6B0725A8CF8800D4B2D1 /* RoadSignDetailVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadSignDetailVCHelper.swift; sourceTree = "<group>"; };
 		2DCE6B2325A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadSignImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -127,6 +126,9 @@
 		2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
 		2DD3DB8525AA4A1F00FC5614 /* ScanningVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningVCHelper.swift; sourceTree = "<group>"; };
 		2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedImageViewController.swift; sourceTree = "<group>"; };
+		2DE71A0325C0C07800A1052D /* HistoryHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryHeaderView.xib; sourceTree = "<group>"; };
+		2DE71A0825C0C27700A1052D /* UIButtonExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtenstion.swift; sourceTree = "<group>"; };
+		2DE71A0D25C0C5F900A1052D /* AudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioView.xib; sourceTree = "<group>"; };
 		2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedVCHelper.swift; sourceTree = "<group>"; };
 		2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedViewController.swift; sourceTree = "<group>"; };
 		2DEF4DD625BF75FB006F0E9E /* OfflineAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineAlert.swift; sourceTree = "<group>"; };
@@ -159,8 +161,8 @@
 		2D22A8D32576EA9800BFEE2D /* AudioMenuItemView */ = {
 			isa = PBXGroup;
 			children = (
+				2DE71A0D25C0C5F900A1052D /* AudioView.xib */,
 				2DCE379B2573A3B1006A4DF1 /* AudioView.swift */,
-				2DCAD513257ACAFD0090CD2A /* AudioView.xib */,
 			);
 			path = AudioMenuItemView;
 			sourceTree = "<group>";
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				2D4ED60B2572E78700E6039E /* HeaderView.swift */,
+				2DE71A0325C0C07800A1052D /* HistoryHeaderView.xib */,
 				2D9348282586936200B5A972 /* History */,
 			);
 			path = HeadersView;
@@ -269,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				2D36DABE258612950047EC1F /* HistoryHeaderView.swift */,
-				2D93482A2586937100B5A972 /* HistoryHeaderView.xib */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -371,6 +373,7 @@
 				2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */,
 				2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */,
 				2DC19F7E25B2FBC800798668 /* UILabelExtension.swift */,
+				2DE71A0825C0C27700A1052D /* UIButtonExtenstion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				en,
 				Base,
 				uk,
+				ru,
 			);
 			mainGroup = 2DBB5677257296A9005048CE;
 			productRefGroup = 2DBB5681257296A9005048CE /* Products */;
@@ -518,15 +522,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4920352586333E0060D548 /* SearchView.xib in Resources */,
+				2DE71A0425C0C07800A1052D /* HistoryHeaderView.xib in Resources */,
 				2D22A8DB2576EC0000BFEE2D /* LanguageItemTableViewCell.xib in Resources */,
 				2DBB5690257296AB005048CE /* LaunchScreen.storyboard in Resources */,
-				2D93482B2586937100B5A972 /* HistoryHeaderView.xib in Resources */,
 				2D520A74258910E000A4744A /* ExpandedSoundView.xib in Resources */,
 				2D2A152F25A4B742002F0E81 /* GoogleService-Info.plist in Resources */,
 				2D9949AC2577F20600015967 /* Localizable.strings in Resources */,
+				2DE71A0E25C0C5F900A1052D /* AudioView.xib in Resources */,
 				2DBB568D257296AB005048CE /* Assets.xcassets in Resources */,
 				2D93483125869C9400B5A972 /* HistoryTableViewCell.xib in Resources */,
-				2DCAD511257ACAFD0090CD2A /* AudioView.xib in Resources */,
 				2D4ED6162572F6D300E6039E /* SettingTableViewCell.xib in Resources */,
 				2DBB568B257296A9005048CE /* Main.storyboard in Resources */,
 			);
@@ -587,6 +591,7 @@
 				2DEF4DDB25BF7617006F0E9E /* RecognizedTableViewCell.swift in Sources */,
 				2DCFFC7C25AF2EB600F8B49B /*  roadSignsModel.mlmodel in Sources */,
 				2DC19F7F25B2FBC800798668 /* UILabelExtension.swift in Sources */,
+				2DE71A0925C0C27700A1052D /* UIButtonExtenstion.swift in Sources */,
 				2D70842E25A5C48C005B59C7 /* DetectionHistoryVCHelper.swift in Sources */,
 				2DBB56A325729BE1005048CE /* StoryboardService.swift in Sources */,
 				2DBE798425BA1E2700243579 /* LocalizeRoadSign.swift in Sources */,
@@ -636,6 +641,7 @@
 			children = (
 				2D9949AD2577F20600015967 /* en */,
 				2D9949B12577F23800015967 /* uk */,
+				2D09EE8725C3575200D05D0F /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -646,6 +652,7 @@
 				2DBB568A257296A9005048CE /* Base */,
 				2D5943852577AEB600CE0D4F /* en */,
 				2D9949B02577F23800015967 /* uk */,
+				2D09EE8625C3575200D05D0F /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -656,16 +663,6 @@
 				2DBB568F257296AB005048CE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		2DCAD513257ACAFD0090CD2A /* AudioView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2DCAD512257ACAFD0090CD2A /* Base */,
-				2DCAD515257ACB140090CD2A /* en */,
-				2DCAD517257ACB1B0090CD2A /* uk */,
-			);
-			name = AudioView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

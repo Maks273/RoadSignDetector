@@ -93,4 +93,7 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
         
     }
     
+    open func selectTab(at index: Int) {
+        tabBar.didSelectTab(index: 2)
+    }
 }

@@ -38,7 +38,7 @@
                             </constraints>
                         </view>
                         <view hidden="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cIa-0y-T8O">
-                            <rect key="frame" x="259" y="50" width="85" height="5"/>
+                            <rect key="frame" x="261" y="50" width="83" height="5"/>
                             <color key="backgroundColor" systemColor="systemPurpleColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="5" id="G9L-h3-q3e"/>
@@ -59,9 +59,8 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ex-oX-1al">
-                            <rect key="frame" x="259" y="15" width="85" height="30"/>
+                            <rect key="frame" x="261" y="15" width="83" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="85" id="JCq-bA-Wjd"/>
                                 <constraint firstAttribute="height" constant="30" id="nQg-CI-PbV"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>

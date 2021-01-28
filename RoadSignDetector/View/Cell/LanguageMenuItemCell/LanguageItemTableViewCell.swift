@@ -20,7 +20,7 @@ class LanguageItemTableViewCell: UITableViewCell {
     
     var languageCode: String? {
         didSet{
-            let currentLanguage = UserDefaults.standard.string(forKey: "AppleLanguage")
+            let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey)
             selectButton.backgroundColor = currentLanguage == languageCode ? .purple : .gray
         }
     }
@@ -32,7 +32,7 @@ class LanguageItemTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -40,9 +40,8 @@ class LanguageItemTableViewCell: UITableViewCell {
     //MARK: - IBActions
     
     @IBAction func selectBtnWasPressed(_ sender: Any) {
-        UserDefaults.standard.set(languageCode, forKey: "AppleLanguage")
-        UserDefaults.standard.synchronize()
-        Bundle.swizzleLocalization()
+        saveCurrentLanguage()
+        reloadRootVC()
         delegate.reloadTableView()
     }
     
@@ -52,5 +51,19 @@ class LanguageItemTableViewCell: UITableViewCell {
         selectButton.layer.cornerRadius = selectButton.bounds.width/2
         separateLineView.isHidden = separateLineStatus
         titleLabel.text = text
+    }
+    
+    //MARK: - Private methods
+    
+    private func saveCurrentLanguage() {
+        UserDefaults.standard.set(languageCode, forKey: Environment.shared.appLanguageKey)
+        UserDefaults.standard.synchronize()
+        Environment.shared.changeCurrentLocalizeIntoLanguage()
+    }
+    
+    private func reloadRootVC() {
+        let tabVC = StorybardService.main.viewController(viewControllerClass: TabBarViewController.self)
+        tabVC.langWasChanged = true
+        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = tabVC
     }
 }

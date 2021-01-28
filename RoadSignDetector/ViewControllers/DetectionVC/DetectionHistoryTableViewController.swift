@@ -89,16 +89,6 @@ class DetectionHistoryTableViewController: UIViewController {
         historyTableView.backgroundView = needShow ? noDataLabel : nil
     }
     
-    private func configureNoDataLabel() -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: historyTableView.bounds.width, height: historyTableView.bounds.height))
-        label.translatesAutoresizingMaskIntoConstraints = true
-        label.numberOfLines = 2
-        label.textAlignment = .center
-        label.text = "There are no data at the moment."
-        label.font = UIFont(name: "AvenirNext-Regular", size: 17)
-        return label
-    }
-    
     //MARK: Swipe images
     
     private func prepareSwipeImage(name: String, color: UIColor) -> UIImage? {

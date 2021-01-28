@@ -113,7 +113,7 @@ class DetectionHistoryVCHelper {
         model[getCurrentModelIndex()] = filtredModel
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            filtredModel.isEmpty ? ProgressHUD.showError("Can't find any item by searching text.", image: nil, interaction: true) : ProgressHUD.showSuccess()
+            filtredModel.isEmpty ? ProgressHUD.showError("Can't find any item by searching text.".localized(), image: nil, interaction: true) : ProgressHUD.showSuccess()
             
         }
     }

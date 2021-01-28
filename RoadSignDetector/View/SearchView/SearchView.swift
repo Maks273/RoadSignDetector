@@ -62,6 +62,7 @@ class SearchView: UIView {
         containerView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         searchTextField.delegate = self
         configureStyle()
+        updateLocalization()
     }
     
     private func configureStyle() {
@@ -99,6 +100,10 @@ class SearchView: UIView {
                 !searchText.isEmpty ? delegate?.filterModel(with: searchText) : delegate?.resetFilterModel()
             }
         }
+    }
+    
+    private func updateLocalization() {
+        searchTextField.placeholder = "search".localized()
     }
     
     //MARK: - IBActions

@@ -58,6 +58,7 @@ class LanguageItemTableViewCell: UITableViewCell {
     private func saveCurrentLanguage() {
         UserDefaults.standard.set(languageCode, forKey: Environment.shared.appLanguageKey)
         UserDefaults.standard.synchronize()
+        Environment.shared.changeCurrentLocalizeIntoLanguage()
     }
     
     private func reloadRootVC() {

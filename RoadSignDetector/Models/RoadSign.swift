@@ -23,6 +23,8 @@ class RoadSign {
             return ukrainian
         case .english:
             return english
+        default:
+            return ukrainian
         }
     }
     var images = [String]()

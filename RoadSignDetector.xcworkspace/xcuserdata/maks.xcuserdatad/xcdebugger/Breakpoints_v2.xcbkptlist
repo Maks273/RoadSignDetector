@@ -7,6 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "8D75EEE8-E4FE-4EED-BCE1-A98017658B7E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadSignDetector/ViewControllers/SettingsVC/SettingsTableVCHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98">
             uuid = "A99E3D72-D450-4E01-84C9-B48791580ADF"
             shouldBeEnabled = "No"
             ignoreCount = "0"

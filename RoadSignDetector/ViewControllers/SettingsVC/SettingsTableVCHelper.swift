@@ -104,7 +104,7 @@ class SettingsTableVCHelper {
     //MARK: - Private methods
     
     private func getLegalDocumentsFileName(for type: LegalDocuments) -> String {
-        return type == .privacyPolicy ? "Privacy Policy" : "Terms"
+        return type == .privacyPolicy ? "Privacy Policy" : "Terms & Conditions"
     }
    
     

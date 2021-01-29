@@ -84,16 +84,16 @@ class SettingsTableViewController: UITableViewController {
     
     private func showLegalDocuments(for type: LegalDocuments) {
         settingsHelper.loadLegalDocuments(for: type) { [weak self] (title,context, error) in
-            if error == nil {
-                self?.showLegalDocsVC(with: context, title: title)
-            }
+            self?.showLegalDocsVC(with: context, title: title, errorMessage: error?.localizedDescription)
         }
     }
     
-    private func showLegalDocsVC(with documentContext: String?, title: String?) {
+    private func showLegalDocsVC(with documentContext: String?, title: String?, errorMessage: String?) {
         let legalDocsVC = StorybardService.main.viewController(viewControllerClass: LegalDocsViewController.self)
         legalDocsVC.modalPresentationStyle = .fullScreen
         legalDocsVC.headerTitle = title
+        legalDocsVC.documentContext = documentContext
+        legalDocsVC.errorMessage = errorMessage
         present(legalDocsVC, animated: true, completion: nil)
     }
     

@@ -18,20 +18,30 @@ class LegalDocsViewController: UIViewController {
     //MARK: - Variables
     
     var headerTitle: String?
-    
+    var documentContext: String?
+    var errorMessage: String?
     
     //MARK: - Life cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        headerView.delegate = self
-        headerView.setupTitle(headerTitle)
+        configureHeaderView()
+        setDocumentConxtext()
     }
     
     
     //MARK: - Helper
 
+    //MARK: Private methods
     
+    private func configureHeaderView() {
+        headerView.delegate = self
+        headerView.setupTitle(headerTitle)
+    }
+    
+    private func setDocumentConxtext() {
+        textView.text = documentContext
+    }
 }
 
 extension LegalDocsViewController: RecognizeHeaderDelegate {

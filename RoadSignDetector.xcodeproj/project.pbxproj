@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D09EE8E25C362BF00D05D0F /* Terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EE8C25C362BF00D05D0F /* Terms.txt */; };
-		2D09EE8F25C362BF00D05D0F /* Privacy Policy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EE8D25C362BF00D05D0F /* Privacy Policy.txt */; };
+		2D09EE8E25C362BF00D05D0F /* Terms & Conditions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EE8C25C362BF00D05D0F /* Terms & Conditions.txt */; };
 		2D09EE9325C36FA100D05D0F /* LegalDocsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D09EE9225C36FA100D05D0F /* LegalDocsViewController.swift */; };
 		2D09EE9B25C3728D00D05D0F /* RecognizeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D09EE9A25C3728D00D05D0F /* RecognizeHeader.swift */; };
 		2D09EE9F25C3729700D05D0F /* RecognizeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EE9E25C3729700D05D0F /* RecognizeHeader.xib */; };
+		2D09EEA825C4060F00D05D0F /* Privacy Policy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D09EEA725C4060F00D05D0F /* Privacy Policy.txt */; };
 		2D22A8DA2576EC0000BFEE2D /* LanguageItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */; };
 		2D22A8DB2576EC0000BFEE2D /* LanguageItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */; };
 		2D22A8E02576EF3B00BFEE2D /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */; };
@@ -75,11 +75,11 @@
 /* Begin PBXFileReference section */
 		2D09EE8625C3575200D05D0F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		2D09EE8725C3575200D05D0F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2D09EE8C25C362BF00D05D0F /* Terms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Terms.txt; sourceTree = "<group>"; };
-		2D09EE8D25C362BF00D05D0F /* Privacy Policy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Privacy Policy.txt"; sourceTree = "<group>"; };
+		2D09EE8C25C362BF00D05D0F /* Terms & Conditions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Terms & Conditions.txt"; sourceTree = "<group>"; };
 		2D09EE9225C36FA100D05D0F /* LegalDocsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalDocsViewController.swift; sourceTree = "<group>"; };
 		2D09EE9A25C3728D00D05D0F /* RecognizeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeHeader.swift; sourceTree = "<group>"; };
 		2D09EE9E25C3729700D05D0F /* RecognizeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecognizeHeader.xib; sourceTree = "<group>"; };
+		2D09EEA725C4060F00D05D0F /* Privacy Policy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Privacy Policy.txt"; sourceTree = "<group>"; };
 		2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageItemTableViewCell.swift; sourceTree = "<group>"; };
 		2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageItemTableViewCell.xib; sourceTree = "<group>"; };
 		2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
@@ -171,8 +171,8 @@
 		2D09EE8B25C362A600D05D0F /* TermsAndPrivacy */ = {
 			isa = PBXGroup;
 			children = (
-				2D09EE8D25C362BF00D05D0F /* Privacy Policy.txt */,
-				2D09EE8C25C362BF00D05D0F /* Terms.txt */,
+				2D09EEA725C4060F00D05D0F /* Privacy Policy.txt */,
+				2D09EE8C25C362BF00D05D0F /* Terms & Conditions.txt */,
 			);
 			path = TermsAndPrivacy;
 			sourceTree = "<group>";
@@ -569,7 +569,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4920352586333E0060D548 /* SearchView.xib in Resources */,
-				2D09EE8F25C362BF00D05D0F /* Privacy Policy.txt in Resources */,
 				2DE71A0425C0C07800A1052D /* HistoryHeaderView.xib in Resources */,
 				2D22A8DB2576EC0000BFEE2D /* LanguageItemTableViewCell.xib in Resources */,
 				2D09EE9F25C3729700D05D0F /* RecognizeHeader.xib in Resources */,
@@ -579,9 +578,10 @@
 				2D9949AC2577F20600015967 /* Localizable.strings in Resources */,
 				2DE71A0E25C0C5F900A1052D /* AudioView.xib in Resources */,
 				2DBB568D257296AB005048CE /* Assets.xcassets in Resources */,
-				2D09EE8E25C362BF00D05D0F /* Terms.txt in Resources */,
+				2D09EE8E25C362BF00D05D0F /* Terms & Conditions.txt in Resources */,
 				2D93483125869C9400B5A972 /* HistoryTableViewCell.xib in Resources */,
 				2D4ED6162572F6D300E6039E /* SettingTableViewCell.xib in Resources */,
+				2D09EEA825C4060F00D05D0F /* Privacy Policy.txt in Resources */,
 				2DBB568B257296A9005048CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

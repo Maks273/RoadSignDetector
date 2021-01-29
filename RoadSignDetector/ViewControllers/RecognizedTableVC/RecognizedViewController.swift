@@ -18,9 +18,7 @@ class RecognizedViewController: UIViewController {
     @IBOutlet weak var expandedViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var navigationView: UIView!
-    @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var navigationTitleLabel: UILabel!
+    @IBOutlet weak var headerView: RecognizeHeader!
     
     //MARK: - Variables
     
@@ -37,10 +35,10 @@ class RecognizedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureHeaderView()
         setupExpandedViewStyle()
         setupSwipeGestureRecognizers()
         setupLineViewStyle()
-        configureNavView()
         configureTableView()
     }
     
@@ -175,22 +173,10 @@ class RecognizedViewController: UIViewController {
 
     //MARK: nav bar
     
-    private func configureNavView() {
-        navigationTitleLabel.text = "Recognized".localized()
-        setupNavBarStyle()
-        setupBtnTarget()
+    private func configureHeaderView() {
+        headerView.setupTitle("Recognized")
+        headerView.delegate = self
     }
-    
-    private func setupNavBarStyle() {
-        navigationView.layer.borderWidth = 1
-        navigationView.layer.borderColor = UIColor.systemPurple.cgColor
-        navigationView.backgroundColor = .white
-    }
-    
-    private func setupBtnTarget() {
-        backBtn.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
-    }
-    
     @objc private func backBtnPressed() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -226,5 +212,11 @@ extension RecognizedViewController: UITableViewDataSource {
         }
 
         return cell
+    }
+}
+
+extension RecognizedViewController: RecognizeHeaderDelegate {
+    func popToViewController() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

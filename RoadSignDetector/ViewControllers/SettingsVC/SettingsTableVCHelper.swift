@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum LegalDocuments {
+    case privacyPolicy
+    case termsAndCnditions
+}
+
 class SettingsTableVCHelper {
     
     //MARK: - Private variables
@@ -17,7 +22,7 @@ class SettingsTableVCHelper {
         return [generalMenuItem, extraMenuItem]
     }
     private let generalMenuItem = ["Languages".localized(),"Audio".localized()]
-    private let extraMenuItem  = ["Contact us".localized(),"Privacy policy".localized(),"Rate the app".localized()]
+    private let extraMenuItem  = ["Contact us".localized(),"Rate the app".localized(),"Privacy Policy".localized(),"Terms & Conditions".localized()]
     private let developerEmail = "paydich28@gmail.com"
     private var selectedIndex: IndexPath?
     
@@ -82,5 +87,26 @@ class SettingsTableVCHelper {
     func getDeveloperEmail() -> String {
         return developerEmail
     }
+    
+    func loadLegalDocuments(for type: LegalDocuments, completion: @escaping (_ title: String? ,_ context: String?, _ errorMessage: String?) -> Void) {
+        let legalDocumentsName = getLegalDocumentsFileName(for: type)
+        guard let path =  Bundle.main.path(forResource: legalDocumentsName, ofType: "txt") else {
+            completion(nil,nil,"Invalid path to \(legalDocumentsName)")
+            return
+        }
+        do{
+            let context = try String(contentsOfFile: path)
+            completion(legalDocumentsName,context,nil)
+        }catch (let error) {
+            completion(nil,nil,error.localizedDescription)
+        }
+    }
+    
+    //MARK: - Private methods
+    
+    private func getLegalDocumentsFileName(for type: LegalDocuments) -> String {
+        return type == .privacyPolicy ? "Privacy Policy" : "Terms & Conditions"
+    }
+   
     
 }

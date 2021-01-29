@@ -335,38 +335,11 @@
                                     <constraint firstAttribute="bottom" secondItem="ZI6-pw-JSX" secondAttribute="bottom" id="qvi-na-HyZ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0G-I5-tax">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0G-I5-tax" customClass="RecognizeHeader" customModule="RoadSignDetector" customModuleProvider="target">
                                 <rect key="frame" x="-1" y="-6" width="416" height="85"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGe-aF-f6p">
-                                        <rect key="frame" x="0.0" y="50" width="60" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="bWd-ZM-ceI"/>
-                                            <constraint firstAttribute="height" constant="30" id="qgq-to-9n0"/>
-                                        </constraints>
-                                        <color key="tintColor" systemColor="systemPurpleColor"/>
-                                        <state key="normal" image="arrow.backward.circle.fill" catalog="system">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wK1-se-dZT">
-                                        <rect key="frame" x="65" y="50" width="286" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="uE7-LX-Cmt"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
-                                    <constraint firstItem="tGe-aF-f6p" firstAttribute="leading" secondItem="B0G-I5-tax" secondAttribute="leading" id="07B-0g-FGa"/>
-                                    <constraint firstItem="wK1-se-dZT" firstAttribute="centerX" secondItem="B0G-I5-tax" secondAttribute="centerX" id="BPD-sk-mFw"/>
                                     <constraint firstAttribute="height" constant="85" id="LBE-pn-UqK"/>
-                                    <constraint firstItem="wK1-se-dZT" firstAttribute="leading" secondItem="tGe-aF-f6p" secondAttribute="trailing" constant="5" id="TGf-zg-Kt0"/>
-                                    <constraint firstAttribute="bottom" secondItem="tGe-aF-f6p" secondAttribute="bottom" constant="5" id="cwY-fV-j7a"/>
-                                    <constraint firstItem="wK1-se-dZT" firstAttribute="centerY" secondItem="tGe-aF-f6p" secondAttribute="centerY" id="vCE-6s-bw4"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -387,19 +360,61 @@
                     </view>
                     <navigationItem key="navigationItem" id="suf-WP-aPR"/>
                     <connections>
-                        <outlet property="backBtn" destination="tGe-aF-f6p" id="r1h-qO-Yr8"/>
                         <outlet property="expandedView" destination="ID3-aV-Rge" id="cSS-ee-FaD"/>
                         <outlet property="expandedViewHeightConstraint" destination="dE3-MK-iqj" id="28u-hZ-PAV"/>
+                        <outlet property="headerView" destination="B0G-I5-tax" id="JGB-G4-BBl"/>
                         <outlet property="imageView" destination="ahv-65-ylX" id="CK3-KI-S4f"/>
                         <outlet property="lineView" destination="33X-ZX-DGD" id="aem-zy-QD0"/>
-                        <outlet property="navigationTitleLabel" destination="wK1-se-dZT" id="Nvz-w6-rkY"/>
-                        <outlet property="navigationView" destination="B0G-I5-tax" id="KRd-X0-2rc"/>
                         <outlet property="tableView" destination="ZI6-pw-JSX" id="10Z-d6-jNq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Boz-DL-vIB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1094.2028985507247" y="812.27678571428567"/>
+        </scene>
+        <!--Legal Docs View Controller-->
+        <scene sceneID="66I-ms-Q3h">
+            <objects>
+                <viewController storyboardIdentifier="LegalDocsViewController" id="b0f-cH-D0h" customClass="LegalDocsViewController" customModule="RoadSignDetector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4io-fK-6y7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCS-Lx-4za" customClass="RecognizeHeader" customModule="RoadSignDetector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="KEW-qM-W2D"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="XJu-EO-KsB">
+                                <rect key="frame" x="0.0" y="85" width="414" height="811"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1e5-jc-B7V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XJu-EO-KsB" firstAttribute="leading" secondItem="1e5-jc-B7V" secondAttribute="leading" id="Vv9-fH-JqN"/>
+                            <constraint firstItem="XJu-EO-KsB" firstAttribute="trailing" secondItem="1e5-jc-B7V" secondAttribute="trailing" id="cIP-hW-GW8"/>
+                            <constraint firstAttribute="trailing" secondItem="QCS-Lx-4za" secondAttribute="trailing" id="dBA-Cv-M5z"/>
+                            <constraint firstItem="XJu-EO-KsB" firstAttribute="top" secondItem="QCS-Lx-4za" secondAttribute="bottom" id="fPV-KO-RS1"/>
+                            <constraint firstItem="QCS-Lx-4za" firstAttribute="leading" secondItem="1e5-jc-B7V" secondAttribute="leading" id="ioT-3b-9If"/>
+                            <constraint firstItem="QCS-Lx-4za" firstAttribute="top" secondItem="4io-fK-6y7" secondAttribute="top" id="vj9-aE-lT0"/>
+                            <constraint firstAttribute="bottom" secondItem="XJu-EO-KsB" secondAttribute="bottom" id="yky-Dd-O0T"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headerView" destination="QCS-Lx-4za" id="1Me-OM-puO"/>
+                        <outlet property="textView" destination="XJu-EO-KsB" id="ppx-SU-9uQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdG-fJ-tMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-236.23188405797103" y="811.60714285714278"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="PJ0-gk-lms">
@@ -589,13 +604,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.backward.circle.fill" catalog="system" width="128" height="121"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="garbageIcon" width="90" height="90"/>
         <image name="leftArrow" width="172" height="280"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="rightArrow" width="172" height="280"/>
         <image name="scanningBg" width="563" height="846"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

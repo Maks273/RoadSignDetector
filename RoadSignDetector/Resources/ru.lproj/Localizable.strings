@@ -12,7 +12,7 @@
 "Languages" = "Языки";
 "Audio" = "Аудио";
 "Contact us" = "Связаться с нами";
-"Privacy policy" = "Политика конфиденциальности";
+"Privacy Policy" = "Политика конфиденциальности";
 "Rate the app" = "Оцените приложение";
 "General" = "Общие";
 "Extra" = "Дополнительные";
@@ -36,3 +36,4 @@
 "To open photos you need to get access in settings." = "Предоставьте доступ к галерее в настройках телефона";
 "Are you sure to start detecting process?" = "Начать процесс распознавания?";
 "Start" = "Начать";
+"Terms & Conditions" = "Условия и положения";

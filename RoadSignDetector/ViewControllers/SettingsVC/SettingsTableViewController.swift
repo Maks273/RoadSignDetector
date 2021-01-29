@@ -82,6 +82,22 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    private func showLegalDocuments(for type: LegalDocuments) {
+        settingsHelper.loadLegalDocuments(for: type) { [weak self] (title,context, errorMessage) in
+            self?.showLegalDocsVC(with: context, title: title, errorMessage: errorMessage)
+        }
+    }
+    
+    private func showLegalDocsVC(with documentContext: String?, title: String?, errorMessage: String?) {
+        let legalDocsVC = StorybardService.main.viewController(viewControllerClass: LegalDocsViewController.self)
+        legalDocsVC.modalPresentationStyle = .fullScreen
+        legalDocsVC.headerTitle = title
+        legalDocsVC.documentContext = documentContext
+        legalDocsVC.errorMessage = errorMessage
+        present(legalDocsVC, animated: true, completion: nil)
+    }
+    
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -121,6 +137,10 @@ class SettingsTableViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 self.openEmailApp()
+            case 2:
+                self.showLegalDocuments(for: .privacyPolicy)
+            case 3:
+                self.showLegalDocuments(for: .termsAndCnditions)
             default:
                 break
             }

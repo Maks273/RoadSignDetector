@@ -13,6 +13,8 @@ class RecognizedVCHelper {
     
     //MARK: - Variables
     
+    var modelWasAdded: (() -> Void)?
+    
     private var recognizedItems = [RecognizedItem]()
     private var model = [RoadSign]()
     private var recognizedResults = [VNRecognizedObjectObservation]() {
@@ -20,8 +22,6 @@ class RecognizedVCHelper {
             loadDetectedItems()
         }
     }
-    
-    var modelWasAdded: (() -> Void)?
     
     //MARK: - Helper
     
@@ -33,8 +33,8 @@ class RecognizedVCHelper {
         recognizedItems.count
     }
     
-    func getBoundsBoxes() -> [CGRect] {
-        return recognizedResults.map({$0.boundingBox})
+    func getBoundsBoxes(at rect: CGRect) -> [CGRect] {
+        return covertBoundingBoxes(at: rect)
     }
     
     func getModel(for index: Int) -> RecognizedItem? {
@@ -84,6 +84,17 @@ class RecognizedVCHelper {
     
     private func canLoadItem(_ item: VNRecognizedObjectObservation) -> Bool {
         return !item.labels.isEmpty
+    }
+    
+    private func covertBoundingBoxes(at rect: CGRect) -> [CGRect] {
+        var convertedRects = [CGRect]()
+        
+        for result in recognizedResults {
+            let normalizedRect = VNImageRectForNormalizedRect(result.boundingBox, Int(rect.width), Int(rect.height))
+            let convertedRect = CGRect(x: normalizedRect.origin.x, y: normalizedRect.origin.y + rect.origin.y , width: normalizedRect.width, height: normalizedRect.height)
+            convertedRects.append(convertedRect)
+        }
+        return convertedRects
     }
     
 }

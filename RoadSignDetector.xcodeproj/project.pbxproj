@@ -42,6 +42,7 @@
 		2D9949B32578004D00015967 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9949B22578004D00015967 /* StringExtension.swift */; };
 		2D9B60B325ACED6F00498EB9 /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */; };
 		2DA7214825B6C9C000C8B217 /* Voice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7214725B6C9C000C8B217 /* Voice.swift */; };
+		2DB346CC25C456E6000AD062 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB346CB25C456E6000AD062 /* UIImageViewExtension.swift */; };
 		2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5683257296A9005048CE /* AppDelegate.swift */; };
 		2DBB5686257296A9005048CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5685257296A9005048CE /* SceneDelegate.swift */; };
 		2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB5687257296A9005048CE /* TabBarViewController.swift */; };
@@ -114,6 +115,7 @@
 		2D9949B22578004D00015967 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2D9B60B225ACED6F00498EB9 /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
 		2DA7214725B6C9C000C8B217 /* Voice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voice.swift; sourceTree = "<group>"; };
+		2DB346CB25C456E6000AD062 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		2DBB5680257296A9005048CE /* RoadSignDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadSignDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBB5683257296A9005048CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DBB5685257296A9005048CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -377,7 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				2D09EE9125C36F8600D05D0F /* LegalDocsVC */,
-				2DCFFC8525AF567500F8B49B /* RecognizedTableVC */,
+				2DCFFC8525AF567500F8B49B /* RecognizedVC */,
 				2DD798DB25AA1C9A000792A6 /* FocusedImageVC */,
 				2D22A8DE2576EF1F00BFEE2D /* LanguageTableVC */,
 				2DBB5687257296A9005048CE /* TabBarViewController.swift */,
@@ -421,6 +423,7 @@
 				2DCFFC8225AF352D00F8B49B /* CGImagePropertyOrientation.swift */,
 				2DC19F7E25B2FBC800798668 /* UILabelExtension.swift */,
 				2DE71A0825C0C27700A1052D /* UIButtonExtenstion.swift */,
+				2DB346CB25C456E6000AD062 /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -471,13 +474,13 @@
 			path = RoadSignImageCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		2DCFFC8525AF567500F8B49B /* RecognizedTableVC */ = {
+		2DCFFC8525AF567500F8B49B /* RecognizedVC */ = {
 			isa = PBXGroup;
 			children = (
 				2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */,
 				2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */,
 			);
-			path = RecognizedTableVC;
+			path = RecognizedVC;
 			sourceTree = "<group>";
 		};
 		2DD3DB8325AA4A0B00FC5614 /* ScanningVС */ = {
@@ -649,6 +652,7 @@
 				2DD798E025AA1CD3000792A6 /* FocusedImageViewController.swift in Sources */,
 				2D9B60B325ACED6F00498EB9 /* NotificationCenterExtension.swift in Sources */,
 				2D2A153225A4B7A7002F0E81 /* FirebaseService.swift in Sources */,
+				2DB346CC25C456E6000AD062 /* UIImageViewExtension.swift in Sources */,
 				2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */,
 				2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */,
 				2DEF4DCF25BF74E4006F0E9E /* RecognizedVCHelper.swift in Sources */,

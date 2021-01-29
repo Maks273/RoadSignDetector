@@ -83,8 +83,8 @@ class SettingsTableViewController: UITableViewController {
     }
     
     private func showLegalDocuments(for type: LegalDocuments) {
-        settingsHelper.loadLegalDocuments(for: type) { [weak self] (title,context, error) in
-            self?.showLegalDocsVC(with: context, title: title, errorMessage: error?.localizedDescription)
+        settingsHelper.loadLegalDocuments(for: type) { [weak self] (title,context, errorMessage) in
+            self?.showLegalDocsVC(with: context, title: title, errorMessage: errorMessage)
         }
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 class LegalDocsViewController: UIViewController {
-
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var textView: UITextView!
@@ -29,9 +29,14 @@ class LegalDocsViewController: UIViewController {
         setDocumentConxtext()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showAlertIfNeeded()
+    }
+    
     
     //MARK: - Helper
-
+    
     //MARK: Private methods
     
     private func configureHeaderView() {
@@ -41,6 +46,18 @@ class LegalDocsViewController: UIViewController {
     
     private func setDocumentConxtext() {
         textView.text = documentContext
+    }
+    
+    private func showAlertIfNeeded() {
+        if errorMessage != nil, errorMessage?.isEmpty == false {
+            showAlert()
+        }
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

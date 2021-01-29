@@ -88,16 +88,17 @@ class SettingsTableVCHelper {
         return developerEmail
     }
     
-    func loadLegalDocuments(for type: LegalDocuments, completion: @escaping (_ title: String? ,_ context: String?, _ error: Error?) -> Void) {
+    func loadLegalDocuments(for type: LegalDocuments, completion: @escaping (_ title: String? ,_ context: String?, _ errorMessage: String?) -> Void) {
         let legalDocumentsName = getLegalDocumentsFileName(for: type)
         guard let path =  Bundle.main.path(forResource: legalDocumentsName, ofType: "txt") else {
+            completion(nil,nil,"Invalid path to \(legalDocumentsName)")
             return
         }
         do{
             let context = try String(contentsOfFile: path)
             completion(legalDocumentsName,context,nil)
         }catch (let error) {
-            completion(nil,nil,error)
+            completion(nil,nil,error.localizedDescription)
         }
     }
     

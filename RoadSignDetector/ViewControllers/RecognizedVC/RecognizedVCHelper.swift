@@ -61,6 +61,9 @@ class RecognizedVCHelper {
     
     //MARK: Configure recognized model
     private func configureRecoginzedModel(with roadSign: RoadSign, item: VNClassificationObservation) {
+        guard isModelUniq(model: roadSign) else {
+            return
+        }
         let convertedPercentValue = convertPercentValue(from: item.confidence.magnitude)
         let recognizedItem = RecognizedItem(precent: convertedPercentValue, roadSign: roadSign)
         recognizedItems.append(recognizedItem)
@@ -70,6 +73,10 @@ class RecognizedVCHelper {
     
     private func convertPercentValue(from value: Float) -> String {
         return String(value * 100).prefix(5).description
+    }
+    
+    private func isModelUniq(model: RoadSign) -> Bool {
+        return !recognizedItems.map{$0.roadSign.id == model.id}.contains(true)
     }
     
     //MARK: Loading item from server

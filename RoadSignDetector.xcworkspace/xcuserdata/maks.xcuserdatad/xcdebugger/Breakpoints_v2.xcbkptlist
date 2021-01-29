@@ -20,5 +20,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7462BFF-6F9F-465A-990E-9948BB6C449B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadSignDetector/ViewControllers/RecognizedVC/RecognizedVCHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "isModelUniq(model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F7462BFF-6F9F-465A-990E-9948BB6C449B - b0ae39e16ec2de95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RoadSignDetector.RecognizedVCHelper.(isModelUniq in _49D61CEF0ABAF508CA26D4E876A73C63)(model: RoadSignDetector.RoadSign) -&gt; Swift.Bool"
+                  moduleName = "RoadSignDetector"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maks/RoadSignDetector/RoadSignDetector/ViewControllers/RecognizedVC/RecognizedVCHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  uuid = "F7462BFF-6F9F-465A-990E-9948BB6C449B - dfd9a6f0c6eb3e76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RoadSignDetector.RecognizedItem) -&gt; Swift.Bool in RoadSignDetector.RecognizedVCHelper.(isModelUniq in _49D61CEF0ABAF508CA26D4E876A73C63)(model: RoadSignDetector.RoadSign) -&gt; Swift.Bool"
+                  moduleName = "RoadSignDetector"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maks/RoadSignDetector/RoadSignDetector/ViewControllers/RecognizedVC/RecognizedVCHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCCCE681-4456-4BE8-B8B2-0537EAC57465"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadSignDetector/ViewControllers/RecognizedVC/RecognizedVCHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "configureRecoginzedModel(with:item:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22AD8D16-8DF2-4865-8E9D-1D5837ACA543"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadSignDetector/ViewControllers/RecognizedVC/RecognizedVCHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "configureRecoginzedModel(with:item:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

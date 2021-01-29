@@ -13,6 +13,8 @@ class RecognizedVCHelper {
     
     //MARK: - Variables
     
+    var modelWasAdded: (() -> Void)?
+    
     private var recognizedItems = [RecognizedItem]()
     private var model = [RoadSign]()
     private var recognizedResults = [VNRecognizedObjectObservation]() {
@@ -20,8 +22,6 @@ class RecognizedVCHelper {
             loadDetectedItems()
         }
     }
-    
-    var modelWasAdded: (() -> Void)?
     
     //MARK: - Helper
     
@@ -33,8 +33,8 @@ class RecognizedVCHelper {
         recognizedItems.count
     }
     
-    func getBoundsBoxes() -> [CGRect] {
-        return recognizedResults.map({$0.boundingBox})
+    func getBoundsBoxes(at rect: CGRect) -> [CGRect] {
+        return covertBoundingBoxes(at: rect)
     }
     
     func getModel(for index: Int) -> RecognizedItem? {
@@ -61,6 +61,9 @@ class RecognizedVCHelper {
     
     //MARK: Configure recognized model
     private func configureRecoginzedModel(with roadSign: RoadSign, item: VNClassificationObservation) {
+        guard isModelUniq(model: roadSign) else {
+            return
+        }
         let convertedPercentValue = convertPercentValue(from: item.confidence.magnitude)
         let recognizedItem = RecognizedItem(precent: convertedPercentValue, roadSign: roadSign)
         recognizedItems.append(recognizedItem)
@@ -70,6 +73,10 @@ class RecognizedVCHelper {
     
     private func convertPercentValue(from value: Float) -> String {
         return String(value * 100).prefix(5).description
+    }
+    
+    private func isModelUniq(model: RoadSign) -> Bool {
+        return !recognizedItems.map{$0.roadSign.id == model.id}.contains(true)
     }
     
     //MARK: Loading item from server
@@ -84,6 +91,17 @@ class RecognizedVCHelper {
     
     private func canLoadItem(_ item: VNRecognizedObjectObservation) -> Bool {
         return !item.labels.isEmpty
+    }
+    
+    private func covertBoundingBoxes(at rect: CGRect) -> [CGRect] {
+        var convertedRects = [CGRect]()
+        
+        for result in recognizedResults {
+            let normalizedRect = VNImageRectForNormalizedRect(result.boundingBox, Int(rect.width), Int(rect.height))
+            let convertedRect = CGRect(x: normalizedRect.origin.x, y: normalizedRect.origin.y + rect.origin.y , width: normalizedRect.width, height: normalizedRect.height)
+            convertedRects.append(convertedRect)
+        }
+        return convertedRects
     }
     
 }

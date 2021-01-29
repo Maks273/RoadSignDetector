@@ -292,13 +292,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an1-TG-ned">
-                                                            <rect key="frame" x="65" y="14.5" width="81" height="25"/>
+                                                            <rect key="frame" x="65" y="14.5" width="244" height="25"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-ej-YUr">
-                                                            <rect key="frame" x="351" y="14.5" width="48" height="25"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.65%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-ej-YUr">
+                                                            <rect key="frame" x="319" y="14.5" width="75" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="75" id="3YT-h6-TO0"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -306,11 +309,11 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="an1-TG-ned" firstAttribute="centerY" secondItem="ydY-hg-yN5" secondAttribute="centerY" id="Bbg-Qt-dg6"/>
-                                                        <constraint firstItem="eBh-ej-YUr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="an1-TG-ned" secondAttribute="trailing" constant="10" id="Gnp-qn-9EZ"/>
+                                                        <constraint firstItem="eBh-ej-YUr" firstAttribute="leading" secondItem="an1-TG-ned" secondAttribute="trailing" constant="10" id="Gnp-qn-9EZ"/>
                                                         <constraint firstItem="an1-TG-ned" firstAttribute="leading" secondItem="ydY-hg-yN5" secondAttribute="trailing" constant="10" id="Mnd-Uj-zXk"/>
                                                         <constraint firstItem="ydY-hg-yN5" firstAttribute="leading" secondItem="iHp-h2-Vcp" secondAttribute="leadingMargin" constant="5" id="Nl7-rn-hKk"/>
                                                         <constraint firstItem="ydY-hg-yN5" firstAttribute="centerY" secondItem="iHp-h2-Vcp" secondAttribute="centerY" id="enx-9n-J9l"/>
-                                                        <constraint firstItem="eBh-ej-YUr" firstAttribute="trailing" secondItem="iHp-h2-Vcp" secondAttribute="trailingMargin" constant="5" id="oJH-di-KM5"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="eBh-ej-YUr" secondAttribute="trailing" id="hBF-fB-lAd"/>
                                                         <constraint firstItem="eBh-ej-YUr" firstAttribute="centerY" secondItem="an1-TG-ned" secondAttribute="centerY" id="pbV-w8-osG"/>
                                                     </constraints>
                                                 </tableViewCellContentView>

@@ -151,11 +151,10 @@ class RecognizedViewController: UIViewController {
     //MARK: Paint recognized frame
     
     private func paintRecognizedFrames() {
-        let frames = recognizedHelper.getBoundsBoxes()
+        let frames = recognizedHelper.getBoundsBoxes(at: imageView.contentRect)
         
         for frame in frames {
-            let convertedRect = CGRect(x: Double(frame.maxX * 100), y: Double(frame.maxY) * 100, width: Double(frame.width * 100), height: Double(frame.height) * 100)
-            paintFrame(in: convertedRect)
+            paintFrame(in: frame)
        }
         
     }

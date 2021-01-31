@@ -11,10 +11,9 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey) ?? "en"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setupDefauldLanguageIfNeeded()
         Environment.shared.changeCurrentLocalizeIntoLanguage()
         NetworkService.shared.startObserving()
         FirebaseApp.configure()
@@ -53,6 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func changePlaySoundStatus() {
         Environment.shared.changePlaySoundStatus()
+    }
+    
+    private func setupDefauldLanguageIfNeeded() {
+        if UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey) == nil {
+            UserDefaults.standard.setValue("en", forKey: Environment.shared.appLanguageKey)
+        }
     }
 
 }

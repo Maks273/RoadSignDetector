@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -384,10 +384,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCS-Lx-4za" customClass="RecognizeHeader" customModule="RoadSignDetector" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                <rect key="frame" x="-2" y="-2" width="418" height="87"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="KEW-qM-W2D"/>
+                                    <constraint firstAttribute="height" constant="87" id="KEW-qM-W2D"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="XJu-EO-KsB">
@@ -403,10 +403,10 @@
                         <constraints>
                             <constraint firstItem="XJu-EO-KsB" firstAttribute="leading" secondItem="1e5-jc-B7V" secondAttribute="leading" id="Vv9-fH-JqN"/>
                             <constraint firstItem="XJu-EO-KsB" firstAttribute="trailing" secondItem="1e5-jc-B7V" secondAttribute="trailing" id="cIP-hW-GW8"/>
-                            <constraint firstAttribute="trailing" secondItem="QCS-Lx-4za" secondAttribute="trailing" id="dBA-Cv-M5z"/>
+                            <constraint firstAttribute="trailing" secondItem="QCS-Lx-4za" secondAttribute="trailing" constant="-2" id="dBA-Cv-M5z"/>
                             <constraint firstItem="XJu-EO-KsB" firstAttribute="top" secondItem="QCS-Lx-4za" secondAttribute="bottom" id="fPV-KO-RS1"/>
-                            <constraint firstItem="QCS-Lx-4za" firstAttribute="leading" secondItem="1e5-jc-B7V" secondAttribute="leading" id="ioT-3b-9If"/>
-                            <constraint firstItem="QCS-Lx-4za" firstAttribute="top" secondItem="4io-fK-6y7" secondAttribute="top" id="vj9-aE-lT0"/>
+                            <constraint firstItem="QCS-Lx-4za" firstAttribute="leading" secondItem="4io-fK-6y7" secondAttribute="leading" constant="-2" id="ioT-3b-9If"/>
+                            <constraint firstItem="QCS-Lx-4za" firstAttribute="top" secondItem="4io-fK-6y7" secondAttribute="top" constant="-2" id="vj9-aE-lT0"/>
                             <constraint firstAttribute="bottom" secondItem="XJu-EO-KsB" secondAttribute="bottom" id="yky-Dd-O0T"/>
                         </constraints>
                     </view>

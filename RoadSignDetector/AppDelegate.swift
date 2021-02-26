@@ -11,8 +11,6 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey) ?? "en"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Environment.shared.changeCurrentLocalizeIntoLanguage()

@@ -20,7 +20,7 @@ class LanguageItemTableViewCell: UITableViewCell {
     
     var languageCode: String? {
         didSet{
-            let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey)
+            let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey) ?? Environment.shared.ukLanguageKey
             selectButton.backgroundColor = currentLanguage == languageCode ? .purple : .gray
         }
     }

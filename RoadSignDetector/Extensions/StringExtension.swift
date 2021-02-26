@@ -10,8 +10,8 @@ import UIKit
 
 extension String {
     func localized() -> String {
-        guard let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey),
-              let path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj"),
+        let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey) ?? Environment.shared.ukLanguageKey
+        guard let path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj"),
               let bundle = Bundle(path: path)
         else {
             return ""

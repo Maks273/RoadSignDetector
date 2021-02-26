@@ -26,6 +26,7 @@ class Environment {
     var currentVoice: VoiceType = .man
     var playSoundStatus: Bool = false
     let appLanguageKey = "AppleLanguage"
+    let ukLanguageKey = "uk"
 
     private let voiceKey = "Voice"
     private let playSoundKey = "PlaySound"
@@ -53,9 +54,7 @@ class Environment {
     
     func changeCurrentVoiceType() {
         let voice = loadCurrentVoice()
-        print("LOADED = \(voice)")
-        currentVoice = voice == VoiceType.man.rawValue ? .man : .woman
-        print("Current = \(currentVoice)")
+        currentVoice = voice == "" ? .man : VoiceType.man.rawValue == voice ? .man : .woman
     }
     
         //MARK:  Play sound settings item
@@ -74,16 +73,16 @@ class Environment {
     }
     
     func changeCurrentLocalizeIntoLanguage() {
-        let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey)
+        let currentLanguage = UserDefaults.standard.string(forKey: Environment.shared.appLanguageKey) ?? Environment.shared.ukLanguageKey
         switch currentLanguage {
-        case "uk":
+        case ukLanguageKey:
             currentLocalizationInfo = .ukrainian
         case "en":
             currentLocalizationInfo = .english
         case "ru":
             currentLocalizationInfo = .russian
         default:
-            break
+            currentLocalizationInfo = .ukrainian
         }
     }
     

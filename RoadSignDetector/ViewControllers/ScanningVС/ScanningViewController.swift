@@ -12,6 +12,7 @@ import AVFoundation
 import ProgressHUD
 import Reachability
 import Vision
+import AssetsPickerViewController
 
 class ScanningViewController: UIViewController {
     
@@ -22,14 +23,11 @@ class ScanningViewController: UIViewController {
     
     //MARK: - Variables
     
-    private var imagePicker = UIImagePickerController()
-    private var pickedImage: UIImage? {
+    private var pickedImages: [UIImage] = [] {
         didSet {
             showConfirmAlert()
         }
     }
-    private let detectionService = DetectionService()
-//    /private let scanningHelper = ScanningVCHelper()
     
     //MARK: - Life cycles
     
@@ -37,18 +35,15 @@ class ScanningViewController: UIViewController {
         super.viewDidLoad()
         updateLocalization() 
         setupStyleForOpenButtons()
-        configureImagePicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addObserver()
         NotificationCenter.default.addNetworkObserver(in: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        removeObserver()
         NotificationCenter.default.removeNetworkObserver(in: self)
     }
     
@@ -57,7 +52,7 @@ class ScanningViewController: UIViewController {
     
     @IBAction func openCameraBtnPressed(_ sender: UIButton) {
         #if !targetEnvironment(simulator)
-            handleCameraRequest()
+        handleCameraRequest()
         #endif
     }
     
@@ -91,16 +86,10 @@ class ScanningViewController: UIViewController {
     
     //MARK: Picker helper
     
-    private func configureImagePicker() {
-        imagePicker.allowsEditing = false
-        imagePicker.delegate = self
-    }
-    
     private func showImagePicker(by type: UIImagePickerController.SourceType) {
-        DispatchQueue.main.async {
-            self.imagePicker.sourceType = type
-            self.present(self.imagePicker, animated: true, completion: nil)
-        }
+        let  imagePicker = AssetsPickerViewController()
+        imagePicker.pickerDelegate = self
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     //MARK: PhotoLibraryRequest
@@ -148,56 +137,35 @@ class ScanningViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         let alert = UIAlertController(title: "Detection preprocess".localized(), message: "Are you sure to start detecting process?".localized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Start".localized(), style: .default, handler: { [weak self] (action) in
-            guard let sSelf = self, let image = sSelf.pickedImage else {
+            guard let sSelf = self, !sSelf.pickedImages.isEmpty else {
                 return
             }
-            ProgressHUD.show()
-            sSelf.detectionService.updateClassification(for: image)
+            sSelf.showRecognizedVC()
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
-    private func showRecognizedVC(with results: [VNRecognizedObjectObservation]) {
+    private func showRecognizedVC() {
         let recognizedVC = StorybardService.main.viewController(viewControllerClass: RecognizedViewController.self)
-        recognizedVC.image = pickedImage
         recognizedVC.modalPresentationStyle = .fullScreen
-        recognizedVC.setRecognizedResults(results)
+        recognizedVC.pickedImages = pickedImages
         present(recognizedVC, animated: true, completion: nil)
     }
     
-    //MARK: recognistion observer
-    
-    private func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(recognizingCompleted(_:)), name: Notification.Name("recognitionCompleted"), object: nil)
-    }
-    
-    private func removeObserver() {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("recognitionCompleted"), object: nil)
-    
-    }
-    
-    @objc private func recognizingCompleted(_ notification: Notification) {
-        guard let results = notification.userInfo?["results"] as? [VNRecognizedObjectObservation] else {
-            return
-        }
-        showRecognizedVC(with: results)
-    }
     
 }
 
-//MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+//MARK: - AssetsPickerViewControllerDelegate, UINavigationControllerDelegate
 
-extension ScanningViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            pickedImage = image
-        }
+extension ScanningViewController: AssetsPickerViewControllerDelegate, UINavigationControllerDelegate {
+    func assetsPicker(controller: AssetsPickerViewController, selected assets: [PHAsset]) {
+        pickedImages = assets.map({$0.getAssetThumbnail()})
+        controller.photoViewController.deselectAll()
         
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+    func assetsPickerDidCancel(controller: AssetsPickerViewController) {
+        controller.photoViewController.deselectAll()
     }
-    
 }

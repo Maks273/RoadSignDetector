@@ -9,7 +9,7 @@
 import UIKit
 
 class AudioView: UIView {
-
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var voiceLabel: UILabel!
@@ -26,6 +26,9 @@ class AudioView: UIView {
             audioSwitcher.isOn = loadCurrentAudioStatus()
         }
     }
+    @IBOutlet weak var settingsView: SettingsView!
+    @IBOutlet weak var audioView: UIView!
+    @IBOutlet weak var verticalLine: UIView!
     
     //MARK: - Variables
     
@@ -51,6 +54,7 @@ class AudioView: UIView {
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         updateLocalization()
+        setupStyle()
     }
     
     private func updateLocalization() {
@@ -59,7 +63,12 @@ class AudioView: UIView {
         voiceSegmentedControll.setTitle("Man".localized(), forSegmentAt: 0)
         voiceSegmentedControll.setTitle("Woman".localized(), forSegmentAt: 1)
     }
-
+    
+    private func setupStyle() {
+        bottomContainerView.setShadow(with: 30)
+        verticalLine.defalutVerticalLine(with: [.layerMinXMaxYCorner], cornerRadius: 5)
+    }
+    
     //MARK: Speaker Voice
     
     private func getCurrentVoiceIndex() -> Int {
@@ -75,8 +84,7 @@ class AudioView: UIView {
     private func loadCurrentAudioStatus() -> Bool {
         return Environment.shared.loadPlaySoundStatus()
     }
-    
-
+        
     //MARK: - IBActions
     
     @IBAction func soundSwitcherWasToggled(_ sender: UISwitch) {

@@ -9,15 +9,6 @@
 import UIKit
 import MessageUI
 
-protocol SettingProtocol: class {
-    func getCellIndexPath(for cell: UITableViewCell) -> IndexPath
-    func increaseCellSize(at indexPath: IndexPath)
-    func getTypeOfExpandedCell(at indexPath: IndexPath) -> CellType
-    func addChildVC(_ viewController: UIViewController)
-    func setExpandedCellIndexPath(_ indexPath: IndexPath?)
-    func isExpandedIndexPath() -> Bool
-}
-
 class SettingsTableViewController: UITableViewController {
     
     //MARK: - IBOutlets
@@ -113,13 +104,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifire, for: indexPath) as! SettingTableViewCell
-        cell.delegate = self
-        let title = settingsHelper.getCellTitle(at: indexPath)
-        let cellPosition = settingsHelper.defineCellPosition(at: indexPath)
-        let showMore = settingsHelper.showMoreStatus(at: indexPath)
-        cell.configure(text: title, for: cellPosition, showMoreVisible: showMore, at: indexPath)
-        return cell
+        return settingsHelper.configureCell(at: indexPath, in: tableView)
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -144,45 +129,12 @@ class SettingsTableViewController: UITableViewController {
             default:
                 break
             }
+        }else {
+            settingsHelper.changeExpandedStatus(at: indexPath)
+            tableView.reloadRows(at: [indexPath], with: .fade)
         }
     }
     
-}
-
-//MARK: - SettingProtocol
-
-extension SettingsTableViewController: SettingProtocol {
-    
-    func increaseCellSize(at indexPath: IndexPath) {
-        if settingsHelper.canExpand(indexPath){
-            settingsHelper.setSelectedIndex(indexPath)
-            UIView.animate(withDuration: 0.55) { [self] in
-                let indexPaths = self.expandedCellIndexPath != nil ? [indexPath,self.expandedCellIndexPath!] : [indexPath]
-                self.tableView.reloadRows(at: indexPaths, with: .fade)
-                self.tableView.layoutIfNeeded()
-            }
-        }
-    }
-    
-    func getCellIndexPath(for cell: UITableViewCell) -> IndexPath {
-        return tableView.indexPath(for: cell) ?? IndexPath(row: 0, section: 0)
-    }
-    
-    func getTypeOfExpandedCell(at indexPath: IndexPath) -> CellType {
-        return settingsHelper.defineExpandViewForCell(at: indexPath)
-    }
-    
-    func addChildVC(_ viewController: UIViewController){
-        addChild(viewController)
-    }
-    
-    func setExpandedCellIndexPath(_ indexPath: IndexPath?){
-        self.expandedCellIndexPath = indexPath
-    }
-    
-    func isExpandedIndexPath() -> Bool {
-        return self.expandedCellIndexPath != nil
-    }
 }
 
 //MARK: - MFMailComposeViewControllerDelegate & UINavigationControllerDelegate

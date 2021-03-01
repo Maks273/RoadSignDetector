@@ -15,4 +15,5 @@ target 'RoadSignDetector' do
 	pod 'ProgressHUD'
 	pod 'ReachabilitySwift'
 	pod 'RevealingSplashView'
+	pod 'AssetsPickerViewController', '~> 2.0'
 end

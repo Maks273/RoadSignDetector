@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-RoadSignDetector/Pods-RoadSignDetector-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AssetsPickerViewController/AssetsPickerViewController.framework
 ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework
@@ -15,6 +16,7 @@ ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
 ${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
 ${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework
 ${BUILT_PRODUCTS_DIR}/SOTabBar/SOTabBar.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/abseil/absl.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework

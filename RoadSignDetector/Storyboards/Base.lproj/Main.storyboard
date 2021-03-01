@@ -613,7 +613,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-ub-dPR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-ub-dPR">
                                 <rect key="frame" x="0.0" y="135.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ksv-ub-dPR" id="LKd-wk-NZC">
@@ -621,6 +621,54 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="audioCell" rowHeight="157" id="6CR-dY-v0W" customClass="AudioSettingsTableViewCell" customModule="RoadSignDetector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="179.5" width="414" height="157"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6CR-dY-v0W" id="Puw-E7-7Pc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alu-u7-dey" customClass="AudioView" customModule="RoadSignDetector" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="alu-u7-dey" firstAttribute="top" secondItem="Puw-E7-7Pc" secondAttribute="top" id="47h-YS-Khk"/>
+                                        <constraint firstAttribute="trailing" secondItem="alu-u7-dey" secondAttribute="trailing" id="YIy-WS-cyE"/>
+                                        <constraint firstItem="alu-u7-dey" firstAttribute="leading" secondItem="Puw-E7-7Pc" secondAttribute="leading" id="ffk-Yi-zhL"/>
+                                        <constraint firstAttribute="bottom" secondItem="alu-u7-dey" secondAttribute="bottom" id="oBa-hK-TUT"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                <connections>
+                                    <outlet property="audioView" destination="alu-u7-dey" id="1Lh-wK-mrF"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="languageCell" rowHeight="157" id="ZE5-4b-3X2" customClass="LanguageSettingsTableViewCell" customModule="RoadSignDetector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="336.5" width="414" height="157"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZE5-4b-3X2" id="jBc-Tk-e4y">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SU-lG-zS7" customClass="LanguageView" customModule="RoadSignDetector" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5SU-lG-zS7" firstAttribute="leading" secondItem="jBc-Tk-e4y" secondAttribute="leading" id="20H-Ew-hpY"/>
+                                        <constraint firstAttribute="bottom" secondItem="5SU-lG-zS7" secondAttribute="bottom" id="Eta-8A-DZP"/>
+                                        <constraint firstItem="5SU-lG-zS7" firstAttribute="top" secondItem="jBc-Tk-e4y" secondAttribute="top" id="dN6-At-592"/>
+                                        <constraint firstAttribute="trailing" secondItem="5SU-lG-zS7" secondAttribute="trailing" id="xKu-CM-PzX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                <connections>
+                                    <outlet property="languageView" destination="5SU-lG-zS7" id="bcg-RS-l0g"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

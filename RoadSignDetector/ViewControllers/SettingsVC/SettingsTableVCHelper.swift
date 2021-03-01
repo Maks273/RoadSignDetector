@@ -13,16 +13,28 @@ enum LegalDocuments {
     case termsAndCnditions
 }
 
+struct SettingsCellModel {
+    var title: String
+    var isExpanded: Bool
+    var position: CellPosition
+    var showMoreVisible: Bool
+}
+
 class SettingsTableVCHelper {
     
     //MARK: - Private variables
     
     let headerTitles = ["General".localized(),"Extra".localized()]
-    private var menuItemTitles: [[String]] {
-        return [generalMenuItem, extraMenuItem]
-    }
-    private let generalMenuItem = ["Languages".localized(),"Audio".localized()]
-    private let extraMenuItem  = ["Contact us".localized(),"Rate the app".localized(),"Privacy Policy".localized(),"Terms & Conditions".localized()]
+    private lazy var menuItemTitles: [[SettingsCellModel]] = {
+       return [generalMenuItem, extraMenuItem]
+    }()
+    private let generalMenuItem = [ SettingsCellModel(title: "Languages".localized(), isExpanded: false, position: .first, showMoreVisible: true),
+                                    SettingsCellModel(title: "Audio".localized(), isExpanded: false, position: .last, showMoreVisible: true)]
+    
+    private let extraMenuItem  = [SettingsCellModel(title: "Contact us".localized(), isExpanded: false, position: .first, showMoreVisible: false),
+                                  SettingsCellModel(title: "Rate the app".localized(), isExpanded: false, position: .intermediate, showMoreVisible: false),
+                                  SettingsCellModel(title: "Privacy Policy".localized(), isExpanded: false, position: .intermediate, showMoreVisible: false),
+                                  SettingsCellModel(title: "Terms & Conditions".localized(), isExpanded: false, position: .last, showMoreVisible: false)]
     private let developerEmail = "paydich28@gmail.com"
     private var selectedIndex: IndexPath?
     
@@ -37,51 +49,18 @@ class SettingsTableVCHelper {
     }
     
     func getRowHeight(at indexPath: IndexPath) -> CGFloat {
-        if self.selectedIndex != nil && indexPath == self.selectedIndex {
-            return 188
+        if menuItemTitles[indexPath.section][indexPath.row].isExpanded {
+            return 200
         }
         return 65
-    }
-    
-    func defineCellPosition(at indexPath: IndexPath) -> CellPosition {
-        if indexPath.row == 0 {
-            return .first
-        }else if indexPath.row == menuItemTitles[indexPath.section].count - 1 {
-            return .last
-        }else {
-            return .intermediate
-        }
     }
     
     func canExpand(_ indexPath: IndexPath) -> Bool {
         return indexPath.section == 0
     }
     
-    func setSelectedIndex(_ selectedIndex: IndexPath) {
-        self.selectedIndex = selectedIndex == self.selectedIndex ? nil : selectedIndex
-    }
-    
-    func getSelectedIndex() -> IndexPath? {
-        return selectedIndex
-    }
-    
-    func defineExpandViewForCell(at indexPath: IndexPath) -> CellType {
-        switch indexPath {
-        case IndexPath(row: 0, section: 0):
-            return .language
-        case IndexPath(row: 1, section: 0):
-            return .audio
-        default:
-            return .language
-        }
-    }
-    
     func getCellTitle(at indexPath: IndexPath) -> String {
-        return indexPath.section > menuItemTitles.count-1 || indexPath.row > menuItemTitles[indexPath.section].count-1 ? "" : menuItemTitles[indexPath.section][indexPath.row]
-    }
-    
-    func showMoreStatus(at indexPath: IndexPath) -> Bool {
-        return indexPath.section == menuItemTitles.count - 1
+        return indexPath.section > menuItemTitles.count-1 || indexPath.row > menuItemTitles[indexPath.section].count-1 ? "" : menuItemTitles[indexPath.section][indexPath.row].title
     }
     
     func getDeveloperEmail() -> String {
@@ -91,7 +70,7 @@ class SettingsTableVCHelper {
     func loadLegalDocuments(for type: LegalDocuments, completion: @escaping (_ title: String? ,_ context: String?, _ errorMessage: String?) -> Void) {
         let legalDocumentsName = getLegalDocumentsFileName(for: type)
         guard let path =  Bundle.main.path(forResource: legalDocumentsName, ofType: "txt") else {
-            completion(nil,nil,"Invalid path to \(legalDocumentsName)")
+            completion(nil, nil, "Invalid path to \(legalDocumentsName)")
             return
         }
         do{
@@ -102,11 +81,41 @@ class SettingsTableVCHelper {
         }
     }
     
+    func changeExpandedStatus(at indexPath: IndexPath) {
+        menuItemTitles[indexPath.section][indexPath.row].isExpanded.toggle()
+    }
+    
+    func getModel(for indexPath: IndexPath) -> SettingsCellModel? {
+        return indexPath.section > menuItemTitles.count-1 || indexPath.row > menuItemTitles[indexPath.section].count-1 ? nil : menuItemTitles[indexPath.section][indexPath.row]
+    }
+    
+    func configureCell(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
+        if indexPath == IndexPath(row: 0, section: 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "languageCell", for: indexPath) as! LanguageSettingsTableViewCell
+            if let model = getModel(for: indexPath) {
+                cell.configure(with: model)
+            }
+            return cell
+        }else if indexPath == IndexPath(row: 1, section: 0){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "audioCell", for: indexPath) as! AudioSettingsTableViewCell
+            if let model = getModel(for: indexPath) {
+                cell.configure(with: model)
+            }
+            return cell
+        }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! SettingTableViewCell
+            if let model = getModel(for: indexPath) {
+                cell.configure(with: model)
+            }
+            return cell
+        }
+    }
+    
     //MARK: - Private methods
     
     private func getLegalDocumentsFileName(for type: LegalDocuments) -> String {
         return type == .privacyPolicy ? "Privacy Policy" : "Terms & Conditions"
     }
-   
+    
     
 }

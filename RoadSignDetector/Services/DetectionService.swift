@@ -10,6 +10,10 @@ import UIKit
 import CoreML
 import Vision
 
+protocol DetectionDelegate: class {
+    func update(with results: [VNRecognizedObjectObservation])
+}
+
 class DetectionService {
     
     //MARK: - Variables
@@ -28,6 +32,8 @@ class DetectionService {
             fatalError("Failed to load Vision ML model: \(error)")
         }
     }()
+    
+    unowned var delegate: DetectionDelegate?
     
     //MARK: - Helper
     
@@ -58,11 +64,9 @@ class DetectionService {
             }
             
             let recognitionResults = results as! [VNRecognizedObjectObservation]
-            NotificationCenter.default.post(name: Notification.Name("recognitionCompleted"), object: nil, userInfo: ["results": recognitionResults])
+            self.delegate?.update(with: recognitionResults)
         }
     }
-    
-    //MARK: - Private methods
     
     
 }

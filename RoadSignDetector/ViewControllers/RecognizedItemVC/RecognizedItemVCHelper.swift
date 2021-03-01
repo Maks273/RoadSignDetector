@@ -9,7 +9,7 @@ import UIKit
 import Vision
 import ProgressHUD
 
-class RecognizedVCHelper {
+class RecognizedItemVCHelper {
     
     //MARK: - Variables
     
@@ -19,14 +19,24 @@ class RecognizedVCHelper {
     private var model = [RoadSign]()
     private var recognizedResults = [VNRecognizedObjectObservation]() {
         didSet {
+            if recognizedResults.isEmpty {
+                ProgressHUD.dismiss()
+            }
             loadDetectedItems()
         }
     }
+    private let detectionService = DetectionService()
     
+    //MARK: - Initalizer
+    
+    init() {
+        detectionService.delegate = self
+    }
+   
     //MARK: - Helper
     
-    func setRecognizedResults(_ results: [VNRecognizedObjectObservation]) {
-        self.recognizedResults = results
+    func updateClasisification(for image: UIImage) {
+        detectionService.updateClassification(for: image)
     }
     
     func getNumberOfRows() -> Int {
@@ -104,4 +114,10 @@ class RecognizedVCHelper {
         return convertedRects
     }
     
+}
+
+extension RecognizedItemVCHelper: DetectionDelegate {
+    func update(with results: [VNRecognizedObjectObservation]) {
+        self.recognizedResults = results
+    }
 }

@@ -17,6 +17,11 @@
 		2D1A73A725EC000C00CD7A9D /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1A73A625EC000C00CD7A9D /* LanguageView.swift */; };
 		2D1A73AB25EC001200CD7A9D /* LanguageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A73AA25EC001200CD7A9D /* LanguageView.xib */; };
 		2D1A73AE25EC025D00CD7A9D /* LanguageSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1A73AD25EC025D00CD7A9D /* LanguageSettingsTableViewCell.swift */; };
+		2D159AE125E9185F00C674E9 /* RecognizedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D159AE025E9185F00C674E9 /* RecognizedPageViewController.swift */; };
+		2D159AE425E9209D00C674E9 /* RecognizedPageVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D159AE325E9209D00C674E9 /* RecognizedPageVCHelper.swift */; };
+		2D22A8DA2576EC0000BFEE2D /* LanguageItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */; };
+		2D22A8DB2576EC0000BFEE2D /* LanguageItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */; };
+		2D22A8E02576EF3B00BFEE2D /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */; };
 		2D2A152F25A4B742002F0E81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D2A152E25A4B742002F0E81 /* GoogleService-Info.plist */; };
 		2D2A153225A4B7A7002F0E81 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A153125A4B7A7002F0E81 /* FirebaseService.swift */; };
 		2D2A153525A4B952002F0E81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A153425A4B952002F0E81 /* User.swift */; };
@@ -70,8 +75,10 @@
 		2DE71A0425C0C07800A1052D /* HistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE71A0325C0C07800A1052D /* HistoryHeaderView.xib */; };
 		2DE71A0925C0C27700A1052D /* UIButtonExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE71A0825C0C27700A1052D /* UIButtonExtenstion.swift */; };
 		2DE71A0E25C0C5F900A1052D /* AudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE71A0D25C0C5F900A1052D /* AudioView.xib */; };
-		2DEF4DCF25BF74E4006F0E9E /* RecognizedVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */; };
-		2DEF4DD225BF756F006F0E9E /* RecognizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */; };
+		2DEB156625E90C7800207555 /* PHAssetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB156525E90C7800207555 /* PHAssetExtension.swift */; };
+		2DEB156A25E9178500207555 /* RecognizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB156925E9178500207555 /* RecognizedViewController.swift */; };
+		2DEF4DCF25BF74E4006F0E9E /* RecognizedItemVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DCE25BF74E4006F0E9E /* RecognizedItemVCHelper.swift */; };
+		2DEF4DD225BF756F006F0E9E /* RecognizedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DD125BF756F006F0E9E /* RecognizedItemViewController.swift */; };
 		2DEF4DD725BF75FB006F0E9E /* OfflineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DD625BF75FB006F0E9E /* OfflineAlert.swift */; };
 		2DEF4DDB25BF7617006F0E9E /* RecognizedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF4DDA25BF7617006F0E9E /* RecognizedTableViewCell.swift */; };
 		388F6F3B13460BF69EC27602 /* Pods_RoadSignDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 714ADB849EBC5A75617A2DEA /* Pods_RoadSignDetector.framework */; };
@@ -90,6 +97,11 @@
 		2D1A73A625EC000C00CD7A9D /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		2D1A73AA25EC001200CD7A9D /* LanguageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageView.xib; sourceTree = "<group>"; };
 		2D1A73AD25EC025D00CD7A9D /* LanguageSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2D159AE025E9185F00C674E9 /* RecognizedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedPageViewController.swift; sourceTree = "<group>"; };
+		2D159AE325E9209D00C674E9 /* RecognizedPageVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedPageVCHelper.swift; sourceTree = "<group>"; };
+		2D22A8D82576EC0000BFEE2D /* LanguageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageItemTableViewCell.swift; sourceTree = "<group>"; };
+		2D22A8D92576EC0000BFEE2D /* LanguageItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageItemTableViewCell.xib; sourceTree = "<group>"; };
+		2D22A8DF2576EF3B00BFEE2D /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
 		2D2A152E25A4B742002F0E81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D2A153125A4B7A7002F0E81 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		2D2A153425A4B952002F0E81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -149,8 +161,10 @@
 		2DE71A0325C0C07800A1052D /* HistoryHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryHeaderView.xib; sourceTree = "<group>"; };
 		2DE71A0825C0C27700A1052D /* UIButtonExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtenstion.swift; sourceTree = "<group>"; };
 		2DE71A0D25C0C5F900A1052D /* AudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioView.xib; sourceTree = "<group>"; };
-		2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedVCHelper.swift; sourceTree = "<group>"; };
-		2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedViewController.swift; sourceTree = "<group>"; };
+		2DEB156525E90C7800207555 /* PHAssetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetExtension.swift; sourceTree = "<group>"; };
+		2DEB156925E9178500207555 /* RecognizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedViewController.swift; sourceTree = "<group>"; };
+		2DEF4DCE25BF74E4006F0E9E /* RecognizedItemVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedItemVCHelper.swift; sourceTree = "<group>"; };
+		2DEF4DD125BF756F006F0E9E /* RecognizedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedItemViewController.swift; sourceTree = "<group>"; };
 		2DEF4DD625BF75FB006F0E9E /* OfflineAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineAlert.swift; sourceTree = "<group>"; };
 		2DEF4DDA25BF7617006F0E9E /* RecognizedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizedTableViewCell.swift; sourceTree = "<group>"; };
 		7032170E2571DEED8D1F222C /* Pods-RoadSignDetector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadSignDetector.debug.xcconfig"; path = "Target Support Files/Pods-RoadSignDetector/Pods-RoadSignDetector.debug.xcconfig"; sourceTree = "<group>"; };
@@ -390,8 +404,9 @@
 		2DBB569725729924005048CE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DEB156825E9174F00207555 /* RecognizedViewController */,
 				2D09EE9125C36F8600D05D0F /* LegalDocsVC */,
-				2DCFFC8525AF567500F8B49B /* RecognizedVC */,
+				2DCFFC8525AF567500F8B49B /* RecognizedItemVC */,
 				2DD798DB25AA1C9A000792A6 /* FocusedImageVC */,
 				2DBB5687257296A9005048CE /* TabBarViewController.swift */,
 				2DCE379F2573FDE0006A4DF1 /* SettingsVC */,
@@ -436,6 +451,7 @@
 				2DE71A0825C0C27700A1052D /* UIButtonExtenstion.swift */,
 				2DB346CB25C456E6000AD062 /* UIImageViewExtension.swift */,
 				2D1A73A025EBE6F400CD7A9D /* UIViewExtension.swift */,
+				2DEB156525E90C7800207555 /* PHAssetExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -486,13 +502,13 @@
 			path = RoadSignImageCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		2DCFFC8525AF567500F8B49B /* RecognizedVC */ = {
+		2DCFFC8525AF567500F8B49B /* RecognizedItemVC */ = {
 			isa = PBXGroup;
 			children = (
-				2DEF4DCE25BF74E4006F0E9E /* RecognizedVCHelper.swift */,
-				2DEF4DD125BF756F006F0E9E /* RecognizedViewController.swift */,
+				2DEF4DCE25BF74E4006F0E9E /* RecognizedItemVCHelper.swift */,
+				2DEF4DD125BF756F006F0E9E /* RecognizedItemViewController.swift */,
 			);
-			path = RecognizedVC;
+			path = RecognizedItemVC;
 			sourceTree = "<group>";
 		};
 		2DD3DB8325AA4A0B00FC5614 /* ScanningVС */ = {
@@ -510,6 +526,16 @@
 				2DD798DF25AA1CD3000792A6 /* FocusedImageViewController.swift */,
 			);
 			path = FocusedImageVC;
+			sourceTree = "<group>";
+		};
+		2DEB156825E9174F00207555 /* RecognizedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB156925E9178500207555 /* RecognizedViewController.swift */,
+				2D159AE025E9185F00C674E9 /* RecognizedPageViewController.swift */,
+				2D159AE325E9209D00C674E9 /* RecognizedPageVCHelper.swift */,
+			);
+			path = RecognizedViewController;
 			sourceTree = "<group>";
 		};
 		6080DE8968D6AD0756375A2D /* Pods */ = {
@@ -668,9 +694,10 @@
 				2D2A153225A4B7A7002F0E81 /* FirebaseService.swift in Sources */,
 				2D710A5825EAE450001F12EF /* SettingsView.swift in Sources */,
 				2DB346CC25C456E6000AD062 /* UIImageViewExtension.swift in Sources */,
+				2D159AE425E9209D00C674E9 /* RecognizedPageVCHelper.swift in Sources */,
 				2D520A6C2589004D00A4744A /* RoadSignDetailViewController.swift in Sources */,
 				2D8219DF25A4B10600C868CE /* SettingsTableVCHelper.swift in Sources */,
-				2DEF4DCF25BF74E4006F0E9E /* RecognizedVCHelper.swift in Sources */,
+				2DEF4DCF25BF74E4006F0E9E /* RecognizedItemVCHelper.swift in Sources */,
 				2DBB569D25729AC6005048CE /* DetectionHistoryTableViewController.swift in Sources */,
 				2DCE6B2425A8D92E00D4B2D1 /* RoadSignImageCollectionViewCell.swift in Sources */,
 				2D0C156325EB8CAD003706F6 /* AudioSettingsTableViewCell.swift in Sources */,
@@ -685,17 +712,21 @@
 				2D93483025869C9400B5A972 /* HistoryTableViewCell.swift in Sources */,
 				2D520A70258910DA00A4744A /* ExpandedSoundView.swift in Sources */,
 				2D93483525869F1400B5A972 /* RoadSign.swift in Sources */,
+				2D159AE125E9185F00C674E9 /* RecognizedPageViewController.swift in Sources */,
+				2D22A8E02576EF3B00BFEE2D /* LanguageTableViewController.swift in Sources */,
 				2DCFFC8025AF31A700F8B49B /* DetectionService.swift in Sources */,
 				2D32BAB825AB70DF0073F73B /* NetworkService.swift in Sources */,
 				2DBB5688257296A9005048CE /* TabBarViewController.swift in Sources */,
-				2DEF4DD225BF756F006F0E9E /* RecognizedViewController.swift in Sources */,
+				2DEF4DD225BF756F006F0E9E /* RecognizedItemViewController.swift in Sources */,
 				2D309D5625B23315006965FD /* RecognizedItem.swift in Sources */,
+				2DEB156A25E9178500207555 /* RecognizedViewController.swift in Sources */,
 				2DBB5684257296A9005048CE /* AppDelegate.swift in Sources */,
 				2D2A153825A4B98A002F0E81 /* History.swift in Sources */,
 				2DEF4DD725BF75FB006F0E9E /* OfflineAlert.swift in Sources */,
 				2D1A73A125EBE6F400CD7A9D /* UIViewExtension.swift in Sources */,
 				2DA7214825B6C9C000C8B217 /* Voice.swift in Sources */,
 				2D36DAC225861A730047EC1F /* SearchView.swift in Sources */,
+				2DEB156625E90C7800207555 /* PHAssetExtension.swift in Sources */,
 				2D36DABF258612950047EC1F /* HistoryHeaderView.swift in Sources */,
 				2D4ED6042572DF1900E6039E /* ScanningViewController.swift in Sources */,
 				2DBB5686257296A9005048CE /* SceneDelegate.swift in Sources */,

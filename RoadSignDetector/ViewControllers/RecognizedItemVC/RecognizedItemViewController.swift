@@ -9,7 +9,7 @@ import UIKit
 import Vision
 import ProgressHUD
 
-class RecognizedViewController: UIViewController {
+class RecognizedItemViewController: UIViewController {
     
     //MARK: - IBOutlets
     
@@ -18,12 +18,11 @@ class RecognizedViewController: UIViewController {
     @IBOutlet weak var expandedViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerView: RecognizeHeader!
     
     //MARK: - Variables
     
     var image: UIImage?
-    private let recognizedHelper = RecognizedVCHelper()
+    private let recognizedHelper = RecognizedItemVCHelper()
     private let defaultExpandedViewHeight: CGFloat = 60
     private var isViewExpanded = false {
         didSet {
@@ -35,25 +34,13 @@ class RecognizedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureHeaderView()
+        performDetection()
         setupExpandedViewStyle()
         setupSwipeGestureRecognizers()
         setupLineViewStyle()
         configureTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        ProgressHUD.dismiss()
         setupImage()
-        paintRecognizedFrames()
         reloadTableView()
-    }
-    
-    //MARK: - Helper
-    
-    func setRecognizedResults(_ results: [VNRecognizedObjectObservation]) {
-        recognizedHelper.setRecognizedResults(results)
     }
     
     //MARK: - Private methods
@@ -68,7 +55,10 @@ class RecognizedViewController: UIViewController {
     private func reloadTableView() {
         recognizedHelper.modelWasAdded = { [weak self] in
             self?.tableView.reloadData()
+            self?.paintRecognizedFrames()
+            ProgressHUD.dismiss()
         }
+       
     }
     
     private func setupImage() {
@@ -169,22 +159,18 @@ class RecognizedViewController: UIViewController {
         
         imageView.layer.addSublayer(shapeLayer)
     }
-
-    //MARK: nav bar
     
-    private func configureHeaderView() {
-        headerView.setupTitle("Recognized")
-        headerView.delegate = self
+    private func performDetection() {
+        if let image = image {
+            ProgressHUD.show()
+            recognizedHelper.updateClasisification(for: image)
+        }
     }
-    @objc private func backBtnPressed() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
 }
 
 //MARK: - UITableViewDelegate
-extension RecognizedViewController: UITableViewDelegate {
+
+extension RecognizedItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let model = recognizedHelper.getModel(for: indexPath.row) {
@@ -198,7 +184,8 @@ extension RecognizedViewController: UITableViewDelegate {
 }
 
 //MARK: - UITableViewDataSource
-extension RecognizedViewController: UITableViewDataSource {
+
+extension RecognizedItemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         handleBgViewForTable(needShow: recognizedHelper.isNoDataLabelVisible())
         return recognizedHelper.getNumberOfRows()
@@ -211,11 +198,5 @@ extension RecognizedViewController: UITableViewDataSource {
         }
 
         return cell
-    }
-}
-
-extension RecognizedViewController: RecognizeHeaderDelegate {
-    func popToViewController() {
-        self.dismiss(animated: true, completion: nil)
     }
 }

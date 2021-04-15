@@ -69,6 +69,12 @@ class SearchView: UIView {
         self.containerView.layer.cornerRadius = 10
         self.containerView.backgroundColor = .white
         setupShadow()
+        setupPlaceholderColor()
+    }
+    
+    private func setupPlaceholderColor() {
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "search".localized(),
+                                                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
     }
     
     private func setupShadow() {

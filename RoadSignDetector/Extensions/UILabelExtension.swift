@@ -15,6 +15,7 @@ extension UILabel {
         self.numberOfLines = 2
         self.textAlignment = .center
         self.text = "There are no data at the moment.".localized()
+        self.textColor = .black
         self.font = UIFont(name: "AvenirNext-Regular", size: 17)
     }
     

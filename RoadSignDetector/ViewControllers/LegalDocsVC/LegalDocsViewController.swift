@@ -32,6 +32,7 @@ class LegalDocsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showAlertIfNeeded()
+        setStyleColor()
     }
     
     
@@ -58,6 +59,12 @@ class LegalDocsViewController: UIViewController {
         let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func setStyleColor() {
+        textView.textColor = .black
+        textView.backgroundColor = .white
+        view.backgroundColor = .white
     }
 }
 

@@ -78,6 +78,7 @@ class RecognizedItemViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .white
     }
     
     private func handleBgViewForTable(needShow: Bool) {

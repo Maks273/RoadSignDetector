@@ -42,6 +42,7 @@ class DetectionHistoryTableViewController: UIViewController {
         detectionHistoryHelper?.observeCurrentUser()
         reloadTableView()
         setTargetForRefreshControll()
+        historyTableView.backgroundColor = .white
     }
     
     override func viewWillDisappear(_ animated: Bool) {

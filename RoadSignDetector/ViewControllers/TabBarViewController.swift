@@ -94,6 +94,7 @@ class TabBarViewController: SOTabBarController {
         SOTabBarSetting.tabBarTintColor = .purple
         SOTabBarSetting.tabBarSizeSelectedImage = 30
         SOTabBarSetting.tabBarSizeImage = 35
+        SOTabBarSetting.tabBarBackground = .white
     }
     
     private func setupInitfialPreviousVC() {

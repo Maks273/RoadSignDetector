@@ -67,7 +67,7 @@
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBG-H0-v3T" customClass="ExpandedSoundView" customModule="RoadSignDetector" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="0.0" width="90" height="45"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,7 +84,7 @@
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ggw-cv-ni2">
                                         <rect key="frame" x="127" y="100" width="160" height="160"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="Oe9-ZU-6Z5"/>
                                             <constraint firstAttribute="width" constant="160" id="cX3-Hp-fdb"/>
@@ -202,7 +202,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fBX-n4-IRQ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="DKd-8Q-5Oq">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,7 +220,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="D7q-Sv-QFp" firstAttribute="top" secondItem="DKd-8Q-5Oq" secondAttribute="top" id="HLf-nb-II2"/>
                                         <constraint firstAttribute="trailing" secondItem="t3r-f4-bHp" secondAttribute="trailing" constant="15" id="NbJ-Tg-jY6"/>
@@ -233,7 +233,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vbR-BU-oSM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fBX-n4-IRQ" firstAttribute="leading" secondItem="vbR-BU-oSM" secondAttribute="leading" id="6He-0o-as7"/>
                             <constraint firstItem="fBX-n4-IRQ" firstAttribute="top" secondItem="bZP-wE-7pv" secondAttribute="top" id="8Tk-MY-HqD"/>
@@ -274,7 +274,7 @@
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h3f-uD-guK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2nC-NO-nEk" firstAttribute="top" secondItem="gMo-oH-7zF" secondAttribute="bottom" id="Ipi-SC-iS7"/>
                             <constraint firstItem="gMo-oH-7zF" firstAttribute="leading" secondItem="90S-vd-aEJ" secondAttribute="leading" constant="-2" id="Kze-II-DCd"/>
@@ -318,7 +318,7 @@
                                     </view>
                                     <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZI6-pw-JSX">
                                         <rect key="frame" x="0.0" y="28" width="414" height="263"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recognizedCell" rowHeight="54" id="dfT-Sy-HOS" customClass="RecognizedTableViewCell" customModule="RoadSignDetector" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="54"/>
@@ -370,7 +370,7 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ZI6-pw-JSX" firstAttribute="leading" secondItem="ID3-aV-Rge" secondAttribute="leading" id="8z5-QB-VCu"/>
                                     <constraint firstItem="ZI6-pw-JSX" firstAttribute="top" secondItem="33X-ZX-DGD" secondAttribute="bottom" constant="10" id="9d5-Tw-CeB"/>
@@ -383,7 +383,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mzc-xB-CZa"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ahv-65-ylX" secondAttribute="bottom" id="3ru-LK-WfI"/>
                             <constraint firstItem="ID3-aV-Rge" firstAttribute="trailing" secondItem="Mzc-xB-CZa" secondAttribute="trailing" id="Idv-dy-DpG"/>
@@ -424,14 +424,14 @@
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="XJu-EO-KsB">
                                 <rect key="frame" x="0.0" y="85" width="414" height="811"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1e5-jc-B7V"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XJu-EO-KsB" firstAttribute="leading" secondItem="1e5-jc-B7V" secondAttribute="leading" id="Vv9-fH-JqN"/>
                             <constraint firstItem="XJu-EO-KsB" firstAttribute="trailing" secondItem="1e5-jc-B7V" secondAttribute="trailing" id="cIP-hW-GW8"/>
@@ -592,7 +592,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="X6U-UE-dsb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="aFk-TZ-iNi" customClass="HeaderView" customModule="RoadSignDetector" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -600,11 +600,11 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yak-AY-xUP">
                                     <rect key="frame" x="0.0" y="5" width="414" height="70"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="27"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Yak-AY-xUP" firstAttribute="top" secondItem="aFk-TZ-iNi" secondAttribute="top" constant="5" id="O68-fO-m6T"/>
                                 <constraint firstAttribute="trailing" secondItem="Yak-AY-xUP" secondAttribute="trailing" id="WGa-Hb-SmY"/>
@@ -631,7 +631,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alu-u7-dey" customClass="AudioView" customModule="RoadSignDetector" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -655,9 +655,10 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SU-lG-zS7" customClass="LanguageView" customModule="RoadSignDetector" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="5SU-lG-zS7" firstAttribute="leading" secondItem="jBc-Tk-e4y" secondAttribute="leading" id="20H-Ew-hpY"/>
                                         <constraint firstAttribute="bottom" secondItem="5SU-lG-zS7" secondAttribute="bottom" id="Eta-8A-DZP"/>
@@ -665,6 +666,7 @@
                                         <constraint firstAttribute="trailing" secondItem="5SU-lG-zS7" secondAttribute="trailing" id="xKu-CM-PzX"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                 <connections>
                                     <outlet property="languageView" destination="5SU-lG-zS7" id="bcg-RS-l0g"/>
@@ -701,9 +703,6 @@
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="rightArrow" width="172" height="280"/>
         <image name="scanningBg" width="563" height="846"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -45,6 +45,7 @@ class RecognizeHeader: UIView {
     
     func setupTitle(_ title: String?) {
         titleLabel.text = title?.localized()
+        titleLabel.textColor = .black
     }
     
     

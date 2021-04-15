@@ -46,6 +46,7 @@ class SettingsTableViewController: UITableViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = title
+        label.textColor = .black
         label.font = UIFont(name: "AvenirNext-Medium", size: 27)
         return label
     }
@@ -88,6 +89,11 @@ class SettingsTableViewController: UITableViewController {
         present(legalDocsVC, animated: true, completion: nil)
     }
     
+    private func openAppStore() {
+        if let url = URL(string: "https://apps.apple.com/us/app/road-signs-detector/id1561583247") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
     
     // MARK: - Table view data source
     
@@ -122,6 +128,8 @@ class SettingsTableViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 self.openEmailApp()
+            case 1:
+                self.openAppStore()
             case 2:
                 self.showLegalDocuments(for: .privacyPolicy)
             case 3:

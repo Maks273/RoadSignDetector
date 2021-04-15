@@ -49,7 +49,7 @@ class Environment {
     }
     
     func loadCurrentVoice() -> String {
-        return UserDefaults.standard.string(forKey: voiceKey) ?? ""
+        return UserDefaults.standard.string(forKey: voiceKey) ?? "man"
     }
     
     func changeCurrentVoiceType() {
@@ -78,9 +78,9 @@ class Environment {
         case ukLanguageKey:
             currentLocalizationInfo = .ukrainian
         case "en":
-            currentLocalizationInfo = .english
+            currentLocalizationInfo = .ukrainian
         case "ru":
-            currentLocalizationInfo = .russian
+            currentLocalizationInfo = .ukrainian
         default:
             currentLocalizationInfo = .ukrainian
         }

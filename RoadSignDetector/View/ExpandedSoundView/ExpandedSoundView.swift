@@ -52,6 +52,7 @@ class ExpandedSoundView: UIView {
         containerView.layer.shadowOpacity = 0.55
         containerView.layer.shadowOffset = CGSize(width: 2, height: 2)
         containerView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
+        containerView.backgroundColor = .white
     }
     
     private func toggleButtonColor(with tag: Int) {

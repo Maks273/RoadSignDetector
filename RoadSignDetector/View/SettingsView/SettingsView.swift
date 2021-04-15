@@ -67,6 +67,8 @@ class SettingsView: UIView {
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        containerView.backgroundColor = .white
+        backgroundColor = .white
     }
     
     private func setupContentViewShadow() {

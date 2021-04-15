@@ -48,13 +48,12 @@ class FirebaseService {
             return
         }
         userDbReference.child(phoneUID).observeSingleEvent(of: .value) { [weak self] (snapshot) in
-            if snapshot.exists() {
-                self?.loadCurrentUser(for: phoneUID, completion: { (currentUser) in
-                    completion(currentUser)
-                })
-            }else{
+            if !snapshot.exists() {
                 self?.registerUserDevice(with: phoneUID)
             }
+            self?.loadCurrentUser(for: phoneUID, completion: { (currentUser) in
+                completion(currentUser)
+            })
             self?.loadHistoryItems(for: phoneUID)
         }
     }

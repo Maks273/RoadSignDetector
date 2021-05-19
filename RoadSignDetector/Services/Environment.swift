@@ -20,7 +20,7 @@ class Environment {
     var selectedTabIndex: Int = 1
     var currentConnectionStatus: Reachability.Connection! {
         didSet {
-            postCurrentConnectionStatusObserver()
+            //postCurrentConnectionStatusObserver()
         }
     }
     var currentVoice: VoiceType = .man

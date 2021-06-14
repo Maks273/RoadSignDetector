@@ -92,6 +92,13 @@ class ScanningViewController: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    private func openCamera() {
+        let  imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
     //MARK: PhotoLibraryRequest
     
     private func handlePhotoLibraryRequestStatus() {
@@ -119,7 +126,7 @@ class ScanningViewController: UIViewController {
         
         switch status {
         case .authorized:
-            showImagePicker(by: .camera)
+            openCamera()
         case .denied,.restricted:
             ProgressHUD.showError("To open camera you need to get access in settings.".localized())
         default:
@@ -167,5 +174,14 @@ extension ScanningViewController: AssetsPickerViewControllerDelegate, UINavigati
     
     func assetsPickerDidCancel(controller: AssetsPickerViewController) {
         controller.photoViewController.deselectAll()
+    }
+}
+
+extension ScanningViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            pickedImages = [image]
+            picker.dismiss(animated: true, completion: nil)
+        }
     }
 }

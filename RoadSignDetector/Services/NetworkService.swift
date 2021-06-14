@@ -33,7 +33,7 @@ class NetworkService {
     }
     
     func startObserving() {
-        initReachability()
+       // initReachability()
     }
     
     //MARK: - Private methods
